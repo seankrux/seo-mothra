@@ -11,6 +11,7 @@ export function SiteHeader() {
           <a className="rounded-full border border-white/10 bg-white/5 px-4 py-2 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-sky-300/60" href="/services">Services</a>
           <a className="rounded-full border border-white/10 bg-white/5 px-4 py-2 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-sky-300/60" href="/locations">Locations</a>
           <a className="rounded-full border border-white/10 bg-white/5 px-4 py-2 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-sky-300/60" href="/blog">Blog</a>
+          <a className="rounded-full border border-white/10 bg-white/5 px-4 py-2 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-sky-300/60" href="/goal">Goal</a>
           <a className="rounded-full border border-white/10 bg-sky-300 px-4 py-2 font-medium text-slate-950 transition hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-300/60" href="/contact">Start project</a>
         </nav>
       </div>
