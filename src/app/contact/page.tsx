@@ -13,12 +13,18 @@ export default function ContactPage() {
       <div className="mx-auto max-w-7xl">
         <SiteHeader />
         <section className="py-16 md:py-20">
-          <p className="text-sm uppercase tracking-[0.3em] text-sky-200/70">Contact</p>
-          <h2 className="mt-4 max-w-3xl text-4xl font-semibold md:text-6xl">Let’s build the premium SEO Mothra experience.</h2>
-          <p className="mt-6 max-w-2xl text-white/72 leading-8">The next step is wiring Sanity Studio and live content data, but this is now a complete multi-page scaffold ready for Vercel.</p>
-          <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6">
-            <p className="text-sm text-white/70">Contact placeholder</p>
-            <p className="mt-2 text-lg">hello@seo-mothra.com</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-[#d8e2c7]/70">Contact</p>
+          <h2 className="mt-4 max-w-3xl text-4xl font-semibold md:text-6xl">Let’s turn SEO Mothra into a real brand system.</h2>
+          <p className="mt-6 max-w-2xl text-white/72 leading-8">This page is now styled to match the premium earthy direction from the banner: quiet, confident, and built for trust.</p>
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
+            <div className="rounded-3xl border border-[rgba(255,248,238,0.1)] bg-white/[0.04] p-6">
+              <p className="text-sm uppercase tracking-[0.28em] text-[#d8e2c7]/70">Email</p>
+              <p className="mt-3 text-lg text-white">hello@seo-mothra.com</p>
+            </div>
+            <div className="rounded-3xl border border-[rgba(255,248,238,0.1)] bg-white/[0.04] p-6">
+              <p className="text-sm uppercase tracking-[0.28em] text-[#d8e2c7]/70">Next step</p>
+              <p className="mt-3 text-lg text-white">Wire Sanity Studio, content, and deployment target.</p>
+            </div>
           </div>
         </section>
         <SiteFooter />

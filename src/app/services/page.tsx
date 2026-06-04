@@ -20,11 +20,11 @@ export default function ServicesPage() {
       <div className="mx-auto max-w-7xl">
         <SiteHeader />
         <section className="py-16 md:py-20">
-          <p className="text-sm uppercase tracking-[0.3em] text-sky-200/70">Services</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-[#d8e2c7]/70">Services</p>
           <h2 className="mt-4 max-w-3xl text-4xl font-semibold md:text-6xl">A full-stack SEO and content system for premium brands.</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {services.map(([title, desc]) => (
-              <article key={title} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+              <article key={title} className="rounded-3xl border border-[rgba(255,248,238,0.1)] bg-white/[0.04] p-6">
                 <h3 className="text-xl font-semibold">{title}</h3>
                 <p className="mt-3 text-white/72 leading-7">{desc}</p>
               </article>
