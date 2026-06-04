@@ -20,9 +20,12 @@ export default function HomePage() {
             <p className="text-xs uppercase tracking-[0.35em] text-sky-200/70">SEO Mothra</p>
             <h1 className="text-lg font-semibold">Premium SEO Website System</h1>
           </div>
-          <a className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm backdrop-blur hover:bg-white/10" href="#contact">
-            Start project
-          </a>
+          <nav aria-label="Primary" className="flex gap-2 text-sm">
+            <a className="rounded-full border border-white/15 bg-white/5 px-3 py-2 hover:bg-white/10" href="/services">Services</a>
+            <a className="rounded-full border border-white/15 bg-white/5 px-3 py-2 hover:bg-white/10" href="/locations">Locations</a>
+            <a className="rounded-full border border-white/15 bg-white/5 px-3 py-2 hover:bg-white/10" href="/blog">Blog</a>
+            <a className="rounded-full border border-white/15 bg-white/5 px-3 py-2 hover:bg-white/10" href="/contact">Start project</a>
+          </nav>
         </header>
 
         <section className="grid gap-12 py-20 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
