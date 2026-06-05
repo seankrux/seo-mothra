@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Dark gradient background -->
+  <defs>
+    <radialGradient id="bgGrad1" cx="20%" cy="30%">
+      <stop offset="0%" style="stop-color:#d3b07b;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#11110f;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="bgGrad2" cx="85%" cy="20%">
+      <stop offset="0%" style="stop-color:#b78d8f;stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:#11110f;stop-opacity:0" />
+    </radialGradient>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1814;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0c0b09;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base background -->
+  <rect width="1200" height="630" fill="#11110f"/>
+  <rect width="1200" height="630" fill="url(#bgGrad3)"/>
+  <circle cx="240" cy="189" r="400" fill="url(#bgGrad1)"/>
+  <circle cx="1020" cy="126" r="350" fill="url(#bgGrad2)"/>
+
+  <!-- Accent glow -->
+  <rect x="0" y="0" width="1200" height="630" fill="url(#bgGrad1)" opacity="0.3"/>
+
+  <!-- Premium accent line -->
+  <line x1="50" y1="100" x2="200" y2="100" stroke="#d8e2c7" stroke-width="3" opacity="0.8"/>
+
+  <!-- Main content -->
+  <text x="50" y="140" font-family="Georgia, serif" font-size="72" font-weight="600" fill="#fff8ef" letter-spacing="-1">
+    SEO Mothra
+  </text>
+
+  <!-- Subheading -->
+  <text x="50" y="210" font-family="Georgia, serif" font-size="48" fill="#d8e2c7">
+    Premium SEO System
+  </text>
+
+  <!-- Descriptor -->
+  <text x="50" y="280" font-family="Georgia, serif" font-size="24" fill="#ffffff" opacity="0.76" max-width="800">
+    Cinematic design. Technical excellence. Conversion-focused.
+  </text>
+
+  <!-- Bottom tagline -->
+  <text x="50" y="580" font-family="Georgia, serif" font-size="18" fill="#d8e2c7" opacity="0.72">
+    Premium SEO, CRO, AEO &amp; Sanity CMS • Ready for Vercel
+  </text>
+
+  <!-- Right-side accent star -->
+  <g transform="translate(1100, 100)">
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#d8e2c7" stroke-width="2" opacity="0.5"/>
+    <polygon points="0,-12 12,0 0,12 -12,0" fill="#d8e2c7" opacity="0.6"/>
+  </g>
+</svg>

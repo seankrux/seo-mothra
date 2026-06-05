@@ -3,140 +3,281 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Goal",
-  description: "Bulletproof agentic AI infrastructure checklist, modernized for production-grade design and execution."
+  title: "About Us",
+  description:
+    "SEO Mothra mission: premium SEO strategy, AEO optimization, and Sanity CMS for agencies and scaling brands.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
-const principles = [
-  ["Self-validation", "Each step checks its own output before moving on."],
-  ["Self-healing", "Recover common failures automatically, then continue."],
-  ["Context-aware", "Detect stack, adapt behavior, reduce manual setup."],
-  ["State machine", "Explicit phases, checkpoints, and transitions."],
-  ["Declarative", "Declare desired outcome, keep implementation flexible."],
-  ["Observable", "Structured logs, traces, and reports for agents."],
-  ["Reversible", "Every destructive action needs rollback."],
-  ["Extensible", "Plugins and adapters for future tools. "]
+const values = [
+  {
+    title: "Premium First",
+    description:
+      "Every project is treated as a flagship experience. No templates, no shortcuts.",
+  },
+  {
+    title: "Search Obsessed",
+    description:
+      "We optimize for SEO, AEO, and CRO from day one. Rankings and revenue compound.",
+  },
+  {
+    title: "Sanity-Powered",
+    description:
+      "Headless CMS enables flexibility. No lock-in. Your content, your way.",
+  },
+  {
+    title: "Data-Driven",
+    description:
+      "Every decision backed by metrics. Schema markup, Core Web Vitals, conversion tracking.",
+  },
 ];
 
-const missingItems = [
-  "Env validation with clear fail-fast messages",
-  "Dependency lock + reproducible install path",
-  "CI gate for build, lint, typecheck, audit",
-  "Secret scan before deploy",
-  "Deployment verification after push",
-  "Rollback plan and checkpoint storage",
-  "Human-readable summary plus machine-readable log",
-  "Minimal defaults for unknown framework detection"
+const team = [
+  {
+    name: "SEO Strategy",
+    role: "Technical & Content Optimization",
+    description:
+      "Comprehensive keyword research, competitive analysis, and multi-channel content strategy.",
+  },
+  {
+    name: "CRO & AEO",
+    role: "Conversion & AI Search Optimization",
+    description:
+      "Conversion rate optimization, AI search engine optimization, and lead generation funnels.",
+  },
+  {
+    name: "Design & Development",
+    role: "Premium UI & Next.js Architecture",
+    description:
+      "Cinematic design systems, performance optimization, and Sanity CMS integration.",
+  },
 ];
 
-const deliverables = [
-  "Detect repo type",
-  "Generate config",
-  "Install deps",
-  "Run build",
-  "Write logs",
-  "Rollback on fail",
-  "Summarize state"
+const stats = [
+  { number: "2.3x", label: "Average traffic growth for clients" },
+  { number: "98%", label: "Client retention rate" },
+  { number: "24h", label: "Average response time for strategy calls" },
+  { number: "50+", label: "Full-stack SEO implementations completed" },
 ];
 
-export default function GoalPage() {
+export default function AboutPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "SEO Mothra",
+    description:
+      "Premium SEO, CRO, AEO optimization and Sanity CMS agency for scaling brands.",
+    url: "https://seo-mothra.vercel.app",
+    logo: "https://seo-mothra.vercel.app/favicon.svg",
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "Customer Support",
+      email: "hello@seo-mothra.com",
+    },
+    areaServed: ["US"],
+  };
+
   return (
     <main className="min-h-screen px-6 py-6 text-white md:px-10 lg:px-16">
       <div className="mx-auto max-w-7xl">
         <SiteHeader />
 
-        <section className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] px-8 py-12 md:px-12 md:py-16">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.16),transparent_32%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.08),transparent_28%)]" />
-          <div className="relative grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-            <div>
-              <p className="text-xs uppercase tracking-[0.45em] text-sky-200/70">Goal brief</p>
-              <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
-                Bulletproof agentic infra.
-                <span className="block text-sky-200">Modern, flexible, self-healing.</span>
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/72">
-                This page turns your checklist into a production-grade spec: modern UI, clear system rules,
-                missing pieces called out, and a clean path from setup to deploy.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3 text-sm">
-                <span className="rounded-full border border-sky-300/20 bg-sky-300/10 px-4 py-2 text-sky-100">Agent-ready</span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-white/80">State machine</span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-white/80">Rollback-safe</span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-white/80">Observable</span>
-              </div>
-            </div>
-
-            <aside className="rounded-[2rem] border border-white/10 bg-black/25 p-6 backdrop-blur">
-              <p className="text-xs uppercase tracking-[0.3em] text-white/55">Launch stack</p>
-              <ul className="mt-4 space-y-3 text-sm text-white/78">
-                {deliverables.map((item) => (
-                  <li key={item} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
-                    <span>{item}</span>
-                    <span className="text-sky-200">✓</span>
-                  </li>
-                ))}
-              </ul>
-            </aside>
+        {/* Hero Section */}
+        <section className="relative overflow-hidden rounded-[2.5rem] border border-[rgba(255,248,238,0.12)] bg-[linear-gradient(145deg,rgba(255,248,238,0.09),rgba(255,248,238,0.03))] px-6 py-8 shadow-[0_35px_120px_rgba(0,0,0,0.38)] md:px-10 md:py-10 lg:px-12 lg:py-12">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(177,195,154,0.2),transparent_26%),radial-gradient(circle_at_80%_20%,rgba(183,141,143,0.18),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(211,176,123,0.14),transparent_18%)]" />
+          <div className="relative">
+            <p className="text-xs uppercase tracking-[0.5em] text-[#d8e2c7]/72">
+              About SEO Mothra
+            </p>
+            <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-[0.92] tracking-tight text-[#fff8ef] md:text-7xl lg:text-[5.5rem]">
+              Premium SEO
+              <span className="block text-[#d8e2c7]">
+                starts with strategy.
+              </span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76">
+              We help agencies and scaling brands dominate search through
+              technical SEO, AI optimization, premium design, and Sanity CMS
+              infrastructure.
+            </p>
           </div>
         </section>
 
-        <section className="py-14">
-          <div className="flex items-end justify-between gap-6">
-            <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-sky-200/70">Core principles</p>
-              <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">Make every step verify itself.</h2>
+        {/* Stats Section */}
+        <section className="grid gap-4 border-y border-[rgba(255,248,238,0.1)] py-10 md:grid-cols-4">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-3xl border border-[rgba(255,248,238,0.1)] bg-white/[0.04] p-6"
+            >
+              <div className="text-3xl font-semibold text-[#d8e2c7]">
+                {stat.number}
+              </div>
+              <div className="mt-2 text-sm leading-6 text-white/66">
+                {stat.label}
+              </div>
             </div>
-            <p className="hidden max-w-sm text-sm leading-7 text-white/60 lg:block">
-              These are the non-negotiables. If any one breaks, the system should fail loud, recover if possible, then report exactly what happened.
+          ))}
+        </section>
+
+        {/* Mission Section */}
+        <section className="py-20">
+          <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
+                Our Mission
+              </p>
+              <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+                Elevate your brand through search excellence.
+              </h2>
+              <p className="mt-6 leading-8 text-white/72">
+                We believe premium web experiences and search dominance aren't
+                separate goals—they're interconnected. Great design without SEO
+                is invisible. SEO without conversion is wasted traffic. We merge
+                all three.
+              </p>
+              <p className="mt-4 leading-8 text-white/72">
+                Your brand deserves to be found by the right people, at the
+                right time, in the right way. We make it happen.
+              </p>
+            </div>
+
+            {/* Values Grid */}
+            <div className="grid gap-4">
+              {values.map((value) => (
+                <article
+                  key={value.title}
+                  className="rounded-[1.75rem] border border-[rgba(255,248,238,0.1)] bg-[rgba(255,248,238,0.04)] p-6 transition duration-300 hover:-translate-y-1 hover:bg-[rgba(255,248,238,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.22)]"
+                >
+                  <h3 className="text-lg font-semibold text-[#fff8ef]">
+                    {value.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-white/70">
+                    {value.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Services/Capabilities */}
+        <section className="py-20">
+          <div className="mb-12">
+            <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
+              What We Do
             </p>
+            <h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight md:text-5xl">
+              Full-stack SEO and premium development.
+            </h2>
           </div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {principles.map(([title, desc]) => (
-              <article key={title} className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 transition hover:-translate-y-1 hover:bg-white/[0.06]">
-                <h3 className="text-xl font-semibold">{title}</h3>
-                <p className="mt-3 text-sm leading-7 text-white/70">{desc}</p>
+          <div className="grid gap-6 md:grid-cols-3">
+            {team.map((service) => (
+              <article
+                key={service.name}
+                className="rounded-[1.75rem] border border-[rgba(255,248,238,0.1)] bg-white/[0.04] p-8 transition duration-300 hover:bg-white/[0.06]"
+              >
+                <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
+                  Expertise
+                </p>
+                <h3 className="mt-3 text-2xl font-semibold text-[#fff8ef]">
+                  {service.name}
+                </h3>
+                <p className="mt-2 text-sm font-medium text-[#d8e2c7]/80">
+                  {service.role}
+                </p>
+                <p className="mt-4 leading-7 text-white/72">
+                  {service.description}
+                </p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="grid gap-6 py-6 lg:grid-cols-[1fr_1.1fr]">
-          <article className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8">
-            <p className="text-xs uppercase tracking-[0.35em] text-sky-200/70">Missing pieces</p>
-            <h2 className="mt-4 text-3xl font-semibold md:text-4xl">What a truly complete setup still needs.</h2>
-            <ul className="mt-6 space-y-3 text-sm leading-7 text-white/72">
-              {missingItems.map((item) => (
-                <li key={item} className="flex gap-3 rounded-2xl border border-white/10 bg-black/15 p-4">
-                  <span className="text-sky-200">•</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
+        {/* Process */}
+        <section className="rounded-[2rem] border border-[rgba(255,248,238,0.1)] bg-[rgba(255,248,238,0.04)] p-8 py-20 md:p-12">
+          <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
+            How We Work
+          </p>
+          <h2 className="mt-4 text-4xl font-semibold md:text-5xl">
+            Strategy. Design. Optimization. Growth.
+          </h2>
 
-          <article className="rounded-[2rem] border border-sky-300/20 bg-gradient-to-br from-sky-300/15 via-white/[0.05] to-black/20 p-8">
-            <p className="text-xs uppercase tracking-[0.35em] text-sky-100/70">Design upgrade</p>
-            <h2 className="mt-4 text-3xl font-semibold md:text-4xl">Modern look, less noise, more signal.</h2>
-            <p className="mt-4 max-w-2xl text-white/72 leading-8">
-              Use one hero idea, strong spacing, glass-free surfaces, sharp typography, and a visible execution flow.
-              No fake dashboards. No fluff. Just the system, the proof, and the next action.
+          <div className="mt-12 grid gap-6 md:grid-cols-4">
+            {[
+              {
+                step: "01",
+                title: "Discovery & Strategy",
+                desc: "Competitive analysis, keyword mapping, and technical audit.",
+              },
+              {
+                step: "02",
+                title: "Architecture & Design",
+                desc: "Premium UI, Sanity CMS setup, and performance optimization.",
+              },
+              {
+                step: "03",
+                title: "Content & Schema",
+                desc: "SEO-first content creation with structured data markup.",
+              },
+              {
+                step: "04",
+                title: "Launch & Monitor",
+                desc: "Deployment to Vercel, tracking setup, and ongoing optimization.",
+              },
+            ].map((item) => (
+              <div key={item.step}>
+                <div className="text-3xl font-bold text-[#d8e2c7]">
+                  {item.step}
+                </div>
+                <h3 className="mt-4 font-semibold text-[#fff8ef]">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-white/70">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-20">
+          <div className="rounded-[2rem] border border-[#d8e2c7]/20 bg-[linear-gradient(145deg,rgba(177,195,154,0.16),rgba(255,248,238,0.04))] p-8 text-center md:p-12">
+            <h2 className="text-3xl font-semibold md:text-5xl">
+              Ready to elevate your brand?
+            </h2>
+            <p className="mt-4 text-white/72">
+              Let's discuss your SEO strategy and how we can help you rank
+              higher and convert more leads.
             </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {[
-                "High contrast",
-                "Large type",
-                "Dense but readable",
-                "Clear checkpoints"
-              ].map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white/80">{item}</div>
-              ))}
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <a
+                href="/contact"
+                className="rounded-full border border-[#d8e2c7] bg-[#d8e2c7] px-6 py-3 font-medium text-[#11110f] transition hover:opacity-90"
+              >
+                Schedule Strategy Call
+              </a>
+              <a
+                href="/"
+                className="rounded-full border border-[rgba(255,248,238,0.2)] bg-white/[0.05] px-6 py-3 transition hover:bg-white/[0.08]"
+              >
+                Back to Home
+              </a>
             </div>
-          </article>
+          </div>
         </section>
 
         <SiteFooter />
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </main>
   );
 }
