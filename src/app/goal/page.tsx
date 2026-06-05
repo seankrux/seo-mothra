@@ -7,51 +7,55 @@ export const metadata: Metadata = {
   description:
     "SEO Mothra mission: premium SEO strategy, AEO optimization, and Sanity CMS for agencies and scaling brands.",
   alternates: {
-    canonical: "/about",
+    canonical: "/goal",
   },
 };
 
 const values = [
   {
+    icon: "✨",
     title: "Premium First",
     description:
       "Every project is treated as a flagship experience. No templates, no shortcuts.",
   },
   {
+    icon: "🔍",
     title: "Search Obsessed",
     description:
       "We optimize for SEO, AEO, and CRO from day one. Rankings and revenue compound.",
   },
   {
+    icon: "🛠️",
     title: "Sanity-Powered",
     description:
       "Headless CMS enables flexibility. No lock-in. Your content, your way.",
   },
   {
+    icon: "📊",
     title: "Data-Driven",
     description:
       "Every decision backed by metrics. Schema markup, Core Web Vitals, conversion tracking.",
   },
 ];
 
-const team = [
+const capabilities = [
   {
-    name: "SEO Strategy",
-    role: "Technical & Content Optimization",
+    icon: "🔍",
+    title: "SEO Strategy",
     description:
-      "Comprehensive keyword research, competitive analysis, and multi-channel content strategy.",
+      "Technical & Content Optimization. Comprehensive keyword research, competitive analysis, and multi-channel content strategy.",
   },
   {
-    name: "CRO & AEO",
-    role: "Conversion & AI Search Optimization",
+    icon: "📈",
+    title: "CRO & AEO",
     description:
-      "Conversion rate optimization, AI search engine optimization, and lead generation funnels.",
+      "Conversion & AI Search Optimization. Conversion rate optimization, AI search engine optimization, and lead generation funnels.",
   },
   {
-    name: "Design & Development",
-    role: "Premium UI & Next.js Architecture",
+    icon: "🎨",
+    title: "Design & Development",
     description:
-      "Cinematic design systems, performance optimization, and Sanity CMS integration.",
+      "Premium UI & Next.js Architecture. Cinematic design systems, performance optimization, and Sanity CMS integration.",
   },
 ];
 
@@ -80,204 +84,162 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="min-h-screen px-6 py-6 text-white md:px-10 lg:px-16">
-      <div className="mx-auto max-w-7xl">
-        <SiteHeader />
-
-        {/* Hero Section */}
-        <section className="relative overflow-hidden rounded-[2.5rem] border border-[rgba(255,248,238,0.12)] bg-[linear-gradient(145deg,rgba(255,248,238,0.09),rgba(255,248,238,0.03))] px-6 py-8 shadow-[0_35px_120px_rgba(0,0,0,0.38)] md:px-10 md:py-10 lg:px-12 lg:py-12">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(177,195,154,0.2),transparent_26%),radial-gradient(circle_at_80%_20%,rgba(183,141,143,0.18),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(211,176,123,0.14),transparent_18%)]" />
-          <div className="relative">
-            <p className="text-xs uppercase tracking-[0.5em] text-[#d8e2c7]/72">
-              About SEO Mothra
-            </p>
-            <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-[0.92] tracking-tight text-[#fff8ef] md:text-7xl lg:text-[5.5rem]">
-              Premium SEO
-              <span className="block text-[#d8e2c7]">
-                starts with strategy.
-              </span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76">
-              We help agencies and scaling brands dominate search through
-              technical SEO, AI optimization, premium design, and Sanity CMS
-              infrastructure.
-            </p>
-          </div>
-        </section>
-
-        {/* Stats Section */}
-        <section className="grid gap-4 border-y border-[rgba(255,248,238,0.1)] py-10 md:grid-cols-4">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-3xl border border-[rgba(255,248,238,0.1)] bg-white/[0.04] p-6"
-            >
-              <div className="text-3xl font-semibold text-[#d8e2c7]">
-                {stat.number}
-              </div>
-              <div className="mt-2 text-sm leading-6 text-white/66">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </section>
-
-        {/* Mission Section */}
-        <section className="py-20">
-          <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
-            <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
-                Our Mission
-              </p>
-              <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
-                Elevate your brand through search excellence.
-              </h2>
-              <p className="mt-6 leading-8 text-white/72">
-                We believe premium web experiences and search dominance aren't
-                separate goals—they're interconnected. Great design without SEO
-                is invisible. SEO without conversion is wasted traffic. We merge
-                all three.
-              </p>
-              <p className="mt-4 leading-8 text-white/72">
-                Your brand deserves to be found by the right people, at the
-                right time, in the right way. We make it happen.
-              </p>
-            </div>
-
-            {/* Values Grid */}
-            <div className="grid gap-4">
-              {values.map((value) => (
-                <article
-                  key={value.title}
-                  className="rounded-[1.75rem] border border-[rgba(255,248,238,0.1)] bg-[rgba(255,248,238,0.04)] p-6 transition duration-300 hover:-translate-y-1 hover:bg-[rgba(255,248,238,0.06)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.22)]"
-                >
-                  <h3 className="text-lg font-semibold text-[#fff8ef]">
-                    {value.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-white/70">
-                    {value.description}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Services/Capabilities */}
-        <section className="py-20">
-          <div className="mb-12">
-            <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
-              What We Do
-            </p>
-            <h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight md:text-5xl">
-              Full-stack SEO and premium development.
-            </h2>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {team.map((service) => (
-              <article
-                key={service.name}
-                className="rounded-[1.75rem] border border-[rgba(255,248,238,0.1)] bg-white/[0.04] p-8 transition duration-300 hover:bg-white/[0.06]"
-              >
-                <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
-                  Expertise
-                </p>
-                <h3 className="mt-3 text-2xl font-semibold text-[#fff8ef]">
-                  {service.name}
-                </h3>
-                <p className="mt-2 text-sm font-medium text-[#d8e2c7]/80">
-                  {service.role}
-                </p>
-                <p className="mt-4 leading-7 text-white/72">
-                  {service.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* Process */}
-        <section className="rounded-[2rem] border border-[rgba(255,248,238,0.1)] bg-[rgba(255,248,238,0.04)] p-8 py-20 md:p-12">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
-            How We Work
-          </p>
-          <h2 className="mt-4 text-4xl font-semibold md:text-5xl">
-            Strategy. Design. Optimization. Growth.
-          </h2>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-4">
-            {[
-              {
-                step: "01",
-                title: "Discovery & Strategy",
-                desc: "Competitive analysis, keyword mapping, and technical audit.",
-              },
-              {
-                step: "02",
-                title: "Architecture & Design",
-                desc: "Premium UI, Sanity CMS setup, and performance optimization.",
-              },
-              {
-                step: "03",
-                title: "Content & Schema",
-                desc: "SEO-first content creation with structured data markup.",
-              },
-              {
-                step: "04",
-                title: "Launch & Monitor",
-                desc: "Deployment to Vercel, tracking setup, and ongoing optimization.",
-              },
-            ].map((item) => (
-              <div key={item.step}>
-                <div className="text-3xl font-bold text-[#d8e2c7]">
-                  {item.step}
-                </div>
-                <h3 className="mt-4 font-semibold text-[#fff8ef]">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-white/70">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-20">
-          <div className="rounded-[2rem] border border-[#d8e2c7]/20 bg-[linear-gradient(145deg,rgba(177,195,154,0.16),rgba(255,248,238,0.04))] p-8 text-center md:p-12">
-            <h2 className="text-3xl font-semibold md:text-5xl">
-              Ready to elevate your brand?
-            </h2>
-            <p className="mt-4 text-white/72">
-              Let's discuss your SEO strategy and how we can help you rank
-              higher and convert more leads.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a
-                href="/contact"
-                className="rounded-full border border-[#d8e2c7] bg-[#d8e2c7] px-6 py-3 font-medium text-[#11110f] transition hover:opacity-90"
-              >
-                Schedule Strategy Call
-              </a>
-              <a
-                href="/"
-                className="rounded-full border border-[rgba(255,248,238,0.2)] bg-white/[0.05] px-6 py-3 transition hover:bg-white/[0.08]"
-              >
-                Back to Home
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <SiteFooter />
-      </div>
-
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-    </main>
+      <main className="min-h-screen">
+        <div className="mx-auto max-w-7xl px-6 py-8 md:px-10 lg:px-16">
+          <SiteHeader />
+
+          {/* Hero Section */}
+          <section className="relative overflow-hidden py-16 md:py-24">
+            <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-gradient-to-br from-[#7a9b6d]/15 to-transparent blur-3xl" />
+
+            <div className="relative">
+              <div className="mb-6 inline-block">
+                <span className="inline-block rounded-full border border-[#7a9b6d]/30 bg-[#7a9b6d]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]">
+                  🌿 About Us
+                </span>
+              </div>
+
+              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#2a2622] md:text-6xl lg:text-7xl">
+                We Transform Brands Through
+                <span className="block text-[#7a9b6d]">
+                  Premium SEO & Growth Strategy
+                </span>
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#6b6560] md:text-xl">
+                SEO Mothra exists to help agencies, virtual assistants, and
+                scaling brands dominate their market through strategic SEO,
+                conversion optimization, and premium design.
+              </p>
+            </div>
+          </section>
+
+          {/* Stats Section */}
+          <section className="grid gap-6 py-16 md:grid-cols-4">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm text-center"
+              >
+                <div className="font-['Outfit'] text-4xl font-bold text-[#7a9b6d]">
+                  {stat.number}
+                </div>
+                <p className="mt-3 text-sm text-[#6b6560]">{stat.label}</p>
+              </div>
+            ))}
+          </section>
+
+          {/* Mission Section */}
+          <section className="border-y border-[#7a9b6d]/20 py-16">
+            <div className="mb-12">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]">
+                Our Core Values
+              </span>
+              <h2 className="mt-4 max-w-3xl font-['Outfit'] text-4xl font-bold text-[#2a2622] md:text-5xl">
+                How We Approach Every Project
+              </h2>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {values.map((value) => (
+                <div
+                  key={value.title}
+                  className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm"
+                >
+                  <div className="text-4xl">{value.icon}</div>
+                  <h3 className="mt-4 font-['Outfit'] text-lg font-bold text-[#2a2622]">
+                    {value.title}
+                  </h3>
+                  <p className="mt-2 text-[#6b6560]">{value.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Capabilities Section */}
+          <section className="py-16">
+            <div className="mb-12">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]">
+                What We Do
+              </span>
+              <h2 className="mt-4 max-w-3xl font-['Outfit'] text-4xl font-bold text-[#2a2622] md:text-5xl">
+                Three Core Capabilities
+              </h2>
+              <p className="mt-4 max-w-2xl text-lg text-[#6b6560]">
+                We combine strategy, design, and technical expertise to deliver
+                transformative results. Every engagement includes all three.
+              </p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-3">
+              {capabilities.map((cap) => (
+                <div
+                  key={cap.title}
+                  className="group rounded-2xl border border-[#7a9b6d]/20 bg-gradient-to-br from-white/80 to-[#f5f1eb]/40 p-8 transition hover:border-[#7a9b6d]/40 hover:bg-white/90 hover:shadow-lg"
+                >
+                  <div className="text-5xl">{cap.icon}</div>
+                  <h3 className="mt-4 font-['Outfit'] text-2xl font-bold text-[#2a2622]">
+                    {cap.title}
+                  </h3>
+                  <p className="mt-4 text-[#6b6560]">{cap.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Philosophy Section */}
+          <section className="relative overflow-hidden rounded-3xl border border-[#7a9b6d]/20 bg-gradient-to-br from-[#f5f1eb] to-white py-16 md:py-24">
+            <div className="absolute -right-32 -bottom-32 h-64 w-64 rounded-full bg-gradient-to-tl from-[#7a9b6d]/10 to-transparent blur-3xl" />
+            <div className="relative px-6 text-center md:px-12">
+              <h2 className="font-['Outfit'] text-4xl font-bold text-[#2a2622] md:text-5xl">
+                The SEO Mothra Philosophy
+              </h2>
+              <p className="mt-6 mx-auto max-w-3xl text-lg leading-relaxed text-[#6b6560]">
+                We don't believe in quick wins or shortcuts. Premium results
+                come from strategic thinking, meticulous execution, and
+                continuous optimization. We treat your growth like we'd treat
+                our own brand—with care, precision, and obsessive attention to
+                detail.
+              </p>
+              <p className="mt-6 mx-auto max-w-3xl text-lg leading-relaxed text-[#6b6560]">
+                The best SEO compounds. The best design stays timeless. The best
+                brands lead markets. That's what we build.
+              </p>
+            </div>
+          </section>
+
+          {/* CTA Section */}
+          <section className="py-16 text-center">
+            <h2 className="font-['Outfit'] text-3xl font-bold text-[#2a2622] md:text-4xl">
+              Ready to Transform Your Brand?
+            </h2>
+            <p className="mt-4 text-lg text-[#6b6560]">
+              Let's discuss your goals and show you how SEO Mothra can help.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4 justify-center">
+              <a
+                href="/contact"
+                className="rounded-full bg-[#7a9b6d] px-8 py-4 font-semibold text-white transition hover:bg-[#6b8b5d] hover:shadow-lg"
+              >
+                Schedule a Call
+              </a>
+              <a
+                href="/services"
+                className="rounded-full border-2 border-[#7a9b6d] px-8 py-4 font-semibold text-[#7a9b6d] transition hover:bg-[#7a9b6d]/5"
+              >
+                Explore Services
+              </a>
+            </div>
+          </section>
+        </div>
+
+        <SiteFooter />
+      </main>
+    </>
   );
 }

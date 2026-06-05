@@ -22,233 +22,218 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen px-6 py-8 text-white md:px-10 lg:px-16">
-      <div className="mx-auto max-w-7xl">
-        <SiteHeader />
-
-        {/* Hero Section */}
-        <section className="relative overflow-hidden rounded-[2.5rem] border border-[rgba(255,248,238,0.12)] bg-[linear-gradient(145deg,rgba(255,248,238,0.09),rgba(255,248,238,0.03))] px-6 py-8 shadow-[0_35px_120px_rgba(0,0,0,0.38)] md:px-10 md:py-10 lg:px-12 lg:py-12 mb-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(177,195,154,0.2),transparent_26%),radial-gradient(circle_at_80%_20%,rgba(183,141,143,0.18),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(211,176,123,0.14),transparent_18%)]" />
-          <div className="relative">
-            <p className="text-xs uppercase tracking-[0.5em] text-[#d8e2c7]/72">
-              Get Started
-            </p>
-            <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-[0.92] tracking-tight text-[#fff8ef] md:text-7xl lg:text-[5.5rem]">
-              Let's build your
-              <span className="block text-[#d8e2c7]">
-                premium SEO strategy.
-              </span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76">
-              Schedule a free 30-minute strategy call. We'll audit your site,
-              discuss your goals, and show you how SEO Mothra can help you
-              dominate search.
-            </p>
-          </div>
-        </section>
-
-        {/* Two Column Layout */}
-        <section className="grid gap-12 lg:grid-cols-2 mb-20">
-          {/* Contact Information */}
-          <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
-              Contact Info
-            </p>
-            <h2 className="mt-4 text-3xl font-semibold">Reach out directly.</h2>
-
-            <div className="mt-8 space-y-6">
-              <div className="rounded-2xl border border-[rgba(255,248,238,0.1)] bg-white/[0.04] p-6">
-                <p className="text-xs uppercase tracking-[0.28em] text-[#d8e2c7]/70">
-                  Email
-                </p>
-                <a
-                  href="mailto:hello@seo-mothra.com"
-                  className="mt-3 block text-xl text-white hover:text-[#d8e2c7] transition"
-                >
-                  hello@seo-mothra.com
-                </a>
-              </div>
-
-              <div className="rounded-2xl border border-[rgba(255,248,238,0.1)] bg-white/[0.04] p-6">
-                <p className="text-xs uppercase tracking-[0.28em] text-[#d8e2c7]/70">
-                  Response Time
-                </p>
-                <p className="mt-3 text-lg text-white">
-                  We reply within <strong>24 hours</strong> during business
-                  days.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-[rgba(255,248,238,0.1)] bg-white/[0.04] p-6">
-                <p className="text-xs uppercase tracking-[0.28em] text-[#d8e2c7]/70">
-                  Service Areas
-                </p>
-                <p className="mt-3 text-lg text-white">
-                  Austin • Dallas • Houston • San Antonio
-                </p>
-                <p className="mt-2 text-sm text-white/60">
-                  We work with clients nationwide. Virtual consultations
-                  available.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-[#d8e2c7]/20 bg-[linear-gradient(145deg,rgba(177,195,154,0.16),rgba(255,248,238,0.04))] p-6">
-                <p className="text-xs uppercase tracking-[0.28em] text-[#d8e2c7]/70">
-                  Guarantee
-                </p>
-                <p className="mt-3 text-lg font-medium text-white">
-                  No obligation strategy call.
-                </p>
-                <p className="mt-2 text-sm text-white/70">
-                  We'll discuss your goals, audit your current site, and provide
-                  actionable recommendations. No pressure. No sales pitch.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
-              Quick Form
-            </p>
-            <h2 className="mt-4 text-3xl font-semibold">Schedule a call.</h2>
-
-            <form className="mt-8 space-y-5">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-white/80"
-                >
-                  Your Name
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  name="name"
-                  required
-                  className="mt-2 w-full rounded-xl border border-[rgba(255,248,238,0.12)] bg-white/[0.05] px-4 py-3 text-white placeholder-white/40 transition focus:border-[#d8e2c7] focus:bg-white/[0.08] focus:outline-none focus:ring-0"
-                  placeholder="John Doe"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-white/80"
-                >
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  required
-                  className="mt-2 w-full rounded-xl border border-[rgba(255,248,238,0.12)] bg-white/[0.05] px-4 py-3 text-white placeholder-white/40 transition focus:border-[#d8e2c7] focus:bg-white/[0.08] focus:outline-none focus:ring-0"
-                  placeholder="you@company.com"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="company"
-                  className="block text-sm font-medium text-white/80"
-                >
-                  Company
-                </label>
-                <input
-                  id="company"
-                  type="text"
-                  name="company"
-                  className="mt-2 w-full rounded-xl border border-[rgba(255,248,238,0.12)] bg-white/[0.05] px-4 py-3 text-white placeholder-white/40 transition focus:border-[#d8e2c7] focus:bg-white/[0.08] focus:outline-none focus:ring-0"
-                  placeholder="Your Agency"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="service"
-                  className="block text-sm font-medium text-white/80"
-                >
-                  Interest
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  className="mt-2 w-full rounded-xl border border-[rgba(255,248,238,0.12)] bg-white/[0.05] px-4 py-3 text-white transition focus:border-[#d8e2c7] focus:bg-white/[0.08] focus:outline-none focus:ring-0"
-                >
-                  <option value="">Select a service...</option>
-                  <option value="seo-strategy">SEO Strategy</option>
-                  <option value="crm-optimization">CRO Optimization</option>
-                  <option value="aeo-optimization">AEO Optimization</option>
-                  <option value="sanity-cms">Sanity CMS Setup</option>
-                  <option value="full-audit">Full Site Audit</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-white/80"
-                >
-                  Tell us about your project
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  className="mt-2 w-full rounded-xl border border-[rgba(255,248,238,0.12)] bg-white/[0.05] px-4 py-3 text-white placeholder-white/40 transition focus:border-[#d8e2c7] focus:bg-white/[0.08] focus:outline-none focus:ring-0"
-                  placeholder="What are your main goals? What challenges are you facing?"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full rounded-full border border-[#d8e2c7] bg-[#d8e2c7] px-6 py-3 font-medium text-[#11110f] transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#d8e2c7]/50"
-              >
-                Schedule Strategy Call
-              </button>
-
-              <p className="text-xs text-white/50 text-center">
-                We respect your privacy. We'll never share your info.
-              </p>
-            </form>
-          </div>
-        </section>
-
-        {/* Trust Signals */}
-        <section className="rounded-[2rem] border border-[rgba(255,248,238,0.1)] bg-[rgba(255,248,238,0.04)] p-8 mb-20 md:p-12">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
-            Why Choose Us
-          </p>
-          <h2 className="mt-4 text-3xl font-semibold md:text-4xl">
-            Proven track record. Real results.
-          </h2>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#d8e2c7]">2.3x</div>
-              <p className="mt-3 text-white/70">Average traffic growth</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#d8e2c7]">98%</div>
-              <p className="mt-3 text-white/70">Client retention rate</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#d8e2c7]">50+</div>
-              <p className="mt-3 text-white/70">Successful implementations</p>
-            </div>
-          </div>
-        </section>
-
-        <SiteFooter />
-      </div>
-
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-    </main>
+      <main className="min-h-screen">
+        <div className="mx-auto max-w-7xl px-6 py-8 md:px-10 lg:px-16">
+          <SiteHeader />
+
+          {/* Hero Section */}
+          <section className="relative overflow-hidden py-16 md:py-24">
+            <div className="absolute -left-40 -top-40 h-80 w-80 rounded-full bg-gradient-to-br from-[#c97b7b]/15 to-transparent blur-3xl" />
+
+            <div className="relative">
+              <div className="mb-6 inline-block">
+                <span className="inline-block rounded-full border border-[#c97b7b]/30 bg-[#c97b7b]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#c97b7b]">
+                  💬 Let's Talk
+                </span>
+              </div>
+
+              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#2a2622] md:text-6xl lg:text-7xl">
+                Ready to Grow Your Brand?
+                <span className="block text-[#c97b7b]">
+                  Schedule Your Strategy Call.
+                </span>
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#6b6560] md:text-xl">
+                Get a free 30-minute strategy call. We'll audit your site,
+                discuss your goals, and show you exactly how SEO Mothra can help
+                you dominate search.
+              </p>
+            </div>
+          </section>
+
+          {/* Contact Grid */}
+          <section className="grid gap-8 py-16 md:grid-cols-3">
+            <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm">
+              <div className="text-4xl">📧</div>
+              <h3 className="mt-4 font-['Outfit'] text-xl font-bold text-[#2a2622]">
+                Email Us
+              </h3>
+              <p className="mt-2 text-[#6b6560]">hello@seo-mothra.com</p>
+            </div>
+
+            <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm">
+              <div className="text-4xl">⏱️</div>
+              <h3 className="mt-4 font-['Outfit'] text-xl font-bold text-[#2a2622]">
+                Response Time
+              </h3>
+              <p className="mt-2 text-[#6b6560]">
+                We reply within 24 hours on business days
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm">
+              <div className="text-4xl">🗺️</div>
+              <h3 className="mt-4 font-['Outfit'] text-xl font-bold text-[#2a2622]">
+                Service Areas
+              </h3>
+              <p className="mt-2 text-[#6b6560]">
+                We serve teams nationwide and internationally
+              </p>
+            </div>
+          </section>
+
+          {/* Form Section */}
+          <section className="grid gap-12 py-16 lg:grid-cols-2">
+            <div>
+              <h2 className="font-['Outfit'] text-3xl font-bold text-[#2a2622]">
+                Get in Touch
+              </h2>
+              <p className="mt-4 text-[#6b6560]">
+                Fill out the form and we'll reach out within 24 hours to
+                schedule your free strategy call.
+              </p>
+
+              <div className="mt-12 space-y-4">
+                <div className="rounded-2xl border border-[#7a9b6d]/20 bg-[#7a9b6d]/5 p-6">
+                  <h4 className="font-['Outfit'] font-bold text-[#2a2622]">
+                    Why schedule a call?
+                  </h4>
+                  <ul className="mt-3 space-y-2 text-sm text-[#6b6560]">
+                    <li>✓ Free SEO audit of your site</li>
+                    <li>✓ Competitive analysis</li>
+                    <li>✓ Custom growth roadmap</li>
+                    <li>✓ Zero obligation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <form className="space-y-6 rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm">
+                <div>
+                  <label className="block text-sm font-semibold text-[#2a2622] mb-2">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full rounded-lg border border-[#7a9b6d]/20 bg-white/60 px-4 py-3 text-[#2a2622] placeholder-[#6b6560] focus:outline-none focus:border-[#7a9b6d]/40 focus:ring-2 focus:ring-[#7a9b6d]/20"
+                    placeholder="John Doe"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-[#2a2622] mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    className="w-full rounded-lg border border-[#7a9b6d]/20 bg-white/60 px-4 py-3 text-[#2a2622] placeholder-[#6b6560] focus:outline-none focus:border-[#7a9b6d]/40 focus:ring-2 focus:ring-[#7a9b6d]/20"
+                    placeholder="john@company.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-[#2a2622] mb-2">
+                    Company
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full rounded-lg border border-[#7a9b6d]/20 bg-white/60 px-4 py-3 text-[#2a2622] placeholder-[#6b6560] focus:outline-none focus:border-[#7a9b6d]/40 focus:ring-2 focus:ring-[#7a9b6d]/20"
+                    placeholder="Your Company"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-[#2a2622] mb-2">
+                    Interest
+                  </label>
+                  <select className="w-full rounded-lg border border-[#7a9b6d]/20 bg-white/60 px-4 py-3 text-[#2a2622] focus:outline-none focus:border-[#7a9b6d]/40 focus:ring-2 focus:ring-[#7a9b6d]/20">
+                    <option>Select a service</option>
+                    <option>SEO Strategy</option>
+                    <option>CRO & Lead Generation</option>
+                    <option>AEO Optimization</option>
+                    <option>Technical SEO</option>
+                    <option>Premium Design</option>
+                    <option>Full-Stack Implementation</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-[#2a2622] mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    rows={4}
+                    className="w-full rounded-lg border border-[#7a9b6d]/20 bg-white/60 px-4 py-3 text-[#2a2622] placeholder-[#6b6560] focus:outline-none focus:border-[#7a9b6d]/40 focus:ring-2 focus:ring-[#7a9b6d]/20"
+                    placeholder="Tell us about your project..."
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full rounded-full bg-[#7a9b6d] px-6 py-4 font-semibold text-white transition hover:bg-[#6b8b5d] hover:shadow-lg"
+                >
+                  Schedule Your Free Call
+                </button>
+
+                <p className="text-xs text-[#6b6560]">
+                  We'll reach out within 24 hours to confirm your call time.
+                </p>
+              </form>
+            </div>
+          </section>
+
+          {/* Trust Section */}
+          <section className="border-t border-[#7a9b6d]/20 py-16">
+            <h2 className="font-['Outfit'] text-3xl font-bold text-[#2a2622] text-center mb-12">
+              Why Work With Us?
+            </h2>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm text-center">
+                <div className="text-5xl">2.3x</div>
+                <p className="mt-3 font-semibold text-[#2a2622]">
+                  Avg. Traffic Growth
+                </p>
+                <p className="mt-2 text-sm text-[#6b6560]">
+                  Our clients see average traffic increases of 2.3x within 12
+                  months
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm text-center">
+                <div className="text-5xl">98%</div>
+                <p className="mt-3 font-semibold text-[#2a2622]">
+                  Client Retention
+                </p>
+                <p className="mt-2 text-sm text-[#6b6560]">
+                  98% of our clients continue working with us long-term
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm text-center">
+                <div className="text-5xl">50+</div>
+                <p className="mt-3 font-semibold text-[#2a2622]">
+                  Success Stories
+                </p>
+                <p className="mt-2 text-sm text-[#6b6560]">
+                  Over 50 full-stack SEO implementations with proven results
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <SiteFooter />
+      </main>
+    </>
   );
 }

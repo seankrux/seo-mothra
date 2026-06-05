@@ -56,7 +56,8 @@ export default function RootLayout({
         <link rel="alternate icon" href="/favicon-fallback.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#11110f" />
+        <meta name="theme-color" content="#faf7f2" />
+        <meta name="color-scheme" content="light" />
       </head>
       <body>{children}</body>
     </html>

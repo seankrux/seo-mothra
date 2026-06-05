@@ -16,6 +16,7 @@ const locations = [
     city: "Austin",
     state: "Texas",
     slug: "austin",
+    emoji: "🌟",
     description:
       "Premium SEO and growth strategies for Austin-based agencies and scaling brands.",
     specialties: [
@@ -28,6 +29,7 @@ const locations = [
     city: "Dallas",
     state: "Texas",
     slug: "dallas",
+    emoji: "🏢",
     description:
       "Full-stack SEO implementation for Dallas enterprises and mid-market agencies.",
     specialties: [
@@ -40,6 +42,7 @@ const locations = [
     city: "Houston",
     state: "Texas",
     slug: "houston",
+    emoji: "⚡",
     description:
       "SEO and conversion optimization for Houston-area professional services.",
     specialties: [
@@ -52,6 +55,7 @@ const locations = [
     city: "San Antonio",
     state: "Texas",
     slug: "san-antonio",
+    emoji: "🎯",
     description:
       "Premium digital marketing and SEO for San Antonio local businesses.",
     specialties: [
@@ -78,149 +82,163 @@ export default function LocationsPage() {
   };
 
   return (
-    <main className="min-h-screen px-6 py-8 text-white md:px-10 lg:px-16">
-      <div className="mx-auto max-w-7xl">
-        <SiteHeader />
-
-        {/* Hero Section */}
-        <section className="relative overflow-hidden rounded-[2.5rem] border border-[rgba(255,248,238,0.12)] bg-[linear-gradient(145deg,rgba(255,248,238,0.09),rgba(255,248,238,0.03))] px-6 py-8 shadow-[0_35px_120px_rgba(0,0,0,0.38)] md:px-10 md:py-10 lg:px-12 lg:py-12 mb-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(177,195,154,0.2),transparent_26%),radial-gradient(circle_at_80%_20%,rgba(183,141,143,0.18),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(211,176,123,0.14),transparent_18%)]" />
-          <div className="relative">
-            <p className="text-xs uppercase tracking-[0.5em] text-[#d8e2c7]/72">
-              Locations
-            </p>
-            <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-[0.92] tracking-tight text-[#fff8ef] md:text-7xl lg:text-[5.5rem]">
-              Local SEO expertise
-              <span className="block text-[#d8e2c7]">across Texas.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76">
-              Premium SEO and growth strategies in Austin, Dallas, Houston, and
-              San Antonio. Local expertise. National capabilities.
-            </p>
-          </div>
-        </section>
-
-        {/* Locations Grid */}
-        <section className="mb-20">
-          <div className="grid gap-6 md:grid-cols-2">
-            {locations.map((location) => (
-              <article
-                key={location.slug}
-                className="rounded-[1.75rem] border border-[rgba(255,248,238,0.1)] bg-white/[0.04] p-8 transition duration-300 hover:bg-white/[0.06] hover:shadow-[0_16px_40px_rgba(0,0,0,0.22)] hover:-translate-y-1"
-              >
-                <div className="mb-4">
-                  <h2 className="text-3xl font-semibold text-[#fff8ef]">
-                    {location.city}
-                  </h2>
-                  <p className="mt-1 text-sm text-[#d8e2c7]">
-                    {location.state}
-                  </p>
-                </div>
-
-                <p className="text-white/72 leading-7 mb-6">
-                  {location.description}
-                </p>
-
-                <div className="mb-6">
-                  <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70 mb-3">
-                    Specialties
-                  </p>
-                  <ul className="space-y-2">
-                    {location.specialties.map((specialty) => (
-                      <li key={specialty} className="flex items-start gap-2">
-                        <span className="mt-1.5 h-1 w-1 rounded-full bg-[#d8e2c7] flex-shrink-0" />
-                        <span className="text-sm text-white/70">
-                          {specialty}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <a
-                  href={`/locations/${location.slug}`}
-                  className="inline-flex items-center gap-2 text-[#d8e2c7] hover:gap-3 transition text-sm font-medium"
-                >
-                  View location page →
-                </a>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* Why Local Matters */}
-        <section className="rounded-[2rem] border border-[rgba(255,248,238,0.1)] bg-[rgba(255,248,238,0.04)] p-8 mb-20 md:p-12">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
-            Local Expertise
-          </p>
-          <h2 className="mt-4 text-3xl font-semibold md:text-4xl">
-            We know Texas. We know your market.
-          </h2>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                title: "Local Keywords",
-                description:
-                  "Austin SEO, Dallas marketing, Houston services. We optimize for location-specific intent.",
-              },
-              {
-                title: "Market Knowledge",
-                description:
-                  "We understand regional differences, local competitors, and what drives leads in each market.",
-              },
-              {
-                title: "Connected Teams",
-                description:
-                  "Local presence in each city. Real relationships. Responsive support and collaboration.",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-xl border border-[rgba(255,248,238,0.08)] bg-black/20 p-6"
-              >
-                <h3 className="font-semibold text-white">{item.title}</h3>
-                <p className="mt-3 text-sm text-white/70">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Service Areas Map Section */}
-        <section className="rounded-[2rem] border border-[#d8e2c7]/20 bg-[linear-gradient(145deg,rgba(177,195,154,0.16),rgba(255,248,238,0.04))] p-8 mb-20 md:p-12">
-          <h2 className="text-3xl font-semibold md:text-4xl">
-            Nationwide capabilities.
-          </h2>
-          <p className="mt-4 text-white/72 leading-8">
-            While we're based in Texas, we work with agencies and brands across
-            the United States. Our SEO expertise, CMS architecture, and design
-            services are location-agnostic. Whether you're in New York or Los
-            Angeles, we deliver premium results.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="/contact"
-              className="rounded-full border border-[#d8e2c7] bg-[#d8e2c7] px-6 py-3 font-medium text-[#11110f] transition hover:opacity-90"
-            >
-              Schedule Strategy Call
-            </a>
-            <a
-              href="/services"
-              className="rounded-full border border-[rgba(255,248,238,0.2)] bg-white/[0.05] px-6 py-3 transition hover:bg-white/[0.08]"
-            >
-              View Our Services
-            </a>
-          </div>
-        </section>
-
-        <SiteFooter />
-      </div>
-
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-    </main>
+      <main className="min-h-screen">
+        <div className="mx-auto max-w-7xl px-6 py-8 md:px-10 lg:px-16">
+          <SiteHeader />
+
+          {/* Hero Section */}
+          <section className="relative overflow-hidden py-16 md:py-24">
+            <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-gradient-to-br from-[#7a9b6d]/15 to-transparent blur-3xl" />
+
+            <div className="relative">
+              <div className="mb-6 inline-block">
+                <span className="inline-block rounded-full border border-[#7a9b6d]/30 bg-[#7a9b6d]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]">
+                  📍 Local Expertise
+                </span>
+              </div>
+
+              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#2a2622] md:text-6xl lg:text-7xl">
+                Premium SEO Services
+                <span className="block text-[#7a9b6d]">In Your Market</span>
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#6b6560] md:text-xl">
+                Local expertise, premium results. We serve Austin, Dallas,
+                Houston, and San Antonio with dedicated support and
+                market-specific strategies.
+              </p>
+            </div>
+          </section>
+
+          {/* Locations Grid */}
+          <section className="grid gap-8 py-16 md:grid-cols-2 lg:grid-cols-4">
+            {locations.map((location) => (
+              <div
+                key={location.slug}
+                className="group rounded-2xl border border-[#7a9b6d]/20 bg-gradient-to-br from-white/80 to-[#f5f1eb]/40 p-8 transition hover:border-[#7a9b6d]/40 hover:bg-white/90 hover:shadow-lg"
+              >
+                <div className="text-5xl">{location.emoji}</div>
+                <h3 className="mt-4 font-['Outfit'] text-2xl font-bold text-[#2a2622]">
+                  {location.city}
+                </h3>
+                <p className="mt-1 text-sm text-[#6b6560]">{location.state}</p>
+                <p className="mt-4 text-[#6b6560]">{location.description}</p>
+
+                <div className="mt-6 space-y-2 border-t border-[#7a9b6d]/20 pt-6">
+                  {location.specialties.map((spec) => (
+                    <div key={spec} className="flex items-start gap-2 text-sm">
+                      <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#7a9b6d] flex-shrink-0" />
+                      <span className="text-[#6b6560]">{spec}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href={`/locations/${location.slug}`}
+                  className="mt-6 inline-flex items-center gap-2 text-[#7a9b6d] transition group-hover:translate-x-1"
+                >
+                  <span className="font-semibold">Learn more</span>
+                  <span>→</span>
+                </a>
+              </div>
+            ))}
+          </section>
+
+          {/* Why Local Section */}
+          <section className="border-y border-[#7a9b6d]/20 py-16">
+            <div className="mb-12">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]">
+                Why Local Matters
+              </span>
+              <h2 className="mt-4 max-w-3xl font-['Outfit'] text-4xl font-bold text-[#2a2622] md:text-5xl">
+                Market-Specific Expertise
+              </h2>
+              <p className="mt-4 max-w-2xl text-lg text-[#6b6560]">
+                We understand the nuances of each market. Local competitors,
+                search behavior, and customer intent vary. We tailor every
+                strategy to maximize results in your specific region.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm">
+                <h3 className="font-['Outfit'] text-xl font-bold text-[#2a2622]">
+                  Local Market Research
+                </h3>
+                <p className="mt-3 text-[#6b6560]">
+                  We conduct deep dives into your local competitive landscape
+                  and search patterns.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm">
+                <h3 className="font-['Outfit'] text-xl font-bold text-[#2a2622]">
+                  Dedicated Support
+                </h3>
+                <p className="mt-3 text-[#6b6560]">
+                  You get a dedicated account manager who understands your
+                  market inside and out.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm">
+                <h3 className="font-['Outfit'] text-xl font-bold text-[#2a2622]">
+                  Results That Compound
+                </h3>
+                <p className="mt-3 text-[#6b6560]">
+                  Long-term local presence builds authority. We focus on
+                  sustainable, compounding growth.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Nationwide Capability */}
+          <section className="py-16">
+            <div className="rounded-3xl border border-[#7a9b6d]/20 bg-gradient-to-br from-white/80 to-[#f5f1eb]/40 p-12">
+              <h2 className="font-['Outfit'] text-3xl font-bold text-[#2a2622]">
+                Working Outside Texas?
+              </h2>
+              <p className="mt-4 max-w-3xl text-lg text-[#6b6560]">
+                We serve clients nationwide and internationally. Whether you
+                need local expertise in one of our Texas markets or nationwide
+                support, we can help.
+              </p>
+              <a
+                href="/contact"
+                className="mt-6 inline-flex items-center gap-2 text-[#7a9b6d] font-semibold hover:translate-x-1 transition"
+              >
+                <span>Schedule a Call</span>
+                <span>→</span>
+              </a>
+            </div>
+          </section>
+
+          {/* CTA Section */}
+          <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#7a9b6d] to-[#6b8b5d] py-16 md:py-24">
+            <div className="absolute -right-32 -top-32 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+            <div className="relative text-center text-white">
+              <h2 className="font-['Outfit'] text-4xl font-bold md:text-5xl">
+                Ready to Dominate Your Market?
+              </h2>
+              <p className="mt-4 mx-auto max-w-2xl text-lg text-white/90">
+                Get a free market analysis and growth roadmap tailored to your
+                location.
+              </p>
+              <button className="mt-8 rounded-full bg-white px-8 py-4 font-semibold text-[#7a9b6d] transition hover:bg-white/90 hover:shadow-lg">
+                Schedule Your Free Analysis
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <SiteFooter />
+      </main>
+    </>
   );
 }

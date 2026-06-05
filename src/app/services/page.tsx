@@ -15,6 +15,7 @@ const services = [
   {
     title: "SEO Strategy",
     slug: "seo-strategy",
+    icon: "🔍",
     description:
       "Comprehensive keyword mapping, competitive analysis, internal linking architecture, and content gap analysis for sustainable growth.",
     features: [
@@ -27,6 +28,7 @@ const services = [
   {
     title: "CRO & Lead Generation",
     slug: "cro-optimization",
+    icon: "📈",
     description:
       "Conversion rate optimization, funnel design, form optimization, and lead scoring to turn traffic into revenue.",
     features: [
@@ -39,6 +41,7 @@ const services = [
   {
     title: "AEO Optimization",
     slug: "aeo-optimization",
+    icon: "🤖",
     description:
       "AI search engine optimization. We optimize for Google's AI overviews and emerging search modalities.",
     features: [
@@ -51,6 +54,7 @@ const services = [
   {
     title: "Technical SEO",
     slug: "technical-seo",
+    icon: "⚙️",
     description:
       "Metadata strategy, schema markup, site architecture, Core Web Vitals optimization, and performance tuning.",
     features: [
@@ -63,6 +67,7 @@ const services = [
   {
     title: "Premium UI Design",
     slug: "premium-design",
+    icon: "🎨",
     description:
       "Modern, editorial design systems that look premium, rank well, and convert visitors into leads.",
     features: [
@@ -75,6 +80,7 @@ const services = [
   {
     title: "Sanity CMS Setup",
     slug: "sanity-cms",
+    icon: "🛠️",
     description:
       "Scalable headless CMS architecture. Reusable schemas, editorial workflows, and integration setup for dynamic content.",
     features: [
@@ -106,146 +112,155 @@ export default function ServicesPage() {
   };
 
   return (
-    <main className="min-h-screen px-6 py-8 text-white md:px-10 lg:px-16">
-      <div className="mx-auto max-w-7xl">
-        <SiteHeader />
-
-        {/* Hero Section */}
-        <section className="relative overflow-hidden rounded-[2.5rem] border border-[rgba(255,248,238,0.12)] bg-[linear-gradient(145deg,rgba(255,248,238,0.09),rgba(255,248,238,0.03))] px-6 py-8 shadow-[0_35px_120px_rgba(0,0,0,0.38)] md:px-10 md:py-10 lg:px-12 lg:py-12 mb-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(177,195,154,0.2),transparent_26%),radial-gradient(circle_at_80%_20%,rgba(183,141,143,0.18),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(211,176,123,0.14),transparent_18%)]" />
-          <div className="relative">
-            <p className="text-xs uppercase tracking-[0.5em] text-[#d8e2c7]/72">
-              Services
-            </p>
-            <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-[0.92] tracking-tight text-[#fff8ef] md:text-7xl lg:text-[5.5rem]">
-              Full-stack SEO,
-              <span className="block text-[#d8e2c7]">
-                CRO, and growth systems.
-              </span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76">
-              Premium strategy, design, and technical implementation. Every
-              service is built for ranking, conversion, and long-term growth.
-            </p>
-          </div>
-        </section>
-
-        {/* Services Grid */}
-        <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 mb-20">
-          {services.map((service) => (
-            <article
-              key={service.slug}
-              className="rounded-[1.75rem] border border-[rgba(255,248,238,0.1)] bg-white/[0.04] p-6 transition duration-300 hover:bg-white/[0.06] hover:shadow-[0_16px_40px_rgba(0,0,0,0.22)] hover:-translate-y-1"
-            >
-              <h3 className="text-xl font-semibold text-[#fff8ef]">
-                {service.title}
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-white/72">
-                {service.description}
-              </p>
-
-              <div className="mt-6 space-y-2">
-                {service.features.map((feature) => (
-                  <div key={feature} className="flex items-start gap-2">
-                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#d8e2c7] flex-shrink-0" />
-                    <span className="text-xs text-white/66">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <a
-                href={`/services/${service.slug}`}
-                className="mt-6 inline-flex items-center gap-2 text-[#d8e2c7] hover:gap-3 transition text-sm font-medium"
-              >
-                Learn more →
-              </a>
-            </article>
-          ))}
-        </section>
-
-        {/* Process Section */}
-        <section className="rounded-[2rem] border border-[rgba(255,248,238,0.1)] bg-[rgba(255,248,238,0.04)] p-8 mb-20 md:p-12">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
-            How We Work
-          </p>
-          <h2 className="mt-4 text-3xl font-semibold md:text-4xl">
-            A proven process for premium results.
-          </h2>
-
-          <div className="mt-12 grid gap-8 md:grid-cols-4">
-            {[
-              {
-                step: "01",
-                title: "Discovery",
-                description:
-                  "Audit your site, analyze competitors, and map the opportunity.",
-              },
-              {
-                step: "02",
-                title: "Strategy",
-                description:
-                  "Keyword mapping, content planning, and technical roadmap.",
-              },
-              {
-                step: "03",
-                title: "Implementation",
-                description:
-                  "Design, development, CMS setup, content creation, and deployment.",
-              },
-              {
-                step: "04",
-                title: "Optimization",
-                description:
-                  "Monitoring, testing, refinement, and continuous improvement.",
-              },
-            ].map((phase) => (
-              <div key={phase.step}>
-                <div className="text-3xl font-bold text-[#d8e2c7]">
-                  {phase.step}
-                </div>
-                <h3 className="mt-3 font-semibold text-[#fff8ef]">
-                  {phase.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-white/70">
-                  {phase.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="rounded-[2rem] border border-[#d8e2c7]/20 bg-[linear-gradient(145deg,rgba(177,195,154,0.16),rgba(255,248,238,0.04))] p-8 text-center mb-20 md:p-12">
-          <h2 className="text-3xl font-semibold md:text-4xl">
-            Ready to dominate search and drive leads?
-          </h2>
-          <p className="mt-4 text-white/72 max-w-2xl mx-auto">
-            Schedule a free 30-minute strategy call. We'll discuss your goals
-            and show you how our services can help you grow.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a
-              href="/contact"
-              className="rounded-full border border-[#d8e2c7] bg-[#d8e2c7] px-6 py-3 font-medium text-[#11110f] transition hover:opacity-90"
-            >
-              Schedule Strategy Call
-            </a>
-            <a
-              href="/"
-              className="rounded-full border border-[rgba(255,248,238,0.2)] bg-white/[0.05] px-6 py-3 transition hover:bg-white/[0.08]"
-            >
-              Back to Home
-            </a>
-          </div>
-        </section>
-
-        <SiteFooter />
-      </div>
-
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-    </main>
+      <main className="min-h-screen">
+        <div className="mx-auto max-w-7xl px-6 py-8 md:px-10 lg:px-16">
+          <SiteHeader />
+
+          {/* Hero Section */}
+          <section className="relative overflow-hidden py-16 md:py-24">
+            <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-gradient-to-br from-[#7a9b6d]/15 to-transparent blur-3xl" />
+
+            <div className="relative">
+              <div className="mb-6 inline-block">
+                <span className="inline-block rounded-full border border-[#7a9b6d]/30 bg-[#7a9b6d]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]">
+                  Our Expertise
+                </span>
+              </div>
+
+              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#2a2622] md:text-6xl lg:text-7xl">
+                Full-Stack SEO, CRO & AEO.
+                <span className="block text-[#7a9b6d]">
+                  Premium implementation, real results.
+                </span>
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#6b6560] md:text-xl">
+                Six core services designed to drive organic growth, optimize
+                conversions, and build brands that rank. Every service is built
+                for premium results.
+              </p>
+            </div>
+          </section>
+
+          {/* Services Grid */}
+          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 py-16">
+            {services.map((service, idx) => (
+              <div
+                key={service.slug}
+                className="group rounded-2xl border border-[#7a9b6d]/20 bg-gradient-to-br from-white/80 to-[#f5f1eb]/40 p-8 transition hover:border-[#7a9b6d]/40 hover:bg-white/90 hover:shadow-lg"
+                style={{
+                  animationDelay: `${idx * 50}ms`,
+                }}
+              >
+                <div className="flex items-start justify-between">
+                  <div>
+                    <div className="text-4xl">{service.icon}</div>
+                    <h3 className="mt-4 font-['Outfit'] text-2xl font-bold text-[#2a2622]">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]/60">
+                    0{idx + 1}
+                  </span>
+                </div>
+
+                <p className="mt-4 text-[#6b6560]">{service.description}</p>
+
+                <div className="mt-6 space-y-2 border-t border-[#7a9b6d]/20 pt-6">
+                  {service.features.map((feature) => (
+                    <div
+                      key={feature}
+                      className="flex items-start gap-2 text-sm"
+                    >
+                      <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#7a9b6d] flex-shrink-0" />
+                      <span className="text-[#6b6560]">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 inline-flex items-center gap-2 text-[#7a9b6d] transition group-hover:translate-x-1">
+                  <span className="font-semibold">Learn more</span>
+                  <span>→</span>
+                </div>
+              </div>
+            ))}
+          </section>
+
+          {/* Process Section */}
+          <section className="border-y border-[#7a9b6d]/20 py-16">
+            <div className="mb-12">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]">
+                How We Work
+              </span>
+              <h2 className="mt-4 max-w-3xl font-['Outfit'] text-4xl font-bold text-[#2a2622] md:text-5xl">
+                A proven process for sustainable growth.
+              </h2>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-4">
+              {[
+                {
+                  step: "01",
+                  title: "Discovery",
+                  desc: "Deep audit of your current state and competitive landscape.",
+                },
+                {
+                  step: "02",
+                  title: "Strategy",
+                  desc: "Comprehensive roadmap tailored to your goals and market.",
+                },
+                {
+                  step: "03",
+                  title: "Implementation",
+                  desc: "Premium execution across all agreed-upon services.",
+                },
+                {
+                  step: "04",
+                  title: "Optimization",
+                  desc: "Continuous monitoring, testing, and refinement.",
+                },
+              ].map((phase) => (
+                <div
+                  key={phase.step}
+                  className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-6 backdrop-blur-sm"
+                >
+                  <div className="text-3xl font-bold text-[#7a9b6d]">
+                    {phase.step}
+                  </div>
+                  <h3 className="mt-4 font-['Outfit'] text-lg font-bold text-[#2a2622]">
+                    {phase.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-[#6b6560]">{phase.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* CTA Section */}
+          <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#7a9b6d] to-[#6b8b5d] py-16 md:py-24 mt-16">
+            <div className="absolute -right-32 -top-32 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+            <div className="relative text-center text-white">
+              <h2 className="font-['Outfit'] text-4xl font-bold md:text-5xl">
+                Ready to Transform Your Growth?
+              </h2>
+              <p className="mt-4 mx-auto max-w-2xl text-lg text-white/90">
+                Let's discuss which services will drive the best results for
+                your business.
+              </p>
+              <button className="mt-8 rounded-full bg-white px-8 py-4 font-semibold text-[#7a9b6d] transition hover:bg-white/90 hover:shadow-lg">
+                Schedule a Strategy Call
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <SiteFooter />
+      </main>
+    </>
   );
 }

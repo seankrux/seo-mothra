@@ -5,66 +5,66 @@ import { SiteFooter } from "@/components/site-footer";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "In-depth SEO, AEO & CRO guides. Learn technical SEO, content strategy, and conversion optimization for premium brands.",
+    "In-depth SEO, AEO & CRO guides for agencies, virtual assistants, and scaling brands. Premium insights from our team of strategists and designers.",
   alternates: {
     canonical: "/blog",
   },
 };
 
-const blogPosts = [
+const articles = [
   {
-    slug: "premium-seo-homepage",
-    title: "How to Structure a Premium SEO Homepage",
+    title: "The Complete Guide to AI Search Optimization (AEO)",
+    slug: "ai-search-optimization-aeo",
+    category: "AEO",
+    readTime: "12 min read",
     excerpt:
-      "The anatomy of a homepage that ranks, converts, and tells your brand story. Strategic sections, CTAs, and schema markup.",
+      "Master the emerging landscape of AI search engines. Learn how to optimize for Google's AI Overviews and prepare for the future of search.",
+    date: "June 2025",
+  },
+  {
+    title: "SEO for Virtual Assistants: A Complete Playbook",
+    slug: "seo-for-virtual-assistants",
     category: "SEO Strategy",
     readTime: "8 min read",
-    date: "Coming soon",
+    excerpt:
+      "How virtual assistant service providers can use SEO to attract high-ticket clients and build sustainable organic growth.",
+    date: "May 2025",
   },
   {
-    slug: "sanity-cms-local-seo",
-    title: "Sanity CMS Content Models for Local SEO",
-    excerpt:
-      "Build reusable content models that power location pages, service pages, and multi-location SEO at scale.",
-    category: "CMS & Architecture",
-    readTime: "12 min read",
-    date: "Coming soon",
-  },
-  {
-    slug: "technical-seo-checklist",
-    title: "Technical SEO Checklist for Launch Day",
-    excerpt:
-      "Don't ship without this. Metadata, robots, sitemap, schema, Core Web Vitals, and everything else that moves rankings.",
-    category: "Technical SEO",
-    readTime: "15 min read",
-    date: "Coming soon",
-  },
-  {
-    slug: "blog-templates-rank-convert",
-    title: "Designing Blog Templates That Rank & Convert",
-    excerpt:
-      "Template design that balances SEO clarity, reader engagement, and conversion-friendly layouts. Structure that compounds.",
-    category: "Content Design",
-    readTime: "10 min read",
-    date: "Coming soon",
-  },
-  {
-    slug: "aeo-optimization-guide",
-    title: "AEO Optimization Guide: Ranking in AI Search",
-    excerpt:
-      "Master AI search engine optimization. Answer-first content, FAQ schemas, and E-E-A-T signals that AI systems favor.",
-    category: "AEO",
+    title: "From Zero to Hero: CRO Fundamentals for Marketing Agencies",
+    slug: "cro-fundamentals-agencies",
+    category: "CRO",
     readTime: "14 min read",
-    date: "Coming soon",
+    excerpt:
+      "A deep dive into conversion rate optimization strategies that agencies can implement immediately for their own and client projects.",
+    date: "May 2025",
   },
   {
-    slug: "local-seo-strategy",
-    title: "Local SEO Strategy for Multi-Location Brands",
-    excerpt:
-      "Dominate local search across multiple cities. Location pages, GMB strategy, local schema, and geo-targeted content.",
-    category: "Local SEO",
+    title: "Technical SEO Audit Checklist: What Actually Matters in 2025",
+    slug: "technical-seo-audit-2025",
+    category: "Technical SEO",
     readTime: "16 min read",
-    date: "Coming soon",
+    excerpt:
+      "Cut through the noise. Here's exactly what you need to audit and fix on your website for maximum search engine visibility.",
+    date: "April 2025",
+  },
+  {
+    title: "Building Premium Brand Positioning Through Content",
+    slug: "premium-brand-content",
+    category: "Content Strategy",
+    readTime: "10 min read",
+    excerpt:
+      "How premium brands use strategic content to dominate their niche and command higher pricing. Plus case studies from clients.",
+    date: "April 2025",
+  },
+  {
+    title: "Sanity CMS for Marketing Teams: Setup & Best Practices",
+    slug: "sanity-cms-marketing",
+    category: "Technical",
+    readTime: "11 min read",
+    excerpt:
+      "A comprehensive guide to setting up Sanity CMS for your marketing team. Includes schema design, workflow optimization, and automation.",
+    date: "March 2025",
   },
 ];
 
@@ -74,165 +74,142 @@ export default function BlogPage() {
     "@type": "CollectionPage",
     name: "Blog",
     description:
-      "In-depth SEO, AEO & CRO guides and resources for scaling brands and agencies.",
+      "In-depth SEO, AEO & CRO guides for agencies, virtual assistants, and scaling brands.",
     url: "https://seo-mothra.vercel.app/blog",
-    hasPart: blogPosts.map((post) => ({
+    mainEntity: articles.map((article) => ({
       "@type": "BlogPosting",
-      headline: post.title,
-      description: post.excerpt,
-      url: `https://seo-mothra.vercel.app/blog/${post.slug}`,
+      headline: article.title,
+      description: article.excerpt,
+      datePublished: article.date,
+      author: {
+        "@type": "Organization",
+        name: "SEO Mothra",
+      },
     })),
   };
 
   return (
-    <main className="min-h-screen px-6 py-8 text-white md:px-10 lg:px-16">
-      <div className="mx-auto max-w-7xl">
-        <SiteHeader />
-
-        {/* Hero Section */}
-        <section className="relative overflow-hidden rounded-[2.5rem] border border-[rgba(255,248,238,0.12)] bg-[linear-gradient(145deg,rgba(255,248,238,0.09),rgba(255,248,238,0.03))] px-6 py-8 shadow-[0_35px_120px_rgba(0,0,0,0.38)] md:px-10 md:py-10 lg:px-12 lg:py-12 mb-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(177,195,154,0.2),transparent_26%),radial-gradient(circle_at_80%_20%,rgba(183,141,143,0.18),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(211,176,123,0.14),transparent_18%)]" />
-          <div className="relative">
-            <p className="text-xs uppercase tracking-[0.5em] text-[#d8e2c7]/72">
-              Insights
-            </p>
-            <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-[0.92] tracking-tight text-[#fff8ef] md:text-7xl lg:text-[5.5rem]">
-              Premium SEO insights
-              <span className="block text-[#d8e2c7]">for scaling brands.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76">
-              Deep dives into technical SEO, AEO optimization, CRO strategies,
-              and premium web design. Built for agencies and teams serious about
-              rankings and revenue.
-            </p>
-          </div>
-        </section>
-
-        {/* Blog Grid */}
-        <section className="mb-20">
-          <div className="mb-12">
-            <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
-              Latest Articles
-            </p>
-            <h2 className="mt-4 text-2xl font-semibold">
-              Planned content roadmap.
-            </h2>
-            <p className="mt-2 text-white/60">
-              These articles are coming soon. Each will be 2000+ words with
-              in-depth strategies, case studies, and actionable frameworks.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {blogPosts.map((post) => (
-              <article
-                key={post.slug}
-                className="rounded-[1.75rem] border border-[rgba(255,248,238,0.1)] bg-white/[0.04] p-6 transition duration-300 hover:bg-white/[0.06] hover:shadow-[0_16px_40px_rgba(0,0,0,0.22)] hover:-translate-y-1 flex flex-col"
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-[#d8e2c7]/15 text-[#d8e2c7]">
-                    {post.category}
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-semibold text-[#fff8ef] mb-2">
-                  {post.title}
-                </h3>
-                <p className="text-sm leading-6 text-white/72 mb-4 flex-grow">
-                  {post.excerpt}
-                </p>
-
-                <div className="flex items-center justify-between pt-4 border-t border-[rgba(255,248,238,0.08)]">
-                  <div className="flex gap-4 text-xs text-white/50">
-                    <span>{post.readTime}</span>
-                    <span>{post.date}</span>
-                  </div>
-                  <a
-                    href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-2 text-[#d8e2c7] hover:gap-3 transition text-xs font-medium"
-                  >
-                    Read →
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* Content Strategy Section */}
-        <section className="rounded-[2rem] border border-[rgba(255,248,238,0.1)] bg-[rgba(255,248,238,0.04)] p-8 mb-20 md:p-12">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#d8e2c7]/70">
-            Content Strategy
-          </p>
-          <h2 className="mt-4 text-3xl font-semibold md:text-4xl">
-            Knowledge that compounds over time.
-          </h2>
-          <p className="mt-4 text-white/72 leading-8 max-w-2xl">
-            Every article is designed to rank for high-intent keywords, answer
-            AI search queries, and establish SEO Mothra as the authority in
-            premium SEO, AEO, and CRO for agencies and scaling brands.
-          </p>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                title: "2000+ words",
-                description: "Comprehensive, in-depth articles",
-              },
-              {
-                title: "Schema optimized",
-                description: "BlogPosting, FAQPage, and article schemas",
-              },
-              {
-                title: "Linked internally",
-                description: "Strategic internal linking hubs",
-              },
-            ].map((feature) => (
-              <div
-                key={feature.title}
-                className="rounded-xl border border-[rgba(255,248,238,0.08)] bg-black/20 p-4"
-              >
-                <p className="font-semibold text-white">{feature.title}</p>
-                <p className="mt-2 text-sm text-white/60">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Newsletter CTA */}
-        <section className="rounded-[2rem] border border-[#d8e2c7]/20 bg-[linear-gradient(145deg,rgba(177,195,154,0.16),rgba(255,248,238,0.04))] p-8 text-center mb-20 md:p-12">
-          <h2 className="text-3xl font-semibold md:text-4xl">
-            Get premium SEO insights delivered.
-          </h2>
-          <p className="mt-4 text-white/72 max-w-2xl mx-auto">
-            Subscribe to our email list for exclusive strategies, case studies,
-            and SEO insights delivered to your inbox.
-          </p>
-          <form className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="your@email.com"
-              required
-              className="flex-1 rounded-full border border-[rgba(255,248,238,0.12)] bg-white/[0.05] px-6 py-3 text-white placeholder-white/40 transition focus:border-[#d8e2c7] focus:bg-white/[0.08] focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="rounded-full border border-[#d8e2c7] bg-[#d8e2c7] px-6 py-3 font-medium text-[#11110f] transition hover:opacity-90"
-            >
-              Subscribe
-            </button>
-          </form>
-        </section>
-
-        <SiteFooter />
-      </div>
-
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-    </main>
+      <main className="min-h-screen">
+        <div className="mx-auto max-w-7xl px-6 py-8 md:px-10 lg:px-16">
+          <SiteHeader />
+
+          {/* Hero Section */}
+          <section className="relative overflow-hidden py-16 md:py-24">
+            <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-gradient-to-br from-[#c97b7b]/15 to-transparent blur-3xl" />
+
+            <div className="relative">
+              <div className="mb-6 inline-block">
+                <span className="inline-block rounded-full border border-[#c97b7b]/30 bg-[#c97b7b]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#c97b7b]">
+                  📖 Knowledge Hub
+                </span>
+              </div>
+
+              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#2a2622] md:text-6xl lg:text-7xl">
+                In-Depth SEO & Growth
+                <span className="block text-[#c97b7b]">
+                  Strategy From The Experts
+                </span>
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#6b6560] md:text-xl">
+                Premium guides, case studies, and insights from our team. Learn
+                the exact strategies we use to drive transformative results for
+                our clients.
+              </p>
+
+              <div className="mt-10">
+                <button className="group rounded-full bg-[#c97b7b] px-8 py-4 font-semibold text-white transition hover:bg-[#b86a6a] hover:shadow-lg">
+                  Subscribe to Updates
+                  <span className="ml-2 inline-block transition group-hover:translate-x-1">
+                    →
+                  </span>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* Articles Grid */}
+          <section className="py-16">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {articles.map((article, idx) => (
+                <article
+                  key={article.slug}
+                  className="group rounded-2xl border border-[#7a9b6d]/20 bg-gradient-to-br from-white/80 to-[#f5f1eb]/40 p-8 transition hover:border-[#c97b7b]/40 hover:bg-white/90 hover:shadow-lg"
+                  style={{
+                    animationDelay: `${idx * 50}ms`,
+                  }}
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="flex flex-wrap gap-2">
+                      <span className="inline-block rounded-full border border-[#7a9b6d]/30 bg-[#7a9b6d]/10 px-3 py-1 text-xs font-semibold text-[#7a9b6d]">
+                        {article.category}
+                      </span>
+                    </div>
+                    <span className="text-xs font-semibold text-[#6b6560]">
+                      {article.date}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-6 font-['Outfit'] text-2xl font-bold text-[#2a2622] transition group-hover:text-[#c97b7b]">
+                    {article.title}
+                  </h3>
+
+                  <p className="mt-4 text-[#6b6560]">{article.excerpt}</p>
+
+                  <div className="mt-6 flex items-center justify-between border-t border-[#7a9b6d]/20 pt-6">
+                    <span className="text-sm font-semibold text-[#6b6560]">
+                      {article.readTime}
+                    </span>
+                    <a
+                      href={`/blog/${article.slug}`}
+                      className="inline-flex items-center gap-2 text-[#c97b7b] transition group-hover:translate-x-1"
+                    >
+                      <span className="font-semibold">Read</span>
+                      <span>→</span>
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          {/* Newsletter Section */}
+          <section className="relative overflow-hidden rounded-3xl border border-[#7a9b6d]/20 bg-gradient-to-br from-[#f5f1eb] to-white py-16 md:py-24">
+            <div className="absolute -right-32 -top-32 h-64 w-64 rounded-full bg-gradient-to-br from-[#7a9b6d]/10 to-transparent blur-3xl" />
+            <div className="relative px-6 text-center md:px-12">
+              <h2 className="font-['Outfit'] text-4xl font-bold text-[#2a2622] md:text-5xl">
+                Get Premium Insights Weekly
+              </h2>
+              <p className="mt-4 mx-auto max-w-2xl text-lg text-[#6b6560]">
+                Subscribe to our newsletter for in-depth guides, case studies,
+                and exclusive strategies delivered directly to your inbox.
+              </p>
+
+              <form className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="rounded-full border border-[#7a9b6d]/20 bg-white/60 px-6 py-4 backdrop-blur-sm placeholder-[#6b6560] focus:outline-none focus:border-[#7a9b6d]/40 focus:ring-2 focus:ring-[#7a9b6d]/20"
+                  required
+                />
+                <button className="rounded-full bg-[#7a9b6d] px-8 py-4 font-semibold text-white transition hover:bg-[#6b8b5d] hover:shadow-lg whitespace-nowrap">
+                  Subscribe
+                </button>
+              </form>
+              <p className="mt-4 text-xs text-[#6b6560]">
+                No spam, just premium insights. Unsubscribe anytime.
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <SiteFooter />
+      </main>
+    </>
   );
 }
