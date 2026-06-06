@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { locations } from "@/lib/content";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Locations",
@@ -11,73 +13,18 @@ export const metadata: Metadata = {
   },
 };
 
-const locations = [
-  {
-    city: "Austin",
-    state: "Texas",
-    slug: "austin",
-    emoji: "🌟",
-    description:
-      "Premium SEO and growth strategies for Austin-based agencies and scaling brands.",
-    specialties: [
-      "Tech company SEO",
-      "Agency consulting",
-      "Local service marketing",
-    ],
-  },
-  {
-    city: "Dallas",
-    state: "Texas",
-    slug: "dallas",
-    emoji: "🏢",
-    description:
-      "Full-stack SEO implementation for Dallas enterprises and mid-market agencies.",
-    specialties: [
-      "Enterprise SEO",
-      "Multi-location strategy",
-      "B2B content marketing",
-    ],
-  },
-  {
-    city: "Houston",
-    state: "Texas",
-    slug: "houston",
-    emoji: "⚡",
-    description:
-      "SEO and conversion optimization for Houston-area professional services.",
-    specialties: [
-      "Professional services SEO",
-      "Lead generation funnels",
-      "CRO strategy",
-    ],
-  },
-  {
-    city: "San Antonio",
-    state: "Texas",
-    slug: "san-antonio",
-    emoji: "🎯",
-    description:
-      "Premium digital marketing and SEO for San Antonio local businesses.",
-    specialties: [
-      "Local business growth",
-      "Multi-location management",
-      "Community engagement",
-    ],
-  },
-];
-
 export default function LocationsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Locations",
     description: "SEO Mothra service locations in Texas.",
-    url: "https://seo-mothra.vercel.app/locations",
+    url: `${siteConfig.url}/locations`,
     hasPart: locations.map((loc) => ({
       "@type": "LocalBusiness",
       name: `SEO Mothra - ${loc.city}`,
       areaServed: loc.city,
-      url: `https://seo-mothra.vercel.app/locations/${loc.slug}`,
+      url: `${siteConfig.url}/locations/${loc.slug}`,
     })),
   };
 

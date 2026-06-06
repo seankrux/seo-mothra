@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -73,8 +74,8 @@ export default function AboutPage() {
     name: "SEO Mothra",
     description:
       "Premium SEO, CRO, AEO optimization and Sanity CMS agency for scaling brands.",
-    url: "https://seo-mothra.vercel.app",
-    logo: "https://seo-mothra.vercel.app/favicon.svg",
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/favicon.svg`,
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Support",

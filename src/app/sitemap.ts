@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { articles, locations } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -41,18 +42,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Add location pages
-  const locationPages: MetadataRoute.Sitemap = [
-    "austin",
-    "dallas",
-    "houston",
-    "san-antonio",
-  ].map((city) => ({
-    url: `${siteConfig.url}/locations/${city}`,
+  const locationPages: MetadataRoute.Sitemap = locations.map((location) => ({
+    url: `${siteConfig.url}/locations/${location.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...locationPages];
+  const articlePages: MetadataRoute.Sitemap = articles.map((article) => ({
+    url: `${siteConfig.url}/blog/${article.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...locationPages, ...articlePages];
 }

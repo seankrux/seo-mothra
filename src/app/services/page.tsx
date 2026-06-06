@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -99,7 +100,7 @@ export default function ServicesPage() {
     name: "Services",
     description:
       "Full-stack SEO, CRO & AEO optimization services for premium brands and agencies.",
-    url: "https://seo-mothra.vercel.app/services",
+    url: `${siteConfig.url}/services`,
     mainEntity: services.map((service) => ({
       "@type": "Service",
       name: service.title,

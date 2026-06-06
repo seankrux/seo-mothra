@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { articles } from "@/lib/content";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -11,63 +13,6 @@ export const metadata: Metadata = {
   },
 };
 
-const articles = [
-  {
-    title: "The Complete Guide to AI Search Optimization (AEO)",
-    slug: "ai-search-optimization-aeo",
-    category: "AEO",
-    readTime: "12 min read",
-    excerpt:
-      "Master the emerging landscape of AI search engines. Learn how to optimize for Google's AI Overviews and prepare for the future of search.",
-    date: "June 2025",
-  },
-  {
-    title: "SEO for Virtual Assistants: A Complete Playbook",
-    slug: "seo-for-virtual-assistants",
-    category: "SEO Strategy",
-    readTime: "8 min read",
-    excerpt:
-      "How virtual assistant service providers can use SEO to attract high-ticket clients and build sustainable organic growth.",
-    date: "May 2025",
-  },
-  {
-    title: "From Zero to Hero: CRO Fundamentals for Marketing Agencies",
-    slug: "cro-fundamentals-agencies",
-    category: "CRO",
-    readTime: "14 min read",
-    excerpt:
-      "A deep dive into conversion rate optimization strategies that agencies can implement immediately for their own and client projects.",
-    date: "May 2025",
-  },
-  {
-    title: "Technical SEO Audit Checklist: What Actually Matters in 2025",
-    slug: "technical-seo-audit-2025",
-    category: "Technical SEO",
-    readTime: "16 min read",
-    excerpt:
-      "Cut through the noise. Here's exactly what you need to audit and fix on your website for maximum search engine visibility.",
-    date: "April 2025",
-  },
-  {
-    title: "Building Premium Brand Positioning Through Content",
-    slug: "premium-brand-content",
-    category: "Content Strategy",
-    readTime: "10 min read",
-    excerpt:
-      "How premium brands use strategic content to dominate their niche and command higher pricing. Plus case studies from clients.",
-    date: "April 2025",
-  },
-  {
-    title: "Sanity CMS for Marketing Teams: Setup & Best Practices",
-    slug: "sanity-cms-marketing",
-    category: "Technical",
-    readTime: "11 min read",
-    excerpt:
-      "A comprehensive guide to setting up Sanity CMS for your marketing team. Includes schema design, workflow optimization, and automation.",
-    date: "March 2025",
-  },
-];
-
 export default function BlogPage() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -75,7 +20,7 @@ export default function BlogPage() {
     name: "Blog",
     description:
       "In-depth SEO, AEO & CRO guides for agencies, virtual assistants, and scaling brands.",
-    url: "https://seo-mothra.vercel.app/blog",
+    url: `${siteConfig.url}/blog`,
     mainEntity: articles.map((article) => ({
       "@type": "BlogPosting",
       headline: article.title,
