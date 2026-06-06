@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
+import { PageMotion } from "@/components/page-motion";
 
 export const metadata: Metadata = {
   title: {
@@ -59,7 +60,10 @@ export default function RootLayout({
         <meta name="theme-color" content="#faf7f2" />
         <meta name="color-scheme" content="light" />
       </head>
-      <body>{children}</body>
+      <body>
+        <PageMotion />
+        {children}
+      </body>
     </html>
   );
 }

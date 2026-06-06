@@ -27,39 +27,37 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="min-h-screen">
+      <main className="min-h-screen" data-page-root>
         <div className="mx-auto max-w-7xl px-6 py-8 md:px-10 lg:px-16">
           <SiteHeader />
 
           {/* Hero Section */}
           <section className="relative overflow-hidden py-16 md:py-24">
-            <div className="absolute -left-40 -top-40 h-80 w-80 rounded-full bg-gradient-to-br from-[#c97b7b]/15 to-transparent blur-3xl" />
-
             <div className="relative">
-              <div className="mb-6 inline-block">
-                <span className="inline-block rounded-full border border-[#c97b7b]/30 bg-[#c97b7b]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#c97b7b]">
-                  💬 Let's Talk
+              <div className="mb-6 inline-block" data-hero-eyebrow>
+                <span className="inline-block rounded-full border border-[rgba(35,31,27,0.12)] bg-white/55 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#9c6658]">
+                  Contact
                 </span>
               </div>
 
-              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#2a2622] md:text-6xl lg:text-7xl">
-                Ready to Grow Your Brand?
-                <span className="block text-[#c97b7b]">
-                  Schedule Your Strategy Call.
+              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#211d19] md:text-6xl lg:text-7xl" data-hero-title>
+                Book a strategy call without the fluff.
+                <span className="block text-[#9c6658]">
+                  Clear review. Clear next step.
                 </span>
               </h1>
 
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#6b6560] md:text-xl">
-                Get a free 30-minute strategy call. We'll audit your site,
-                discuss your goals, and show you exactly how SEO Mothra can help
-                you dominate search.
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#665d54] md:text-xl" data-hero-copy>
+                Send a project summary and we’ll reply with the likely
+                bottlenecks, the most useful starting point, and a realistic
+                scope.
               </p>
             </div>
           </section>
 
           {/* Contact Grid */}
           <section className="grid gap-8 py-16 md:grid-cols-3">
-            <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm">
+              <div className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8" data-card>
               <div className="text-4xl">📧</div>
               <h3 className="mt-4 font-['Outfit'] text-xl font-bold text-[#2a2622]">
                 Email Us
@@ -67,7 +65,7 @@ export default function ContactPage() {
               <p className="mt-2 text-[#6b6560]">hello@seo-mothra.com</p>
             </div>
 
-            <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm">
+              <div className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8" data-card>
               <div className="text-4xl">⏱️</div>
               <h3 className="mt-4 font-['Outfit'] text-xl font-bold text-[#2a2622]">
                 Response Time
@@ -77,7 +75,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm">
+              <div className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8" data-card>
               <div className="text-4xl">🗺️</div>
               <h3 className="mt-4 font-['Outfit'] text-xl font-bold text-[#2a2622]">
                 Service Areas
@@ -115,7 +113,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <form className="space-y-6 rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm">
+              <form className="space-y-6 rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8" data-scroll-reveal>
                 <div>
                   <label className="block text-sm font-semibold text-[#2a2622] mb-2">
                     Your Name
@@ -123,7 +121,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     required
-                    className="w-full rounded-lg border border-[#7a9b6d]/20 bg-white/60 px-4 py-3 text-[#2a2622] placeholder-[#6b6560] focus:outline-none focus:border-[#7a9b6d]/40 focus:ring-2 focus:ring-[#7a9b6d]/20"
+                  className="w-full rounded-lg border border-[rgba(35,31,27,0.12)] bg-white/70 px-4 py-3 text-[#211d19] placeholder-[#665d54] focus:outline-none focus:border-[#47624f]/40 focus:ring-2 focus:ring-[#47624f]/15"
                     placeholder="John Doe"
                   />
                 </div>
@@ -135,7 +133,7 @@ export default function ContactPage() {
                   <input
                     type="email"
                     required
-                    className="w-full rounded-lg border border-[#7a9b6d]/20 bg-white/60 px-4 py-3 text-[#2a2622] placeholder-[#6b6560] focus:outline-none focus:border-[#7a9b6d]/40 focus:ring-2 focus:ring-[#7a9b6d]/20"
+                  className="w-full rounded-lg border border-[rgba(35,31,27,0.12)] bg-white/70 px-4 py-3 text-[#211d19] placeholder-[#665d54] focus:outline-none focus:border-[#47624f]/40 focus:ring-2 focus:ring-[#47624f]/15"
                     placeholder="john@company.com"
                   />
                 </div>
@@ -146,7 +144,7 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="text"
-                    className="w-full rounded-lg border border-[#7a9b6d]/20 bg-white/60 px-4 py-3 text-[#2a2622] placeholder-[#6b6560] focus:outline-none focus:border-[#7a9b6d]/40 focus:ring-2 focus:ring-[#7a9b6d]/20"
+                  className="w-full rounded-lg border border-[rgba(35,31,27,0.12)] bg-white/70 px-4 py-3 text-[#211d19] placeholder-[#665d54] focus:outline-none focus:border-[#47624f]/40 focus:ring-2 focus:ring-[#47624f]/15"
                     placeholder="Your Company"
                   />
                 </div>
@@ -155,7 +153,7 @@ export default function ContactPage() {
                   <label className="block text-sm font-semibold text-[#2a2622] mb-2">
                     Interest
                   </label>
-                  <select className="w-full rounded-lg border border-[#7a9b6d]/20 bg-white/60 px-4 py-3 text-[#2a2622] focus:outline-none focus:border-[#7a9b6d]/40 focus:ring-2 focus:ring-[#7a9b6d]/20">
+                  <select className="w-full rounded-lg border border-[rgba(35,31,27,0.12)] bg-white/70 px-4 py-3 text-[#211d19] focus:outline-none focus:border-[#47624f]/40 focus:ring-2 focus:ring-[#47624f]/15">
                     <option>Select a service</option>
                     <option>SEO Strategy</option>
                     <option>CRO & Lead Generation</option>
@@ -172,14 +170,14 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full rounded-lg border border-[#7a9b6d]/20 bg-white/60 px-4 py-3 text-[#2a2622] placeholder-[#6b6560] focus:outline-none focus:border-[#7a9b6d]/40 focus:ring-2 focus:ring-[#7a9b6d]/20"
+                  className="w-full rounded-lg border border-[rgba(35,31,27,0.12)] bg-white/70 px-4 py-3 text-[#211d19] placeholder-[#665d54] focus:outline-none focus:border-[#47624f]/40 focus:ring-2 focus:ring-[#47624f]/15"
                     placeholder="Tell us about your project..."
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-[#7a9b6d] px-6 py-4 font-semibold text-white transition hover:bg-[#6b8b5d] hover:shadow-lg"
+                  className="w-full rounded-full bg-[#47624f] px-6 py-4 font-semibold text-white transition hover:bg-[#3d5644] hover:shadow-lg"
                 >
                   Schedule Your Free Call
                 </button>
@@ -192,13 +190,13 @@ export default function ContactPage() {
           </section>
 
           {/* Trust Section */}
-          <section className="border-t border-[#7a9b6d]/20 py-16">
-            <h2 className="font-['Outfit'] text-3xl font-bold text-[#2a2622] text-center mb-12">
+          <section className="border-t border-[rgba(35,31,27,0.12)] py-16">
+            <h2 className="font-['Outfit'] text-3xl font-bold text-[#211d19] text-center mb-12">
               Why Work With Us?
             </h2>
 
             <div className="grid gap-6 md:grid-cols-3">
-              <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm text-center">
+              <div className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8 text-center">
                 <div className="text-5xl">2.3x</div>
                 <p className="mt-3 font-semibold text-[#2a2622]">
                   Avg. Traffic Growth
@@ -209,7 +207,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm text-center">
+              <div className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8 text-center">
                 <div className="text-5xl">98%</div>
                 <p className="mt-3 font-semibold text-[#2a2622]">
                   Client Retention
@@ -219,7 +217,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm text-center">
+              <div className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8 text-center">
                 <div className="text-5xl">50+</div>
                 <p className="mt-3 font-semibold text-[#2a2622]">
                   Success Stories

@@ -118,32 +118,29 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="min-h-screen">
+      <main className="min-h-screen" data-page-root>
         <div className="mx-auto max-w-7xl px-6 py-8 md:px-10 lg:px-16">
           <SiteHeader />
 
           {/* Hero Section */}
           <section className="relative overflow-hidden py-16 md:py-24">
-            <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-gradient-to-br from-[#7a9b6d]/15 to-transparent blur-3xl" />
-
             <div className="relative">
-              <div className="mb-6 inline-block">
-                <span className="inline-block rounded-full border border-[#7a9b6d]/30 bg-[#7a9b6d]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]">
+              <div className="mb-6 inline-block" data-hero-eyebrow>
+                <span className="inline-block rounded-full border border-[rgba(35,31,27,0.12)] bg-white/55 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#47624f]">
                   Our Expertise
                 </span>
               </div>
 
-              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#2a2622] md:text-6xl lg:text-7xl">
-                Full-Stack SEO, CRO & AEO.
-                <span className="block text-[#7a9b6d]">
-                  Premium implementation, real results.
+              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#211d19] md:text-6xl lg:text-7xl" data-hero-title>
+                Full-stack search and conversion work.
+                <span className="block text-[#47624f]">
+                  Built to remove friction, not add noise.
                 </span>
               </h1>
 
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#6b6560] md:text-xl">
-                Six core services designed to drive organic growth, optimize
-                conversions, and build brands that rank. Every service is built
-                for premium results.
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#665d54] md:text-xl" data-hero-copy>
+                Each service targets one bottleneck: positioning, traffic
+                quality, conversion friction, or search visibility.
               </p>
             </div>
           </section>
@@ -153,7 +150,8 @@ export default function ServicesPage() {
             {services.map((service, idx) => (
               <div
                 key={service.slug}
-                className="group rounded-2xl border border-[#7a9b6d]/20 bg-gradient-to-br from-white/80 to-[#f5f1eb]/40 p-8 transition hover:border-[#7a9b6d]/40 hover:bg-white/90 hover:shadow-lg"
+                className="group rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8 transition hover:border-[rgba(35,31,27,0.2)] hover:bg-white/85 hover:shadow-lg"
+                data-card
                 style={{
                   animationDelay: `${idx * 50}ms`,
                 }}
@@ -161,30 +159,30 @@ export default function ServicesPage() {
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="text-4xl">{service.icon}</div>
-                    <h3 className="mt-4 font-['Outfit'] text-2xl font-bold text-[#2a2622]">
+                    <h3 className="mt-4 font-['Outfit'] text-2xl font-bold text-[#211d19]">
                       {service.title}
                     </h3>
                   </div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]/60">
+                  <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#47624f]/60">
                     0{idx + 1}
                   </span>
                 </div>
 
-                <p className="mt-4 text-[#6b6560]">{service.description}</p>
+                <p className="mt-4 text-[#665d54]">{service.description}</p>
 
-                <div className="mt-6 space-y-2 border-t border-[#7a9b6d]/20 pt-6">
+                <div className="mt-6 space-y-2 border-t border-[rgba(35,31,27,0.12)] pt-6">
                   {service.features.map((feature) => (
                     <div
                       key={feature}
                       className="flex items-start gap-2 text-sm"
                     >
-                      <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#7a9b6d] flex-shrink-0" />
-                      <span className="text-[#6b6560]">{feature}</span>
+                      <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#47624f] flex-shrink-0" />
+                      <span className="text-[#665d54]">{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-6 inline-flex items-center gap-2 text-[#7a9b6d] transition group-hover:translate-x-1">
+                <div className="mt-6 inline-flex items-center gap-2 text-[#47624f] transition group-hover:translate-x-1">
                   <span className="font-semibold">Learn more</span>
                   <span>→</span>
                 </div>
@@ -193,13 +191,13 @@ export default function ServicesPage() {
           </section>
 
           {/* Process Section */}
-          <section className="border-y border-[#7a9b6d]/20 py-16">
+          <section className="border-y border-[rgba(35,31,27,0.12)] py-16">
             <div className="mb-12">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]">
+              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#47624f]">
                 How We Work
               </span>
-              <h2 className="mt-4 max-w-3xl font-['Outfit'] text-4xl font-bold text-[#2a2622] md:text-5xl">
-                A proven process for sustainable growth.
+              <h2 className="mt-4 max-w-3xl font-['Outfit'] text-4xl font-bold text-[#211d19] md:text-5xl">
+                A process that removes guesswork.
               </h2>
             </div>
 
@@ -228,34 +226,33 @@ export default function ServicesPage() {
               ].map((phase) => (
                 <div
                   key={phase.step}
-                  className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-6 backdrop-blur-sm"
+                  className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-6"
                 >
-                  <div className="text-3xl font-bold text-[#7a9b6d]">
+                  <div className="text-3xl font-bold text-[#47624f]">
                     {phase.step}
                   </div>
-                  <h3 className="mt-4 font-['Outfit'] text-lg font-bold text-[#2a2622]">
+                  <h3 className="mt-4 font-['Outfit'] text-lg font-bold text-[#211d19]">
                     {phase.title}
                   </h3>
-                  <p className="mt-2 text-sm text-[#6b6560]">{phase.desc}</p>
+                  <p className="mt-2 text-sm text-[#665d54]">{phase.desc}</p>
                 </div>
               ))}
             </div>
           </section>
 
           {/* CTA Section */}
-          <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#7a9b6d] to-[#6b8b5d] py-16 md:py-24 mt-16">
-            <div className="absolute -right-32 -top-32 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+          <section className="relative overflow-hidden rounded-3xl bg-[#47624f] py-16 md:py-24 mt-16">
             <div className="relative text-center text-white">
               <h2 className="font-['Outfit'] text-4xl font-bold md:text-5xl">
-                Ready to Transform Your Growth?
+                Ready to tighten the page before scaling spend?
               </h2>
-              <p className="mt-4 mx-auto max-w-2xl text-lg text-white/90">
-                Let's discuss which services will drive the best results for
-                your business.
+              <p className="mt-4 mx-auto max-w-2xl text-lg text-white/85">
+                We’ll identify the highest-impact fix, explain the tradeoffs,
+                and map the next steps clearly.
               </p>
-              <button className="mt-8 rounded-full bg-white px-8 py-4 font-semibold text-[#7a9b6d] transition hover:bg-white/90 hover:shadow-lg">
-                Schedule a Strategy Call
-              </button>
+              <a className="mt-8 inline-flex rounded-full bg-white px-8 py-4 font-semibold text-[#47624f] transition hover:bg-white/90 hover:shadow-lg" href="/contact">
+                Schedule a strategy call
+              </a>
             </div>
           </section>
         </div>
