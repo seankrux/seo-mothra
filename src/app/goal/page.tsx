@@ -90,32 +90,29 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="min-h-screen">
+      <main className="min-h-screen" data-page-root>
         <div className="mx-auto max-w-7xl px-6 py-8 md:px-10 lg:px-16">
           <SiteHeader />
 
           {/* Hero Section */}
           <section className="relative overflow-hidden py-16 md:py-24">
-            <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-gradient-to-br from-[#7a9b6d]/15 to-transparent blur-3xl" />
-
             <div className="relative">
-              <div className="mb-6 inline-block">
-                <span className="inline-block rounded-full border border-[#7a9b6d]/30 bg-[#7a9b6d]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]">
-                  🌿 About Us
+              <div className="mb-6 inline-block" data-hero-eyebrow>
+                <span className="inline-block rounded-full border border-[rgba(35,31,27,0.12)] bg-white/55 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#47624f]">
+                  About
                 </span>
               </div>
 
-              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#2a2622] md:text-6xl lg:text-7xl">
-                We Transform Brands Through
-                <span className="block text-[#7a9b6d]">
-                  Premium SEO & Growth Strategy
+              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#211d19] md:text-6xl lg:text-7xl" data-hero-title>
+                We build the page before we chase the traffic.
+                <span className="block text-[#47624f]">
+                  Strategy, design, and implementation in one motion.
                 </span>
               </h1>
 
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#6b6560] md:text-xl">
-                SEO Mothra exists to help agencies, virtual assistants, and
-                scaling brands dominate their market through strategic SEO,
-                conversion optimization, and premium design.
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#665d54] md:text-xl" data-hero-copy>
+                The positioning here matters because the rest of the site needs
+                to read like one system, not a stack of unrelated pages.
               </p>
             </div>
           </section>
@@ -125,23 +122,23 @@ export default function AboutPage() {
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm text-center"
+                className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8 text-center"
               >
-                <div className="font-['Outfit'] text-4xl font-bold text-[#7a9b6d]">
+                <div className="font-['Outfit'] text-4xl font-bold text-[#47624f]">
                   {stat.number}
                 </div>
-                <p className="mt-3 text-sm text-[#6b6560]">{stat.label}</p>
+                <p className="mt-3 text-sm text-[#665d54]">{stat.label}</p>
               </div>
             ))}
           </section>
 
           {/* Mission Section */}
-          <section className="border-y border-[#7a9b6d]/20 py-16">
+          <section className="border-y border-[rgba(35,31,27,0.12)] py-16">
             <div className="mb-12">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]">
+              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#47624f]">
                 Our Core Values
               </span>
-              <h2 className="mt-4 max-w-3xl font-['Outfit'] text-4xl font-bold text-[#2a2622] md:text-5xl">
+              <h2 className="mt-4 max-w-3xl font-['Outfit'] text-4xl font-bold text-[#211d19] md:text-5xl">
                 How We Approach Every Project
               </h2>
             </div>
@@ -150,13 +147,13 @@ export default function AboutPage() {
               {values.map((value) => (
                 <div
                   key={value.title}
-                  className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm"
+                  className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8"
                 >
                   <div className="text-4xl">{value.icon}</div>
-                  <h3 className="mt-4 font-['Outfit'] text-lg font-bold text-[#2a2622]">
+                  <h3 className="mt-4 font-['Outfit'] text-lg font-bold text-[#211d19]">
                     {value.title}
                   </h3>
-                  <p className="mt-2 text-[#6b6560]">{value.description}</p>
+                  <p className="mt-2 text-[#665d54]">{value.description}</p>
                 </div>
               ))}
             </div>
@@ -165,13 +162,13 @@ export default function AboutPage() {
           {/* Capabilities Section */}
           <section className="py-16">
             <div className="mb-12">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]">
+              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#47624f]">
                 What We Do
               </span>
-              <h2 className="mt-4 max-w-3xl font-['Outfit'] text-4xl font-bold text-[#2a2622] md:text-5xl">
+              <h2 className="mt-4 max-w-3xl font-['Outfit'] text-4xl font-bold text-[#211d19] md:text-5xl">
                 Three Core Capabilities
               </h2>
-              <p className="mt-4 max-w-2xl text-lg text-[#6b6560]">
+              <p className="mt-4 max-w-2xl text-lg text-[#665d54]">
                 We combine strategy, design, and technical expertise to deliver
                 transformative results. Every engagement includes all three.
               </p>
@@ -181,33 +178,32 @@ export default function AboutPage() {
               {capabilities.map((cap) => (
                 <div
                   key={cap.title}
-                  className="group rounded-2xl border border-[#7a9b6d]/20 bg-gradient-to-br from-white/80 to-[#f5f1eb]/40 p-8 transition hover:border-[#7a9b6d]/40 hover:bg-white/90 hover:shadow-lg"
+                  className="group rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8 transition hover:border-[rgba(35,31,27,0.2)] hover:bg-white/85 hover:shadow-lg"
                 >
                   <div className="text-5xl">{cap.icon}</div>
-                  <h3 className="mt-4 font-['Outfit'] text-2xl font-bold text-[#2a2622]">
+                  <h3 className="mt-4 font-['Outfit'] text-2xl font-bold text-[#211d19]">
                     {cap.title}
                   </h3>
-                  <p className="mt-4 text-[#6b6560]">{cap.description}</p>
+                  <p className="mt-4 text-[#665d54]">{cap.description}</p>
                 </div>
               ))}
             </div>
           </section>
 
           {/* Philosophy Section */}
-          <section className="relative overflow-hidden rounded-3xl border border-[#7a9b6d]/20 bg-gradient-to-br from-[#f5f1eb] to-white py-16 md:py-24">
-            <div className="absolute -right-32 -bottom-32 h-64 w-64 rounded-full bg-gradient-to-tl from-[#7a9b6d]/10 to-transparent blur-3xl" />
+          <section className="relative overflow-hidden rounded-3xl border border-[rgba(35,31,27,0.12)] bg-white/60 py-16 md:py-24">
             <div className="relative px-6 text-center md:px-12">
-              <h2 className="font-['Outfit'] text-4xl font-bold text-[#2a2622] md:text-5xl">
+              <h2 className="font-['Outfit'] text-4xl font-bold text-[#211d19] md:text-5xl">
                 The SEO Mothra Philosophy
               </h2>
-              <p className="mt-6 mx-auto max-w-3xl text-lg leading-relaxed text-[#6b6560]">
+              <p className="mt-6 mx-auto max-w-3xl text-lg leading-relaxed text-[#665d54]">
                 We don't believe in quick wins or shortcuts. Premium results
                 come from strategic thinking, meticulous execution, and
                 continuous optimization. We treat your growth like we'd treat
                 our own brand—with care, precision, and obsessive attention to
                 detail.
               </p>
-              <p className="mt-6 mx-auto max-w-3xl text-lg leading-relaxed text-[#6b6560]">
+              <p className="mt-6 mx-auto max-w-3xl text-lg leading-relaxed text-[#665d54]">
                 The best SEO compounds. The best design stays timeless. The best
                 brands lead markets. That's what we build.
               </p>
@@ -216,22 +212,22 @@ export default function AboutPage() {
 
           {/* CTA Section */}
           <section className="py-16 text-center">
-            <h2 className="font-['Outfit'] text-3xl font-bold text-[#2a2622] md:text-4xl">
+            <h2 className="font-['Outfit'] text-3xl font-bold text-[#211d19] md:text-4xl">
               Ready to Transform Your Brand?
             </h2>
-            <p className="mt-4 text-lg text-[#6b6560]">
+            <p className="mt-4 text-lg text-[#665d54]">
               Let's discuss your goals and show you how SEO Mothra can help.
             </p>
             <div className="mt-8 flex flex-wrap gap-4 justify-center">
               <a
                 href="/contact"
-                className="rounded-full bg-[#7a9b6d] px-8 py-4 font-semibold text-white transition hover:bg-[#6b8b5d] hover:shadow-lg"
+                className="rounded-full bg-[#47624f] px-8 py-4 font-semibold text-white transition hover:bg-[#3d5644] hover:shadow-lg"
               >
                 Schedule a Call
               </a>
               <a
                 href="/services"
-                className="rounded-full border-2 border-[#7a9b6d] px-8 py-4 font-semibold text-[#7a9b6d] transition hover:bg-[#7a9b6d]/5"
+                className="rounded-full border-2 border-[#47624f] px-8 py-4 font-semibold text-[#47624f] transition hover:bg-[#47624f]/5"
               >
                 Explore Services
               </a>
