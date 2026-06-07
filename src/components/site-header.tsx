@@ -1,57 +1,61 @@
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-30 -mx-6 border-b border-[rgba(35,31,27,0.12)] bg-[rgba(247,244,238,0.82)] px-6 py-4 backdrop-blur-xl md:-mx-10 md:px-10 lg:-mx-16 lg:px-16">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
-        <a href="/" className="group flex items-center gap-3">
-          <div className="grid h-11 w-11 place-items-center rounded-xl border border-[rgba(35,31,27,0.12)] bg-[rgba(71,98,79,0.08)]">
-            <span className="text-lg">◌</span>
+    <nav className="fixed top-0 w-full z-50 px-6 py-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between bg-white/70 backdrop-blur-md border border-[rgba(26,28,28,0.08)] px-8 py-4 rounded-full shadow-sm">
+        <a href="/" className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-[#46583c]/10 rounded-xl flex items-center justify-center">
+            <span className="material-symbols-outlined text-[#46583c]">
+              flutter_dash
+            </span>
           </div>
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.36em] text-[#47624f]">
-              SEO Mothra
-            </p>
-            <p className="text-xs text-[#665d54]">Premium SEO & growth</p>
-          </div>
+          <span className="text-xl font-extrabold tracking-tight text-[#1a1c1c]">
+            SEO{" "}
+            <span
+              className="text-[#46583c]"
+              style={{
+                fontFamily: "'Libre Caslon Text', serif",
+                fontStyle: "italic",
+              }}
+            >
+              Mothra
+            </span>
+          </span>
         </a>
-        <nav aria-label="Primary" className="flex flex-wrap gap-2 text-sm text-[#211d19]">
+
+        <div className="hidden md:flex items-center gap-8 font-medium text-[#1a1c1c]/80">
           <a
-            className="rounded-full border border-[rgba(35,31,27,0.12)] bg-white/45 px-4 py-2 transition hover:border-[rgba(35,31,27,0.2)] hover:bg-white/80 focus:outline-none focus:ring-2 focus:ring-[#47624f]/30"
-            href="/"
-          >
-            Home
-          </a>
-          <a
-            className="rounded-full border border-[rgba(35,31,27,0.12)] bg-white/45 px-4 py-2 transition hover:border-[rgba(35,31,27,0.2)] hover:bg-white/80 focus:outline-none focus:ring-2 focus:ring-[#47624f]/30"
+            className="nav-link hover:text-[#46583c] transition-colors"
             href="/services"
           >
             Services
           </a>
           <a
-            className="rounded-full border border-[rgba(35,31,27,0.12)] bg-white/45 px-4 py-2 transition hover:border-[rgba(35,31,27,0.2)] hover:bg-white/80 focus:outline-none focus:ring-2 focus:ring-[#47624f]/30"
+            className="nav-link hover:text-[#46583c] transition-colors"
+            href="/#process"
+          >
+            Process
+          </a>
+          <a
+            className="nav-link hover:text-[#46583c] transition-colors"
+            href="/blog"
+          >
+            Learn
+          </a>
+          <a
+            className="nav-link hover:text-[#46583c] transition-colors"
             href="/locations"
           >
             Locations
           </a>
-          <a
-            className="rounded-full border border-[rgba(35,31,27,0.12)] bg-white/45 px-4 py-2 transition hover:border-[rgba(35,31,27,0.2)] hover:bg-white/80 focus:outline-none focus:ring-2 focus:ring-[#47624f]/30"
-            href="/blog"
-          >
-            Blog
-          </a>
-          <a
-            className="rounded-full border border-[rgba(35,31,27,0.12)] bg-white/45 px-4 py-2 transition hover:border-[rgba(35,31,27,0.2)] hover:bg-white/80 focus:outline-none focus:ring-2 focus:ring-[#47624f]/30"
-            href="/goal"
-          >
-            About
-          </a>
-          <a
-            className="rounded-full border-2 border-[#47624f] bg-[#47624f] px-4 py-2 font-semibold text-white transition hover:bg-[#3d5644] focus:outline-none focus:ring-2 focus:ring-[#47624f]/30"
-            href="/contact"
-          >
-            Contact
-          </a>
-        </nav>
+        </div>
+
+        <a
+          href="/contact"
+          className="bg-[#46583c] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#3a4c31] hover:scale-105 transition-all shadow-md shadow-[#46583c]/20"
+        >
+          Start Ranking
+        </a>
       </div>
-    </header>
+    </nav>
   );
 }

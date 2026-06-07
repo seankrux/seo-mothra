@@ -1,43 +1,55 @@
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[rgba(35,31,27,0.12)] py-12 text-sm text-[#665d54]">
-      <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
-        <div className="grid gap-8 md:grid-cols-3 mb-8">
-          <div>
-            <h3 className="font-semibold text-[#211d19]">SEO Mothra</h3>
-            <p className="mt-2">
-              Premium SEO & growth strategy for agencies and scaling brands.
-            </p>
+    <footer className="py-12 bg-white/60 backdrop-blur-md border-t border-[rgba(26,28,28,0.08)]">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-[#46583c]/10 rounded-lg flex items-center justify-center">
+              <span className="material-symbols-outlined text-[#46583c] text-sm">
+                flutter_dash
+              </span>
+            </div>
+            <span className="text-lg font-bold text-[#1a1c1c]">
+              SEO{" "}
+              <span
+                className="text-[#46583c]"
+                style={{
+                  fontFamily: "'Libre Caslon Text', serif",
+                  fontStyle: "italic",
+                }}
+              >
+                Mothra
+              </span>
+            </span>
           </div>
-          <div>
-            <h4 className="font-semibold text-[#211d19]">Quick Links</h4>
-            <ul className="mt-2 space-y-1">
-              <li>
-                <a href="/services" className="hover:text-[#47624f]">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="/blog" className="hover:text-[#47624f]">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="hover:text-[#47624f]">
-                  Contact
-                </a>
-              </li>
-            </ul>
+
+          <p className="text-[#444840]/50 text-sm">
+            © {new Date().getFullYear()} SEO Mothra Agency. All rights reserved.
+          </p>
+
+          <div className="flex gap-6 text-[#444840]/50">
+            <a
+              className="hover:text-[#46583c] transition-colors"
+              href="#"
+              aria-label="Facebook"
+            >
+              <span className="material-symbols-outlined">facebook</span>
+            </a>
+            <a
+              className="hover:text-[#46583c] transition-colors"
+              href="#"
+              aria-label="Email"
+            >
+              <span className="material-symbols-outlined">alternate_email</span>
+            </a>
+            <a
+              className="hover:text-[#46583c] transition-colors"
+              href="#"
+              aria-label="Website"
+            >
+              <span className="material-symbols-outlined">public</span>
+            </a>
           </div>
-          <div>
-            <h4 className="font-semibold text-[#211d19]">Connect</h4>
-            <p className="mt-2">hello@seo-mothra.com</p>
-            <p>(512) 555-0123</p>
-          </div>
-        </div>
-        <div className="border-t border-[rgba(35,31,27,0.12)] pt-8 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} SEO Mothra. All rights reserved.</p>
-          <p>Built with premium design, SEO obsession, and conversion focus.</p>
         </div>
       </div>
     </footer>

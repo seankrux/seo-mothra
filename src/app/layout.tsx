@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
-import { PageMotion } from "@/components/page-motion";
+import { CanvasBackground } from "@/components/canvas-background";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 export const metadata: Metadata = {
   title: {
-    default: "SEO Mothra | Premium SEO Website System",
+    default: "SEO Mothra | Transforming Brands. Delivering Results.",
     template: "%s | SEO Mothra",
   },
   description: siteConfig.description,
@@ -20,13 +21,11 @@ export const metadata: Metadata = {
     "schema markup",
     "CRO",
   ],
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: siteConfig.url,
-    title: "SEO Mothra | Premium SEO Website System",
+    title: "SEO Mothra | Transforming Brands. Delivering Results.",
     description: siteConfig.description,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SEO Mothra | Premium SEO Website System",
+    title: "SEO Mothra | Transforming Brands. Delivering Results.",
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
@@ -51,17 +50,27 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="alternate icon" href="/favicon-fallback.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#faf7f2" />
-        <meta name="color-scheme" content="light" />
+        <meta name="theme-color" content="#f9f9f8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          rel="stylesheet"
+        />
       </head>
-      <body>
-        <PageMotion />
+      <body className="bg-[#f9f9f8] text-[#1a1c1c] selection:bg-[#46583c] selection:text-white">
+        <CanvasBackground />
+        <ScrollReveal />
         {children}
       </body>
     </html>

@@ -7,10 +7,8 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "In-depth SEO, AEO & CRO guides for agencies, virtual assistants, and scaling brands. Premium insights from our team of strategists and designers.",
-  alternates: {
-    canonical: "/blog",
-  },
+    "In-depth SEO, AEO & CRO guides for agencies, virtual assistants, and scaling brands.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {
@@ -19,17 +17,14 @@ export default function BlogPage() {
     "@type": "CollectionPage",
     name: "Blog",
     description:
-      "In-depth SEO, AEO & CRO guides for agencies, virtual assistants, and scaling brands.",
+      "In-depth SEO, AEO & CRO guides for agencies and scaling brands.",
     url: `${siteConfig.url}/blog`,
-    mainEntity: articles.map((article) => ({
+    mainEntity: articles.map((a) => ({
       "@type": "BlogPosting",
-      headline: article.title,
-      description: article.excerpt,
-      datePublished: article.date,
-      author: {
-        "@type": "Organization",
-        name: "SEO Mothra",
-      },
+      headline: a.title,
+      description: a.excerpt,
+      datePublished: a.date,
+      author: { "@type": "Organization", name: "SEO Mothra" },
     })),
   };
 
@@ -39,119 +34,128 @@ export default function BlogPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="min-h-screen" data-page-root>
-        <div className="mx-auto max-w-7xl px-6 py-8 md:px-10 lg:px-16">
-          <SiteHeader />
+      <SiteHeader />
 
-          {/* Hero Section */}
-          <section className="relative overflow-hidden py-16 md:py-24">
-            <div className="relative">
-              <div className="mb-6 inline-block" data-hero-eyebrow>
-                <span className="inline-block rounded-full border border-[rgba(35,31,27,0.12)] bg-white/55 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#9c6658]">
+      <main className="min-h-screen pt-28">
+        {/* Hero */}
+        <section className="relative overflow-hidden py-16 md:py-24">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <div className="stagger-reveal active">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#46583c]/10 text-[#46583c] rounded-full mb-6 border border-[#46583c]/20">
+                <span className="text-xs font-bold tracking-widest uppercase">
                   Insights
                 </span>
               </div>
-
-              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#211d19] md:text-6xl lg:text-7xl" data-hero-title>
-                SEO and conversion notes that are worth reading.
-                <span className="block text-[#9c6658]">
+              <h1 className="max-w-5xl text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-[#1a1c1c] mb-6">
+                SEO and conversion notes worth reading.
+                <span
+                  className="block"
+                  style={{
+                    color: "#46583c",
+                    fontFamily: "'Libre Caslon Text', serif",
+                    fontStyle: "italic",
+                    fontWeight: 400,
+                  }}
+                >
                   Less theory. More page-level clarity.
                 </span>
               </h1>
-
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#665d54] md:text-xl" data-hero-copy>
+              <p className="max-w-2xl text-lg text-[#444840]/70 leading-relaxed">
                 Short, useful breakdowns on what actually improves search
                 visibility, lead quality, and page performance.
               </p>
-
-              <div className="mt-10" data-hero-cta>
-                <a className="group rounded-full bg-[#9c6658] px-8 py-4 font-semibold text-white transition hover:bg-[#875446] hover:shadow-lg" href="/contact">
+              <div className="mt-10">
+                <a
+                  href="/contact"
+                  className="inline-flex items-center gap-2 group bg-[#46583c] text-white px-8 py-4 rounded-full font-bold hover:bg-[#3a4c31] hover:scale-105 transition-all shadow-lg shadow-[#46583c]/20"
+                >
                   Subscribe to updates
-                  <span className="ml-2 inline-block transition group-hover:translate-x-1">
-                    →
+                  <span className="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">
+                    arrow_forward
                   </span>
                 </a>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Articles Grid */}
-          <section className="py-16">
+        {/* Articles */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {articles.map((article, idx) => (
                 <article
                   key={article.slug}
-                className="group rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8 transition hover:border-[rgba(35,31,27,0.2)] hover:bg-white/85 hover:shadow-lg"
-                data-card
-                  style={{
-                    animationDelay: `${idx * 50}ms`,
-                  }}
+                  className="reveal card-hover group bg-white/40 backdrop-blur-sm p-8 rounded-2xl border border-[rgba(26,28,28,0.08)] flex flex-col"
+                  style={{ transitionDelay: `${idx * 0.08}s` }}
                 >
-                  <div className="flex items-start justify-between">
-                    <div className="flex flex-wrap gap-2">
-                      <span className="inline-block rounded-full border border-[rgba(35,31,27,0.12)] bg-white/55 px-3 py-1 text-xs font-semibold text-[#47624f]">
-                        {article.category}
-                      </span>
-                    </div>
-                    <span className="text-xs font-semibold text-[#665d54]">
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#46583c]/10 text-[#46583c] text-xs font-bold border border-[#46583c]/20">
+                      {article.category}
+                    </span>
+                    <span className="text-xs text-[#444840]/50">
                       {article.date}
                     </span>
                   </div>
 
-                  <h3 className="mt-6 font-['Outfit'] text-2xl font-bold text-[#211d19] transition group-hover:text-[#9c6658]">
+                  <h3 className="text-xl font-bold text-[#1a1c1c] group-hover:text-[#46583c] transition-colors flex-grow mb-4">
                     {article.title}
                   </h3>
+                  <p className="text-[#444840]/70 leading-relaxed text-sm">
+                    {article.excerpt}
+                  </p>
 
-                  <p className="mt-4 text-[#665d54]">{article.excerpt}</p>
-
-                  <div className="mt-6 flex items-center justify-between border-t border-[rgba(35,31,27,0.12)] pt-6">
-                    <span className="text-sm font-semibold text-[#665d54]">
+                  <div className="mt-6 pt-6 border-t border-[rgba(26,28,28,0.08)] flex items-center justify-between">
+                    <span className="text-xs font-semibold text-[#444840]/50">
                       {article.readTime}
                     </span>
                     <a
                       href={`/blog/${article.slug}`}
-                      className="inline-flex items-center gap-2 text-[#9c6658] transition group-hover:translate-x-1"
+                      className="inline-flex items-center gap-2 text-[#46583c] font-bold text-sm group-hover:gap-4 transition-all"
                     >
-                      <span className="font-semibold">Read</span>
-                      <span>→</span>
+                      Read{" "}
+                      <span className="material-symbols-outlined text-sm">
+                        arrow_forward
+                      </span>
                     </a>
                   </div>
                 </article>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Newsletter Section */}
-          <section className="relative overflow-hidden rounded-3xl border border-[rgba(35,31,27,0.12)] bg-white/60 py-16 md:py-24">
-            <div className="relative px-6 text-center md:px-12">
-              <h2 className="font-['Outfit'] text-4xl font-bold text-[#211d19] md:text-5xl">
+        {/* Newsletter */}
+        <section className="py-24">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <div className="reveal bg-[#46583c]/5 backdrop-blur-md rounded-[3rem] p-12 border border-[#46583c]/10 text-center">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#1a1c1c] mb-4">
                 Get Premium Insights Weekly
               </h2>
-              <p className="mt-4 mx-auto max-w-2xl text-lg text-[#665d54]">
-                Subscribe to our newsletter for in-depth guides, case studies,
-                and exclusive strategies delivered directly to your inbox.
+              <p className="text-[#444840]/70 text-lg mb-10 max-w-2xl mx-auto">
+                Subscribe for in-depth guides, case studies, and exclusive
+                strategies delivered to your inbox.
               </p>
-
-              <form className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+              <form className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="rounded-full border border-[rgba(35,31,27,0.12)] bg-white/75 px-6 py-4 placeholder-[#665d54] focus:outline-none focus:border-[#47624f]/40 focus:ring-2 focus:ring-[#47624f]/15"
                   required
+                  className="flex-grow rounded-full border border-[rgba(26,28,28,0.12)] bg-white/75 px-6 py-4 placeholder-[#444840]/40 focus:outline-none focus:border-[#46583c]/40 focus:ring-2 focus:ring-[#46583c]/15"
                 />
-                <button className="rounded-full bg-[#47624f] px-8 py-4 font-semibold text-white transition hover:bg-[#3d5644] hover:shadow-lg whitespace-nowrap">
+                <button className="rounded-full bg-[#46583c] px-8 py-4 font-bold text-white hover:bg-[#3a4c31] hover:scale-105 transition-all whitespace-nowrap">
                   Subscribe
                 </button>
               </form>
-              <p className="mt-4 text-xs text-[#665d54]">
-                No spam, just premium insights. Unsubscribe anytime.
+              <p className="mt-4 text-xs text-[#444840]/50">
+                No spam. Unsubscribe anytime.
               </p>
             </div>
-          </section>
-        </div>
-
-        <SiteFooter />
+          </div>
+        </section>
       </main>
+
+      <SiteFooter />
     </>
   );
 }

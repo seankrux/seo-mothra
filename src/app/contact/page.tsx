@@ -1,237 +1,249 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Ready to grow? Schedule your free SEO strategy call with SEO Mothra. We help agencies & brands dominate search.",
-  alternates: {
-    canonical: "/contact",
+const contactInfo = [
+  { icon: "alternate_email", title: "Email Us", value: "hello@seomothra.com" },
+  {
+    icon: "schedule",
+    title: "Response Time",
+    value: "Within 24 hours on business days",
   },
-};
+  {
+    icon: "public",
+    title: "Service Areas",
+    value: "Nationwide & international teams",
+  },
+];
 
 export default function ContactPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ContactPoint",
-    contactType: "Customer Support",
-    email: "hello@seo-mothra.com",
-    areaServed: ["US"],
-    availableLanguage: ["en"],
-  };
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      company: (form.elements.namedItem("company") as HTMLInputElement).value,
+      service: (form.elements.namedItem("service") as HTMLSelectElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement)
+        .value,
+      source: "contact-form",
+    };
+    try {
+      await fetch("/api/crm/leads", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <main className="min-h-screen" data-page-root>
-        <div className="mx-auto max-w-7xl px-6 py-8 md:px-10 lg:px-16">
-          <SiteHeader />
+      <SiteHeader />
 
-          {/* Hero Section */}
-          <section className="relative overflow-hidden py-16 md:py-24">
-            <div className="relative">
-              <div className="mb-6 inline-block" data-hero-eyebrow>
-                <span className="inline-block rounded-full border border-[rgba(35,31,27,0.12)] bg-white/55 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#9c6658]">
+      <main className="min-h-screen pt-28">
+        {/* Hero */}
+        <section className="relative overflow-hidden py-16 md:py-24">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <div className="stagger-reveal active">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#46583c]/10 text-[#46583c] rounded-full mb-6 border border-[#46583c]/20">
+                <span className="text-xs font-bold tracking-widest uppercase">
                   Contact
                 </span>
               </div>
-
-              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#211d19] md:text-6xl lg:text-7xl" data-hero-title>
+              <h1 className="max-w-4xl text-5xl md:text-6xl font-bold leading-tight text-[#1a1c1c] mb-6">
                 Book a strategy call without the fluff.
-                <span className="block text-[#9c6658]">
+                <span
+                  className="block"
+                  style={{
+                    color: "#46583c",
+                    fontFamily: "'Libre Caslon Text', serif",
+                    fontStyle: "italic",
+                    fontWeight: 400,
+                  }}
+                >
                   Clear review. Clear next step.
                 </span>
               </h1>
-
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#665d54] md:text-xl" data-hero-copy>
-                Send a project summary and we’ll reply with the likely
+              <p className="max-w-2xl text-lg text-[#444840]/70 leading-relaxed">
+                Send a project summary and we&apos;ll reply with the likely
                 bottlenecks, the most useful starting point, and a realistic
                 scope.
               </p>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Contact Grid */}
-          <section className="grid gap-8 py-16 md:grid-cols-3">
-              <div className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8" data-card>
-              <div className="text-4xl">📧</div>
-              <h3 className="mt-4 font-['Outfit'] text-xl font-bold text-[#2a2622]">
-                Email Us
-              </h3>
-              <p className="mt-2 text-[#6b6560]">hello@seo-mothra.com</p>
+        {/* Info Cards */}
+        <section className="py-8">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <div className="grid gap-6 md:grid-cols-3 stagger-reveal">
+              {contactInfo.map((c) => (
+                <div
+                  key={c.title}
+                  className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-[rgba(26,28,28,0.08)] flex items-start gap-4"
+                >
+                  <div className="w-12 h-12 bg-[#46583c]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="material-symbols-outlined text-[#46583c]">
+                      {c.icon}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#1a1c1c]">{c.title}</h3>
+                    <p className="mt-1 text-sm text-[#444840]/70">{c.value}</p>
+                  </div>
+                </div>
+              ))}
             </div>
+          </div>
+        </section>
 
-              <div className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8" data-card>
-              <div className="text-4xl">⏱️</div>
-              <h3 className="mt-4 font-['Outfit'] text-xl font-bold text-[#2a2622]">
-                Response Time
-              </h3>
-              <p className="mt-2 text-[#6b6560]">
-                We reply within 24 hours on business days
-              </p>
-            </div>
-
-              <div className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8" data-card>
-              <div className="text-4xl">🗺️</div>
-              <h3 className="mt-4 font-['Outfit'] text-xl font-bold text-[#2a2622]">
-                Service Areas
-              </h3>
-              <p className="mt-2 text-[#6b6560]">
-                We serve teams nationwide and internationally
-              </p>
-            </div>
-          </section>
-
-          {/* Form Section */}
-          <section className="grid gap-12 py-16 lg:grid-cols-2">
-            <div>
-              <h2 className="font-['Outfit'] text-3xl font-bold text-[#2a2622]">
-                Get in Touch
-              </h2>
-              <p className="mt-4 text-[#6b6560]">
-                Fill out the form and we'll reach out within 24 hours to
-                schedule your free strategy call.
-              </p>
-
-              <div className="mt-12 space-y-4">
-                <div className="rounded-2xl border border-[#7a9b6d]/20 bg-[#7a9b6d]/5 p-6">
-                  <h4 className="font-['Outfit'] font-bold text-[#2a2622]">
+        {/* Form */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <div className="grid gap-12 lg:grid-cols-2 items-start">
+              <div className="reveal">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#1a1c1c] mb-4">
+                  Get in Touch
+                </h2>
+                <p className="text-[#444840]/70 mb-10">
+                  Fill out the form and we&apos;ll reach out within 24 hours to
+                  schedule your free strategy call.
+                </p>
+                <div className="bg-[#46583c]/5 border border-[#46583c]/10 rounded-2xl p-8">
+                  <h4 className="font-bold text-[#1a1c1c] mb-4">
                     Why schedule a call?
                   </h4>
-                  <ul className="mt-3 space-y-2 text-sm text-[#6b6560]">
-                    <li>✓ Free SEO audit of your site</li>
-                    <li>✓ Competitive analysis</li>
-                    <li>✓ Custom growth roadmap</li>
-                    <li>✓ Zero obligation</li>
-                  </ul>
+                  {[
+                    "Free SEO audit of your site",
+                    "Competitive analysis included",
+                    "Custom growth roadmap",
+                    "Zero obligation",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-3 py-2">
+                      <span className="material-symbols-outlined text-[#46583c] text-sm">
+                        check_circle
+                      </span>
+                      <span className="text-sm text-[#444840]/80">{item}</span>
+                    </div>
+                  ))}
                 </div>
+              </div>
+
+              <div className="reveal">
+                {submitted ? (
+                  <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#46583c]/20 p-12 text-center">
+                    <div className="w-16 h-16 bg-[#46583c]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <span className="material-symbols-outlined text-[#46583c] text-3xl">
+                        check_circle
+                      </span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#1a1c1c] mb-2">
+                      Message Sent!
+                    </h3>
+                    <p className="text-[#444840]/70">
+                      We&apos;ll be in touch within 24 hours.
+                    </p>
+                  </div>
+                ) : (
+                  <form
+                    onSubmit={handleSubmit}
+                    className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[rgba(26,28,28,0.08)] p-8 space-y-6"
+                  >
+                    <div>
+                      <label className="block text-sm font-semibold text-[#1a1c1c] mb-2">
+                        Your Name
+                      </label>
+                      <input
+                        name="name"
+                        type="text"
+                        required
+                        placeholder="John Doe"
+                        className="w-full rounded-xl border border-[rgba(26,28,28,0.12)] bg-white/70 px-4 py-3 text-[#1a1c1c] placeholder-[#444840]/40 focus:outline-none focus:border-[#46583c]/40 focus:ring-2 focus:ring-[#46583c]/15"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-[#1a1c1c] mb-2">
+                        Email Address
+                      </label>
+                      <input
+                        name="email"
+                        type="email"
+                        required
+                        placeholder="john@company.com"
+                        className="w-full rounded-xl border border-[rgba(26,28,28,0.12)] bg-white/70 px-4 py-3 text-[#1a1c1c] placeholder-[#444840]/40 focus:outline-none focus:border-[#46583c]/40 focus:ring-2 focus:ring-[#46583c]/15"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-[#1a1c1c] mb-2">
+                        Company
+                      </label>
+                      <input
+                        name="company"
+                        type="text"
+                        placeholder="Your Company"
+                        className="w-full rounded-xl border border-[rgba(26,28,28,0.12)] bg-white/70 px-4 py-3 text-[#1a1c1c] placeholder-[#444840]/40 focus:outline-none focus:border-[#46583c]/40 focus:ring-2 focus:ring-[#46583c]/15"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-[#1a1c1c] mb-2">
+                        Service Interest
+                      </label>
+                      <select
+                        name="service"
+                        className="w-full rounded-xl border border-[rgba(26,28,28,0.12)] bg-white/70 px-4 py-3 text-[#1a1c1c] focus:outline-none focus:border-[#46583c]/40 focus:ring-2 focus:ring-[#46583c]/15"
+                      >
+                        <option>Select a service</option>
+                        <option>SEO Audit & Strategy</option>
+                        <option>CRO & Lead Generation</option>
+                        <option>AEO Optimization</option>
+                        <option>Technical SEO</option>
+                        <option>Premium UI Design</option>
+                        <option>Content Mastery</option>
+                        <option>Full-Stack Implementation</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-[#1a1c1c] mb-2">
+                        Message
+                      </label>
+                      <textarea
+                        name="message"
+                        rows={4}
+                        placeholder="Tell us about your project..."
+                        className="w-full rounded-xl border border-[rgba(26,28,28,0.12)] bg-white/70 px-4 py-3 text-[#1a1c1c] placeholder-[#444840]/40 focus:outline-none focus:border-[#46583c]/40 focus:ring-2 focus:ring-[#46583c]/15"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="w-full rounded-full bg-[#46583c] px-6 py-4 font-bold text-white hover:bg-[#3a4c31] hover:scale-[1.02] transition-all disabled:opacity-60"
+                    >
+                      {loading ? "Sending…" : "Schedule Your Free Call"}
+                    </button>
+                    <p className="text-xs text-[#444840]/50 text-center">
+                      We&apos;ll reply within 24 hours to confirm your call
+                      time.
+                    </p>
+                  </form>
+                )}
               </div>
             </div>
-
-            <div>
-              <form className="space-y-6 rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8" data-scroll-reveal>
-                <div>
-                  <label className="block text-sm font-semibold text-[#2a2622] mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    required
-                  className="w-full rounded-lg border border-[rgba(35,31,27,0.12)] bg-white/70 px-4 py-3 text-[#211d19] placeholder-[#665d54] focus:outline-none focus:border-[#47624f]/40 focus:ring-2 focus:ring-[#47624f]/15"
-                    placeholder="John Doe"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-[#2a2622] mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    required
-                  className="w-full rounded-lg border border-[rgba(35,31,27,0.12)] bg-white/70 px-4 py-3 text-[#211d19] placeholder-[#665d54] focus:outline-none focus:border-[#47624f]/40 focus:ring-2 focus:ring-[#47624f]/15"
-                    placeholder="john@company.com"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-[#2a2622] mb-2">
-                    Company
-                  </label>
-                  <input
-                    type="text"
-                  className="w-full rounded-lg border border-[rgba(35,31,27,0.12)] bg-white/70 px-4 py-3 text-[#211d19] placeholder-[#665d54] focus:outline-none focus:border-[#47624f]/40 focus:ring-2 focus:ring-[#47624f]/15"
-                    placeholder="Your Company"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-[#2a2622] mb-2">
-                    Interest
-                  </label>
-                  <select className="w-full rounded-lg border border-[rgba(35,31,27,0.12)] bg-white/70 px-4 py-3 text-[#211d19] focus:outline-none focus:border-[#47624f]/40 focus:ring-2 focus:ring-[#47624f]/15">
-                    <option>Select a service</option>
-                    <option>SEO Strategy</option>
-                    <option>CRO & Lead Generation</option>
-                    <option>AEO Optimization</option>
-                    <option>Technical SEO</option>
-                    <option>Premium Design</option>
-                    <option>Full-Stack Implementation</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-[#2a2622] mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    rows={4}
-                  className="w-full rounded-lg border border-[rgba(35,31,27,0.12)] bg-white/70 px-4 py-3 text-[#211d19] placeholder-[#665d54] focus:outline-none focus:border-[#47624f]/40 focus:ring-2 focus:ring-[#47624f]/15"
-                    placeholder="Tell us about your project..."
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full rounded-full bg-[#47624f] px-6 py-4 font-semibold text-white transition hover:bg-[#3d5644] hover:shadow-lg"
-                >
-                  Schedule Your Free Call
-                </button>
-
-                <p className="text-xs text-[#6b6560]">
-                  We'll reach out within 24 hours to confirm your call time.
-                </p>
-              </form>
-            </div>
-          </section>
-
-          {/* Trust Section */}
-          <section className="border-t border-[rgba(35,31,27,0.12)] py-16">
-            <h2 className="font-['Outfit'] text-3xl font-bold text-[#211d19] text-center mb-12">
-              Why Work With Us?
-            </h2>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              <div className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8 text-center">
-                <div className="text-5xl">2.3x</div>
-                <p className="mt-3 font-semibold text-[#2a2622]">
-                  Avg. Traffic Growth
-                </p>
-                <p className="mt-2 text-sm text-[#6b6560]">
-                  Our clients see average traffic increases of 2.3x within 12
-                  months
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8 text-center">
-                <div className="text-5xl">98%</div>
-                <p className="mt-3 font-semibold text-[#2a2622]">
-                  Client Retention
-                </p>
-                <p className="mt-2 text-sm text-[#6b6560]">
-                  98% of our clients continue working with us long-term
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8 text-center">
-                <div className="text-5xl">50+</div>
-                <p className="mt-3 font-semibold text-[#2a2622]">
-                  Success Stories
-                </p>
-                <p className="mt-2 text-sm text-[#6b6560]">
-                  Over 50 full-stack SEO implementations with proven results
-                </p>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <SiteFooter />
+          </div>
+        </section>
       </main>
+
+      <SiteFooter />
     </>
   );
 }

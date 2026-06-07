@@ -1,64 +1,49 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import { locations } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
-type LocationPageProps = {
-  params: Promise<{ slug: string }>;
-};
-
-export function generateStaticParams() {
-  return locations.map((location) => ({ slug: location.slug }));
-}
-
-async function getLocation(params: LocationPageProps["params"]) {
-  const { slug } = await params;
-  return locations.find((location) => location.slug === slug);
+export async function generateStaticParams() {
+  return locations.map((l) => ({ slug: l.slug }));
 }
 
 export async function generateMetadata({
   params,
-}: LocationPageProps): Promise<Metadata> {
-  const location = await getLocation(params);
-  if (!location) return {};
-
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const loc = locations.find((l) => l.slug === slug);
+  if (!loc) return {};
   return {
-    title: `${location.city} SEO Services`,
-    description: location.description,
-    alternates: {
-      canonical: `/locations/${location.slug}`,
-    },
-    openGraph: {
-      title: `${location.city} SEO Services | SEO Mothra`,
-      description: location.description,
-      url: `${siteConfig.url}/locations/${location.slug}`,
-    },
+    title: `SEO Services in ${loc.city}, ${loc.state}`,
+    description: loc.description,
+    alternates: { canonical: `/locations/${loc.slug}` },
   };
 }
 
-export default async function LocationDetailPage({
+export default async function LocationPage({
   params,
-}: LocationPageProps) {
-  const location = await getLocation(params);
-  if (!location) notFound();
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const loc = locations.find((l) => l.slug === slug);
+  if (!loc) notFound();
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: `SEO Mothra - ${location.city}`,
-    url: `${siteConfig.url}/locations/${location.slug}`,
-    areaServed: {
-      "@type": "City",
-      name: location.city,
-      containedInPlace: location.state,
-    },
-    description: location.description,
-    parentOrganization: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url,
+    name: `SEO Mothra ${loc.city}`,
+    url: `${siteConfig.url}/locations/${loc.slug}`,
+    description: loc.description,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: loc.city,
+      addressRegion: loc.state,
+      addressCountry: "US",
     },
   };
 
@@ -68,68 +53,78 @@ export default async function LocationDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="min-h-screen">
-        <div className="mx-auto max-w-7xl px-6 py-8 md:px-10 lg:px-16">
-          <SiteHeader />
+      <SiteHeader />
 
-          <section className="relative overflow-hidden py-16 md:py-24">
-            <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-gradient-to-br from-[#7a9b6d]/15 to-transparent blur-3xl" />
-            <div className="relative">
-              <div className="mb-6 inline-block">
-                <span className="inline-block rounded-full border border-[#7a9b6d]/30 bg-[#7a9b6d]/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#7a9b6d]">
-                  {location.city} SEO
+      <main className="min-h-screen pt-28">
+        <section className="py-16 md:py-24">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <div className="stagger-reveal active">
+              <a
+                href="/locations"
+                className="inline-flex items-center gap-2 text-[#46583c] font-semibold mb-8 hover:gap-4 transition-all"
+              >
+                <span
+                  className="material-symbols-outlined text-sm"
+                  style={{ transform: "rotate(180deg)" }}
+                >
+                  arrow_forward
+                </span>
+                All locations
+              </a>
+
+              <div className="text-6xl mb-6">{loc.emoji}</div>
+
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#46583c]/10 text-[#46583c] rounded-full mb-6 border border-[#46583c]/20">
+                <span className="text-xs font-bold tracking-widest uppercase">
+                  {loc.state}
                 </span>
               </div>
-              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#2a2622] md:text-6xl lg:text-7xl">
-                Premium SEO Services in {location.city}
+
+              <h1 className="text-5xl md:text-6xl font-bold text-[#1a1c1c] mb-6">
+                SEO Services in{" "}
+                <em
+                  style={{
+                    color: "#46583c",
+                    fontFamily: "'Libre Caslon Text', serif",
+                  }}
+                >
+                  {loc.city}
+                </em>
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#6b6560] md:text-xl">
-                {location.description} We tailor technical SEO, content, AEO,
-                and conversion strategy around the search behavior and buyer
-                intent in {location.city}.
+
+              <p className="max-w-2xl text-lg text-[#444840]/70 mb-12">
+                {loc.description}
               </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3 stagger-reveal">
+              {loc.specialties.map((spec) => (
+                <div
+                  key={spec}
+                  className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-[rgba(26,28,28,0.08)]"
+                >
+                  <span className="material-symbols-outlined text-[#46583c] mb-4 block">
+                    verified
+                  </span>
+                  <h3 className="font-bold text-[#1a1c1c]">{spec}</h3>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-16 reveal">
               <a
                 href="/contact"
-                className="mt-10 inline-flex rounded-full bg-[#7a9b6d] px-8 py-4 font-semibold text-white transition hover:bg-[#6b8b5d] hover:shadow-lg"
+                className="inline-flex items-center gap-2 bg-[#46583c] text-white px-10 py-4 rounded-full font-bold hover:bg-[#3a4c31] hover:scale-105 transition-all shadow-lg shadow-[#46583c]/20"
               >
-                Schedule a Market Analysis
+                Get a free {loc.city} SEO audit
+                <span className="material-symbols-outlined">arrow_forward</span>
               </a>
             </div>
-          </section>
-
-          <section className="grid gap-8 border-y border-[#7a9b6d]/20 py-16 md:grid-cols-3">
-            {location.specialties.map((specialty) => (
-              <article
-                key={specialty}
-                className="rounded-2xl border border-[#7a9b6d]/20 bg-white/60 p-8 backdrop-blur-sm"
-              >
-                <h2 className="font-['Outfit'] text-xl font-bold text-[#2a2622]">
-                  {specialty}
-                </h2>
-                <p className="mt-3 text-[#6b6560]">
-                  Focused execution for teams that need measurable local
-                  visibility, stronger landing pages, and qualified pipeline.
-                </p>
-              </article>
-            ))}
-          </section>
-
-          <section className="py-16">
-            <div className="rounded-3xl border border-[#7a9b6d]/20 bg-gradient-to-br from-white/80 to-[#f5f1eb]/40 p-12">
-              <h2 className="font-['Outfit'] text-3xl font-bold text-[#2a2622]">
-                Built for {location.city} search demand
-              </h2>
-              <p className="mt-4 max-w-3xl text-lg text-[#6b6560]">
-                SEO Mothra combines market research, technical cleanup,
-                answer-first content, and conversion-focused pages so your
-                brand can compete for high-intent local searches.
-              </p>
-            </div>
-          </section>
-        </div>
-
-        <SiteFooter />
+          </div>
+        </section>
       </main>
+
+      <SiteFooter />
     </>
   );
 }

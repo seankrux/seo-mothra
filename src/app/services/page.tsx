@@ -7,18 +7,15 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Full-stack SEO, CRO & AEO optimization services. Premium UI design, Sanity CMS setup, and technical SEO for scaling brands and agencies.",
-  alternates: {
-    canonical: "/services",
-  },
+  alternates: { canonical: "/services" },
 };
 
 const services = [
   {
-    title: "SEO Strategy",
+    icon: "search",
+    title: "SEO Audit & Strategy",
     slug: "seo-strategy",
-    icon: "🔍",
-    description:
-      "Comprehensive keyword mapping, competitive analysis, internal linking architecture, and content gap analysis for sustainable growth.",
+    desc: "Comprehensive keyword mapping, competitive analysis, internal linking architecture, and content gap analysis for sustainable growth.",
     features: [
       "Keyword research & clustering",
       "Competitive analysis",
@@ -27,11 +24,10 @@ const services = [
     ],
   },
   {
+    icon: "trending_up",
     title: "CRO & Lead Generation",
     slug: "cro-optimization",
-    icon: "📈",
-    description:
-      "Conversion rate optimization, funnel design, form optimization, and lead scoring to turn traffic into revenue.",
+    desc: "Conversion rate optimization, funnel design, form optimization, and lead scoring to turn traffic into revenue.",
     features: [
       "Funnel analysis & redesign",
       "Form optimization",
@@ -40,11 +36,10 @@ const services = [
     ],
   },
   {
+    icon: "smart_toy",
     title: "AEO Optimization",
     slug: "aeo-optimization",
-    icon: "🤖",
-    description:
-      "AI search engine optimization. We optimize for Google's AI overviews and emerging search modalities.",
+    desc: "AI search engine optimization. We optimize for Google's AI overviews and emerging search modalities.",
     features: [
       "AI overview optimization",
       "FAQ schema markup",
@@ -53,11 +48,10 @@ const services = [
     ],
   },
   {
+    icon: "settings",
     title: "Technical SEO",
     slug: "technical-seo",
-    icon: "⚙️",
-    description:
-      "Metadata strategy, schema markup, site architecture, Core Web Vitals optimization, and performance tuning.",
+    desc: "Metadata strategy, schema markup, site architecture, Core Web Vitals optimization, and performance tuning.",
     features: [
       "Metadata optimization",
       "Schema markup implementation",
@@ -66,11 +60,10 @@ const services = [
     ],
   },
   {
+    icon: "palette",
     title: "Premium UI Design",
     slug: "premium-design",
-    icon: "🎨",
-    description:
-      "Modern, editorial design systems that look premium, rank well, and convert visitors into leads.",
+    desc: "Modern, editorial design systems that look premium, rank well, and convert visitors into leads.",
     features: [
       "Design system creation",
       "Visual hierarchy optimization",
@@ -79,16 +72,15 @@ const services = [
     ],
   },
   {
-    title: "Sanity CMS Setup",
-    slug: "sanity-cms",
-    icon: "🛠️",
-    description:
-      "Scalable headless CMS architecture. Reusable schemas, editorial workflows, and integration setup for dynamic content.",
+    icon: "edit_note",
+    title: "Content Mastery",
+    slug: "content",
+    desc: "Stories that sell. We create content that humans love and search engines prioritize — from blog posts to landing pages.",
     features: [
-      "Schema design & modeling",
-      "Editorial workflow setup",
-      "API integration",
-      "Deployment automation",
+      "Topic cluster strategy",
+      "Long-form SEO content",
+      "Landing page copy",
+      "Content calendar management",
     ],
   },
 ];
@@ -98,17 +90,13 @@ export default function ServicesPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Services",
-    description:
-      "Full-stack SEO, CRO & AEO optimization services for premium brands and agencies.",
+    description: "Full-stack SEO, CRO & AEO optimization services.",
     url: `${siteConfig.url}/services`,
-    mainEntity: services.map((service) => ({
+    mainEntity: services.map((s) => ({
       "@type": "Service",
-      name: service.title,
-      description: service.description,
-      provider: {
-        "@type": "Organization",
-        name: "SEO Mothra",
-      },
+      name: s.title,
+      description: s.desc,
+      provider: { "@type": "Organization", name: "SEO Mothra" },
     })),
   };
 
@@ -118,90 +106,107 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="min-h-screen" data-page-root>
-        <div className="mx-auto max-w-7xl px-6 py-8 md:px-10 lg:px-16">
-          <SiteHeader />
+      <SiteHeader />
 
-          {/* Hero Section */}
-          <section className="relative overflow-hidden py-16 md:py-24">
-            <div className="relative">
-              <div className="mb-6 inline-block" data-hero-eyebrow>
-                <span className="inline-block rounded-full border border-[rgba(35,31,27,0.12)] bg-white/55 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#47624f]">
+      <main className="min-h-screen pt-28">
+        {/* Hero */}
+        <section className="relative overflow-hidden py-16 md:py-24">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <div className="stagger-reveal active">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#46583c]/10 text-[#46583c] rounded-full mb-6 border border-[#46583c]/20">
+                <span className="text-xs font-bold tracking-widest uppercase">
                   Our Expertise
                 </span>
               </div>
-
-              <h1 className="max-w-5xl font-['Outfit'] text-5xl font-bold leading-[1.1] text-[#211d19] md:text-6xl lg:text-7xl" data-hero-title>
+              <h1 className="max-w-5xl text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-[#1a1c1c] mb-6">
                 Full-stack search and conversion work.
-                <span className="block text-[#47624f]">
+                <span
+                  className="block"
+                  style={{
+                    color: "#46583c",
+                    fontFamily: "'Libre Caslon Text', serif",
+                    fontStyle: "italic",
+                    fontWeight: 400,
+                  }}
+                >
                   Built to remove friction, not add noise.
                 </span>
               </h1>
-
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#665d54] md:text-xl" data-hero-copy>
+              <p className="max-w-2xl text-lg text-[#444840]/70 leading-relaxed">
                 Each service targets one bottleneck: positioning, traffic
                 quality, conversion friction, or search visibility.
               </p>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Services Grid */}
-          <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 py-16">
-            {services.map((service, idx) => (
-              <div
-                key={service.slug}
-                className="group rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-8 transition hover:border-[rgba(35,31,27,0.2)] hover:bg-white/85 hover:shadow-lg"
-                data-card
-                style={{
-                  animationDelay: `${idx * 50}ms`,
-                }}
-              >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <div className="text-4xl">{service.icon}</div>
-                    <h3 className="mt-4 font-['Outfit'] text-2xl font-bold text-[#211d19]">
-                      {service.title}
-                    </h3>
-                  </div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#47624f]/60">
-                    0{idx + 1}
-                  </span>
-                </div>
-
-                <p className="mt-4 text-[#665d54]">{service.description}</p>
-
-                <div className="mt-6 space-y-2 border-t border-[rgba(35,31,27,0.12)] pt-6">
-                  {service.features.map((feature) => (
-                    <div
-                      key={feature}
-                      className="flex items-start gap-2 text-sm"
-                    >
-                      <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#47624f] flex-shrink-0" />
-                      <span className="text-[#665d54]">{feature}</span>
+        {/* Services Grid */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {services.map((svc, idx) => (
+                <div
+                  key={svc.slug}
+                  className="reveal card-hover group bg-white/40 backdrop-blur-sm p-10 rounded-2xl border border-[rgba(26,28,28,0.08)] flex flex-col"
+                  style={{ transitionDelay: `${idx * 0.08}s` }}
+                >
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-14 h-14 bg-white rounded-full shadow-sm flex items-center justify-center group-hover:scale-110 transition-all duration-500">
+                      <span className="material-symbols-outlined text-[#46583c] text-2xl">
+                        {svc.icon}
+                      </span>
                     </div>
-                  ))}
-                </div>
+                    <span className="text-xs font-bold tracking-widest text-[#46583c]/40">
+                      0{idx + 1}
+                    </span>
+                  </div>
 
-                <div className="mt-6 inline-flex items-center gap-2 text-[#47624f] transition group-hover:translate-x-1">
-                  <span className="font-semibold">Learn more</span>
-                  <span>→</span>
-                </div>
-              </div>
-            ))}
-          </section>
+                  <h3 className="text-2xl font-bold text-[#1a1c1c] mb-4">
+                    {svc.title}
+                  </h3>
+                  <p className="text-[#444840]/70 leading-relaxed flex-grow">
+                    {svc.desc}
+                  </p>
 
-          {/* Process Section */}
-          <section className="border-y border-[rgba(35,31,27,0.12)] py-16">
-            <div className="mb-12">
-              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#47624f]">
+                  <div className="mt-6 pt-6 border-t border-[rgba(26,28,28,0.08)] space-y-2">
+                    {svc.features.map((f) => (
+                      <div key={f} className="flex items-center gap-2 text-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#46583c] flex-shrink-0" />
+                        <span className="text-[#444840]/70">{f}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <a
+                    href="/contact"
+                    className="mt-8 inline-flex items-center text-[#46583c] font-bold gap-2 group-hover:gap-4 transition-all"
+                  >
+                    Get started{" "}
+                    <span className="material-symbols-outlined text-sm">
+                      arrow_forward
+                    </span>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Process */}
+        <section
+          id="process"
+          className="py-24 border-t border-[rgba(26,28,28,0.08)]"
+        >
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <div className="mb-16 reveal">
+              <span className="text-xs font-semibold uppercase tracking-widest text-[#46583c]">
                 How We Work
               </span>
-              <h2 className="mt-4 max-w-3xl font-['Outfit'] text-4xl font-bold text-[#211d19] md:text-5xl">
+              <h2 className="mt-4 text-4xl md:text-5xl font-bold text-[#1a1c1c]">
                 A process that removes guesswork.
               </h2>
             </div>
-
-            <div className="grid gap-6 md:grid-cols-4">
+            <div className="grid gap-6 md:grid-cols-4 stagger-reveal">
               {[
                 {
                   step: "01",
@@ -223,42 +228,52 @@ export default function ServicesPage() {
                   title: "Optimization",
                   desc: "Continuous monitoring, testing, and refinement.",
                 },
-              ].map((phase) => (
+              ].map((p) => (
                 <div
-                  key={phase.step}
-                  className="rounded-2xl border border-[rgba(35,31,27,0.12)] bg-white/60 p-6"
+                  key={p.step}
+                  className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-[rgba(26,28,28,0.08)]"
                 >
-                  <div className="text-3xl font-bold text-[#47624f]">
-                    {phase.step}
+                  <div className="text-3xl font-bold text-[#46583c]">
+                    {p.step}
                   </div>
-                  <h3 className="mt-4 font-['Outfit'] text-lg font-bold text-[#211d19]">
-                    {phase.title}
+                  <h3 className="mt-4 text-xl font-bold text-[#1a1c1c]">
+                    {p.title}
                   </h3>
-                  <p className="mt-2 text-sm text-[#665d54]">{phase.desc}</p>
+                  <p className="mt-2 text-sm text-[#444840]/70">{p.desc}</p>
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* CTA Section */}
-          <section className="relative overflow-hidden rounded-3xl bg-[#47624f] py-16 md:py-24 mt-16">
-            <div className="relative text-center text-white">
-              <h2 className="font-['Outfit'] text-4xl font-bold md:text-5xl">
-                Ready to tighten the page before scaling spend?
-              </h2>
-              <p className="mt-4 mx-auto max-w-2xl text-lg text-white/85">
-                We’ll identify the highest-impact fix, explain the tradeoffs,
-                and map the next steps clearly.
-              </p>
-              <a className="mt-8 inline-flex rounded-full bg-white px-8 py-4 font-semibold text-[#47624f] transition hover:bg-white/90 hover:shadow-lg" href="/contact">
-                Schedule a strategy call
-              </a>
+        {/* CTA */}
+        <section className="py-24">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <div className="relative overflow-hidden rounded-3xl bg-[#46583c] py-20 text-center text-white">
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#bcf540] rounded-full blur-3xl" />
+              </div>
+              <div className="relative z-10">
+                <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                  Ready to tighten the page before scaling spend?
+                </h2>
+                <p className="mt-4 mx-auto max-w-2xl text-lg text-white/80">
+                  We&apos;ll identify the highest-impact fix, explain the
+                  tradeoffs, and map the next steps clearly.
+                </p>
+                <a
+                  href="/contact"
+                  className="mt-10 inline-flex rounded-full bg-white px-10 py-4 font-bold text-[#46583c] transition hover:bg-white/90 hover:scale-105"
+                >
+                  Schedule a strategy call
+                </a>
+              </div>
             </div>
-          </section>
-        </div>
-
-        <SiteFooter />
+          </div>
+        </section>
       </main>
+
+      <SiteFooter />
     </>
   );
 }
