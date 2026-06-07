@@ -18,11 +18,20 @@ export function ScrollReveal() {
       { threshold: 0.1 },
     );
 
-    document
-      .querySelectorAll(".reveal, .stagger-reveal")
-      .forEach((el) => observer.observe(el));
+    const connect = () => {
+      document
+        .querySelectorAll(".reveal, .stagger-reveal")
+        .forEach((el) => observer.observe(el));
+    };
 
-    return () => observer.disconnect();
+    connect();
+    // Re-observe after React finishes rendering async page content
+    const t = setTimeout(connect, 100);
+
+    return () => {
+      clearTimeout(t);
+      observer.disconnect();
+    };
   }, [pathname]);
 
   return null;

@@ -36,7 +36,7 @@ export default function BlogPage() {
       />
       <SiteHeader />
 
-      <main className="min-h-screen pt-28">
+      <main id="main-content" className="min-h-screen pt-28">
         {/* Hero */}
         <section className="relative overflow-hidden py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -136,7 +136,7 @@ export default function BlogPage() {
                 Subscribe for in-depth guides, case studies, and exclusive
                 strategies delivered to your inbox.
               </p>
-              <form className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+              <form action="/contact" method="get" className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
                 <input
                   type="email"
                   placeholder="Enter your email"

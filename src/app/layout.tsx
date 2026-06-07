@@ -69,6 +69,12 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#f9f9f8] text-[#1a1c1c] selection:bg-[#46583c] selection:text-white">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#46583c] focus:text-white focus:px-4 focus:py-2 focus:rounded-full focus:font-bold"
+        >
+          Skip to content
+        </a>
         <CanvasBackground />
         <ScrollReveal />
         {children}

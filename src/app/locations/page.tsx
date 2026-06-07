@@ -36,7 +36,7 @@ export default function LocationsPage() {
       />
       <SiteHeader />
 
-      <main className="min-h-screen pt-28">
+      <main id="main-content" className="min-h-screen pt-28">
         {/* Hero */}
         <section className="relative overflow-hidden py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">

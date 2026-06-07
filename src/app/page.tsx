@@ -55,10 +55,14 @@ const stats = [
 export default function HomePage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
+    "@type": ["ProfessionalService", "WebSite"],
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
+    "@id": siteConfig.url,
+    priceRange: "$$",
+    areaServed: "US",
+    knowsAbout: ["SEO", "CRO", "AEO", "Content Strategy", "Technical SEO"],
     publisher: { "@type": "Organization", name: siteConfig.name },
   };
 
@@ -70,9 +74,12 @@ export default function HomePage() {
       />
       <SiteHeader />
 
-      <main className="min-h-screen">
+      <main id="main-content" className="min-h-screen">
         {/* ── Hero ── */}
-        <header className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+        <section
+          aria-label="Hero"
+          className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden"
+        >
           <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center">
             {/* Left */}
             <div className="relative z-10 text-center lg:text-left stagger-reveal active">
@@ -111,7 +118,10 @@ export default function HomePage() {
                   className="px-8 py-4 border border-[rgba(26,28,28,0.12)] hover:border-[#46583c]/40 hover:scale-105 bg-white/20 backdrop-blur-sm rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2 group"
                 >
                   See Our Work
-                  <span className="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">
+                  <span
+                    className="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform"
+                    aria-hidden="true"
+                  >
                     arrow_forward
                   </span>
                 </a>
@@ -177,7 +187,10 @@ export default function HomePage() {
                 {/* Badge 1 */}
                 <div className="animate-badge absolute -top-4 -right-4 bg-white/90 backdrop-blur p-4 rounded-2xl shadow-lg flex items-center gap-3 border border-[#46583c]/10">
                   <div className="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[#46583c]">
+                    <span
+                      className="material-symbols-outlined text-[#46583c]"
+                      aria-hidden="true"
+                    >
                       trending_up
                     </span>
                   </div>
@@ -192,7 +205,10 @@ export default function HomePage() {
                 {/* Badge 2 */}
                 <div className="animate-badge-delay absolute bottom-1/4 -left-10 bg-white/90 backdrop-blur p-4 rounded-2xl shadow-lg flex items-center gap-3 border border-[#46583c]/10">
                   <div className="w-10 h-10 bg-[#46583c]/10 rounded-full flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[#46583c]">
+                    <span
+                      className="material-symbols-outlined text-[#46583c]"
+                      aria-hidden="true"
+                    >
                       verified
                     </span>
                   </div>
@@ -208,7 +224,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </header>
+        </section>
 
         {/* ── Stats Bar ── */}
         <section className="py-12 border-y border-[rgba(26,28,28,0.08)]">
@@ -262,7 +278,10 @@ export default function HomePage() {
                   style={{ transitionDelay: `${i * 0.1}s` }}
                 >
                   <div className="w-16 h-16 bg-white rounded-full shadow-sm flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500">
-                    <span className="material-symbols-outlined text-[#46583c] text-3xl">
+                    <span
+                      className="material-symbols-outlined text-[#46583c] text-3xl"
+                      aria-hidden="true"
+                    >
                       {svc.icon}
                     </span>
                   </div>
@@ -275,7 +294,10 @@ export default function HomePage() {
                     className="inline-flex items-center text-[#46583c] font-bold gap-2 group-hover:gap-4 transition-all"
                   >
                     Learn More{" "}
-                    <span className="material-symbols-outlined text-sm">
+                    <span
+                      className="material-symbols-outlined text-sm"
+                      aria-hidden="true"
+                    >
                       arrow_forward
                     </span>
                   </a>
@@ -355,6 +377,7 @@ export default function HomePage() {
                   </p>
                   <div className="flex flex-wrap gap-4 p-2 bg-white/60 backdrop-blur-md rounded-3xl lg:rounded-full shadow-sm border border-[rgba(26,28,28,0.08)]">
                     <input
+                      aria-label="Enter your website URL"
                       className="bg-transparent border-none text-[#1a1c1c] placeholder-[#444840]/40 rounded-full px-6 py-3 flex-grow focus:ring-0 outline-none"
                       placeholder="Enter your website URL"
                       type="url"

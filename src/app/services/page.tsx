@@ -108,7 +108,7 @@ export default function ServicesPage() {
       />
       <SiteHeader />
 
-      <main className="min-h-screen pt-28">
+      <main id="main-content" className="min-h-screen pt-28">
         {/* Hero */}
         <section className="relative overflow-hidden py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -157,7 +157,7 @@ export default function ServicesPage() {
                       </span>
                     </div>
                     <span className="text-xs font-bold tracking-widest text-[#46583c]/40">
-                      0{idx + 1}
+                      {String(idx + 1).padStart(2, "0")}
                     </span>
                   </div>
 
