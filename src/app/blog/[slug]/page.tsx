@@ -3,10 +3,18 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { articles } from "@/lib/content";
+import { getPost, getPosts } from "@/lib/sanity";
 import { siteConfig } from "@/lib/site";
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
+  try {
+    const posts = await getPosts();
+    return posts.map((p: { slug: string }) => ({ slug: p.slug }));
+  } catch {
+    return articles.map((a) => ({ slug: a.slug }));
+  }
 }
 
 export async function generateMetadata({
@@ -15,12 +23,22 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  try {
+    const post = await getPost(slug);
+    if (post) {
+      return {
+        title: post.seoTitle ?? post.title,
+        description: post.seoDescription ?? post.excerpt,
+        alternates: { canonical: `/blog/${slug}` },
+      };
+    }
+  } catch {}
   const article = articles.find((a) => a.slug === slug);
   if (!article) return {};
   return {
     title: article.title,
     description: article.excerpt,
-    alternates: { canonical: `/blog/${article.slug}` },
+    alternates: { canonical: `/blog/${slug}` },
   };
 }
 
@@ -30,7 +48,13 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const article = articles.find((a) => a.slug === slug);
+
+  let sanityPost = null;
+  try {
+    sanityPost = await getPost(slug);
+  } catch {}
+
+  const article = sanityPost ?? articles.find((a) => a.slug === slug);
   if (!article) notFound();
 
   const jsonLd = {

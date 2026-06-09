@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { articles } from "@/lib/content";
+import { getPosts } from "@/lib/sanity";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -11,7 +12,37 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
 };
 
-export default function BlogPage() {
+export const revalidate = 60;
+
+type Post = {
+  title: string;
+  slug: string;
+  category: string;
+  readTime: string;
+  excerpt: string;
+  publishedAt: string;
+};
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+}
+
+export default async function BlogPage() {
+  let posts: Post[] = [];
+  try {
+    posts = await getPosts();
+  } catch {
+    posts = articles.map((a) => ({ ...a, publishedAt: a.date }));
+  }
+
+  const displayPosts =
+    posts.length > 0
+      ? posts
+      : articles.map((a) => ({ ...a, publishedAt: a.date }));
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -19,11 +50,11 @@ export default function BlogPage() {
     description:
       "In-depth SEO, AEO & CRO guides for agencies and scaling brands.",
     url: `${siteConfig.url}/blog`,
-    mainEntity: articles.map((a) => ({
+    mainEntity: displayPosts.map((a) => ({
       "@type": "BlogPosting",
       headline: a.title,
       description: a.excerpt,
-      datePublished: a.date,
+      datePublished: a.publishedAt,
       author: { "@type": "Organization", name: "SEO Mothra" },
     })),
   };
@@ -70,7 +101,10 @@ export default function BlogPage() {
                   className="inline-flex items-center gap-2 group bg-[#46583c] text-white px-8 py-4 rounded-full font-bold hover:bg-[#3a4c31] hover:scale-105 transition-all shadow-lg shadow-[#46583c]/20"
                 >
                   Subscribe to updates
-                  <span className="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">
+                  <span
+                    className="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform"
+                    aria-hidden="true"
+                  >
                     arrow_forward
                   </span>
                 </a>
@@ -83,7 +117,7 @@ export default function BlogPage() {
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {articles.map((article, idx) => (
+              {displayPosts.map((article, idx) => (
                 <article
                   key={article.slug}
                   className="reveal card-hover group bg-white/40 backdrop-blur-sm p-8 rounded-2xl border border-[rgba(26,28,28,0.08)] flex flex-col"
@@ -94,7 +128,9 @@ export default function BlogPage() {
                       {article.category}
                     </span>
                     <span className="text-xs text-[#444840]/50">
-                      {article.date}
+                      {article.publishedAt
+                        ? formatDate(article.publishedAt)
+                        : ""}
                     </span>
                   </div>
 
@@ -114,7 +150,10 @@ export default function BlogPage() {
                       className="inline-flex items-center gap-2 text-[#46583c] font-bold text-sm group-hover:gap-4 transition-all"
                     >
                       Read{" "}
-                      <span className="material-symbols-outlined text-sm">
+                      <span
+                        className="material-symbols-outlined text-sm"
+                        aria-hidden="true"
+                      >
                         arrow_forward
                       </span>
                     </a>
@@ -136,14 +175,23 @@ export default function BlogPage() {
                 Subscribe for in-depth guides, case studies, and exclusive
                 strategies delivered to your inbox.
               </p>
-              <form action="/contact" method="get" className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+              <form
+                action="/contact"
+                method="get"
+                className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto"
+              >
                 <input
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
+                  aria-label="Email address"
                   required
                   className="flex-grow rounded-full border border-[rgba(26,28,28,0.12)] bg-white/75 px-6 py-4 placeholder-[#444840]/40 focus:outline-none focus:border-[#46583c]/40 focus:ring-2 focus:ring-[#46583c]/15"
                 />
-                <button className="rounded-full bg-[#46583c] px-8 py-4 font-bold text-white hover:bg-[#3a4c31] hover:scale-105 transition-all whitespace-nowrap">
+                <button
+                  type="submit"
+                  className="rounded-full bg-[#46583c] px-8 py-4 font-bold text-white hover:bg-[#3a4c31] hover:scale-105 transition-all whitespace-nowrap"
+                >
                   Subscribe
                 </button>
               </form>

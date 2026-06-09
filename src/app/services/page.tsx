@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { getServices } from "@/lib/sanity";
 import { siteConfig } from "@/lib/site";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Services",
@@ -85,14 +88,45 @@ const services = [
   },
 ];
 
-export default function ServicesPage() {
+type ServiceItem = {
+  title: string;
+  slug: string;
+  icon: string;
+  desc: string;
+  features: string[];
+};
+
+export default async function ServicesPage() {
+  let liveServices = null;
+  try {
+    liveServices = await getServices();
+  } catch {}
+
+  const displayServices: ServiceItem[] = liveServices?.length
+    ? liveServices.map(
+        (s: {
+          title: string;
+          slug: string;
+          icon: string;
+          description: string;
+          features: string[];
+        }) => ({
+          title: s.title,
+          slug: s.slug,
+          icon: s.icon,
+          desc: s.description,
+          features: s.features ?? [],
+        }),
+      )
+    : services;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Services",
     description: "Full-stack SEO, CRO & AEO optimization services.",
     url: `${siteConfig.url}/services`,
-    mainEntity: services.map((s) => ({
+    mainEntity: displayServices.map((s) => ({
       "@type": "Service",
       name: s.title,
       description: s.desc,
@@ -144,7 +178,7 @@ export default function ServicesPage() {
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {services.map((svc, idx) => (
+              {displayServices.map((svc, idx) => (
                 <div
                   key={svc.slug}
                   className="reveal card-hover group bg-white/40 backdrop-blur-sm p-10 rounded-2xl border border-[rgba(26,28,28,0.08)] flex flex-col"
