@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { siteConfig } from "@/lib/site";
+import { getTestimonials } from "@/lib/sanity";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "SEO Mothra | Transforming Brands. Delivering Results.",
@@ -52,7 +55,14 @@ const stats = [
   { value: "50+", label: "Successful Projects" },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  let liveTestimonials: { quote: string; author: string; role: string }[] = [];
+  try {
+    liveTestimonials = await getTestimonials();
+  } catch {}
+  const displayTestimonials = liveTestimonials.length
+    ? liveTestimonials
+    : testimonials;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["ProfessionalService", "WebSite"],
@@ -437,7 +447,7 @@ export default function HomePage() {
             </div>
 
             <div className="grid gap-8 md:grid-cols-3 stagger-reveal">
-              {testimonials.map((t) => (
+              {displayTestimonials.map((t) => (
                 <div
                   key={t.author}
                   className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-[rgba(26,28,28,0.08)] card-hover"
