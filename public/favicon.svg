@@ -1,27 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Background -->
-  <rect width="32" height="32" fill="#11110f"/>
-
-  <!-- Gradient defs -->
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#d8e2c7;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e6ebd9;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-
-  <!-- Rounded border -->
-  <rect x="2" y="2" width="28" height="28" rx="6" fill="none" stroke="url(#grad)" stroke-width="1.5" opacity="0.6"/>
-
-  <!-- Premium star symbol (✦) -->
-  <g transform="translate(16, 16)">
-    <!-- Central diamond -->
-    <polygon points="0,-6 6,0 0,6 -6,0" fill="url(#grad)" opacity="0.9"/>
-
-    <!-- Corner stars -->
-    <circle cx="4" cy="-4" r="1.2" fill="url(#grad)" opacity="0.7"/>
-    <circle cx="4" cy="4" r="1.2" fill="url(#grad)" opacity="0.7"/>
-    <circle cx="-4" cy="4" r="1.2" fill="url(#grad)" opacity="0.7"/>
-    <circle cx="-4" cy="-4" r="1.2" fill="url(#grad)" opacity="0.7"/>
-  </g>
+  <rect width="32" height="32" rx="7" fill="#46583c"/>
+  <!-- M letterform / moth wings -->
+  <path d="M6 22 L6 10 L11 17 L16 10 L21 17 L26 10 L26 22" fill="none" stroke="#bcf540" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- antenna dots -->
+  <circle cx="11" cy="8" r="1.2" fill="#bcf540" opacity="0.8"/>
+  <circle cx="21" cy="8" r="1.2" fill="#bcf540" opacity="0.8"/>
 </svg>

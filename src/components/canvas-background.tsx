@@ -4,6 +4,8 @@ import { useEffect } from "react";
 
 export function CanvasBackground() {
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     // WebGL Shader Canvas
     const canvas = document.getElementById(
       "shader-canvas",
@@ -89,13 +91,22 @@ export function CanvasBackground() {
         new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]),
         gl.STATIC_DRAW,
       );
-      const pos = gl.getAttribLocation(prog, "position");
-      gl.enableVertexAttribArray(pos);
-      gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+      const posLoc = gl.getAttribLocation(prog, "position");
+      gl.enableVertexAttribArray(posLoc);
+      gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
 
       const tLoc = gl.getUniformLocation(prog, "u_time");
       const rLoc = gl.getUniformLocation(prog, "u_res");
       const mLoc = gl.getUniformLocation(prog, "u_mouse");
+
+      // Resize once, then only on window resize
+      function resizeShader() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+      }
+      resizeShader();
+      window.addEventListener("resize", resizeShader);
 
       let mx = 0,
         my = 0;
@@ -107,9 +118,6 @@ export function CanvasBackground() {
 
       let raf: number;
       function render(t: number) {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        gl.viewport(0, 0, canvas.width, canvas.height);
         gl.uniform1f(tLoc, t * 0.001);
         gl.uniform2f(rLoc, canvas.width, canvas.height);
         gl.uniform2f(mLoc, mx, canvas.height - my);
@@ -121,6 +129,7 @@ export function CanvasBackground() {
       return () => {
         cancelAnimationFrame(raf);
         window.removeEventListener("mousemove", onMove);
+        window.removeEventListener("resize", resizeShader);
       };
     }
 
@@ -136,6 +145,17 @@ export function CanvasBackground() {
     let lastScrollY = window.scrollY;
     let scrollVel = 0;
     const green = "#46583c";
+
+    // Throttled mouse handler
+    let mouseTick = false;
+    const onPMove = (e: MouseEvent) => {
+      if (mouseTick) return;
+      mouseTick = true;
+      requestAnimationFrame(() => {
+        pMouse = { x: e.clientX, y: e.clientY };
+        mouseTick = false;
+      });
+    };
 
     class Particle {
       x = 0;
@@ -181,16 +201,16 @@ export function CanvasBackground() {
       }
     }
 
+    // Fewer particles on mobile for perf
+    const COUNT = window.innerWidth < 768 ? 60 : 120;
     let particles: Particle[] = [];
+
     function initP() {
       pCanvas.width = window.innerWidth;
       pCanvas.height = window.innerHeight;
-      particles = Array.from({ length: 150 }, () => new Particle());
+      particles = Array.from({ length: COUNT }, () => new Particle());
     }
 
-    const onPMove = (e: MouseEvent) => {
-      pMouse = { x: e.clientX, y: e.clientY };
-    };
     window.addEventListener("mousemove", onPMove);
 
     let pRaf: number;

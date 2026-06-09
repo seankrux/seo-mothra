@@ -8,23 +8,37 @@ export function SiteFooter() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-[#46583c]/10 rounded-lg flex items-center justify-center">
-                <span className="material-symbols-outlined text-[#46583c] text-sm" aria-hidden="true">flutter_dash</span>
+                <span
+                  className="material-symbols-outlined text-[#46583c] text-sm"
+                  aria-hidden="true"
+                >
+                  flutter_dash
+                </span>
               </div>
               <span className="text-lg font-bold text-[#1a1c1c]">
                 SEO{" "}
-                <span className="text-[#46583c]" style={{ fontFamily: "'Libre Caslon Text', serif", fontStyle: "italic" }}>
+                <span
+                  className="text-[#46583c]"
+                  style={{
+                    fontFamily: "'Libre Caslon Text', serif",
+                    fontStyle: "italic",
+                  }}
+                >
                   Mothra
                 </span>
               </span>
             </div>
-            <p className="text-sm text-[#444840]/60 max-w-xs leading-relaxed">
-              Premium SEO, CRO &amp; AEO for brands that want to rank, convert, and dominate their niche.
+            <p className="text-sm text-[#444840] max-w-xs leading-relaxed">
+              Premium SEO, CRO &amp; AEO for brands that want to rank, convert,
+              and dominate their niche.
             </p>
           </div>
 
           {/* Links */}
           <nav aria-label="Footer navigation">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#444840]/40 mb-4">Navigation</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-[#444840]/70 mb-4">
+              Navigation
+            </p>
             <ul className="space-y-2">
               {[
                 { href: "/services", label: "Services" },
@@ -33,7 +47,10 @@ export function SiteFooter() {
                 { href: "/contact", label: "Contact" },
               ].map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-sm text-[#444840]/70 hover:text-[#46583c] transition-colors">
+                  <a
+                    href={link.href}
+                    className="text-sm text-[#444840]/85 hover:text-[#46583c] transition-colors"
+                  >
                     {link.label}
                   </a>
                 </li>
@@ -43,10 +60,12 @@ export function SiteFooter() {
 
           {/* Contact */}
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-[#444840]/40 mb-4">Contact</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-[#444840]/70 mb-4">
+              Contact
+            </p>
             <a
               href="mailto:hello@seomothra.com"
-              className="text-sm text-[#444840]/70 hover:text-[#46583c] transition-colors"
+              className="text-sm text-[#444840]/85 hover:text-[#46583c] transition-colors"
             >
               hello@seomothra.com
             </a>
@@ -54,23 +73,27 @@ export function SiteFooter() {
         </div>
 
         <div className="border-t border-[rgba(26,28,28,0.08)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[#444840]/50 text-sm">
+          <p className="text-[#444840]/70 text-sm">
             &copy; {year} SEO Mothra Agency. All rights reserved.
           </p>
-          <div className="flex gap-6 text-[#444840]/50">
+          <div className="flex gap-6 text-[#444840]/70">
             <a
               href="mailto:hello@seomothra.com"
               className="hover:text-[#46583c] transition-colors"
               aria-label="Email SEO Mothra"
             >
-              <span className="material-symbols-outlined" aria-hidden="true">alternate_email</span>
+              <span className="material-symbols-outlined" aria-hidden="true">
+                alternate_email
+              </span>
             </a>
             <a
               href="https://www.seomothra.com"
               className="hover:text-[#46583c] transition-colors"
               aria-label="SEO Mothra website"
             >
-              <span className="material-symbols-outlined" aria-hidden="true">public</span>
+              <span className="material-symbols-outlined" aria-hidden="true">
+                public
+              </span>
             </a>
           </div>
         </div>

@@ -1,27 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
-  <!-- Background -->
-  <rect width="180" height="180" fill="#11110f" rx="30"/>
-
-  <!-- Gradient defs -->
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#d8e2c7;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e6ebd9;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-
-  <!-- Border -->
-  <rect x="8" y="8" width="164" height="164" rx="24" fill="none" stroke="url(#grad)" stroke-width="3" opacity="0.6"/>
-
-  <!-- Premium star symbol -->
-  <g transform="translate(90, 90)">
-    <!-- Central diamond -->
-    <polygon points="0,-28 28,0 0,28 -28,0" fill="url(#grad)" opacity="0.9"/>
-
-    <!-- Corner stars -->
-    <circle cx="20" cy="-20" r="6" fill="url(#grad)" opacity="0.7"/>
-    <circle cx="20" cy="20" r="6" fill="url(#grad)" opacity="0.7"/>
-    <circle cx="-20" cy="20" r="6" fill="url(#grad)" opacity="0.7"/>
-    <circle cx="-20" cy="-20" r="6" fill="url(#grad)" opacity="0.7"/>
-  </g>
+  <rect width="180" height="180" rx="36" fill="#46583c"/>
+  <!-- M / moth wings -->
+  <path d="M32 130 L32 52 L67 100 L90 52 L113 100 L148 52 L148 130" fill="none" stroke="#bcf540" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- antenna dots -->
+  <circle cx="67" cy="42" r="7" fill="#bcf540" opacity="0.8"/>
+  <circle cx="113" cy="42" r="7" fill="#bcf540" opacity="0.8"/>
 </svg>

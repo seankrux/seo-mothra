@@ -1,18 +1,18 @@
 {
-  "name": "SEO Mothra | Premium SEO Website System",
+  "name": "SEO Mothra | Premium SEO Agency",
   "short_name": "SEO Mothra",
-  "description": "Premium SEO, CRO, AEO optimization and Sanity CMS platform for agencies and scaling brands.",
+  "description": "Premium SEO, CRO, AEO optimization for scaling brands and agencies.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#11110f",
-  "theme_color": "#11110f",
+  "background_color": "#46583c",
+  "theme_color": "#46583c",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/favicon.ico",
+      "src": "/favicon-32x32.png",
       "sizes": "32x32",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
       "src": "/apple-touch-icon.png",
@@ -27,14 +27,6 @@
       "purpose": "maskable"
     }
   ],
-  "screenshots": [
-    {
-      "src": "/og-image.png",
-      "sizes": "1200x630",
-      "type": "image/png",
-      "form_factor": "wide"
-    }
-  ],
   "categories": [
     "business",
     "productivity"
@@ -43,7 +35,7 @@
     "SEO",
     "CRO",
     "AEO",
-    "Sanity CMS",
-    "premium web design"
+    "content strategy",
+    "technical SEO"
   ]
 }
