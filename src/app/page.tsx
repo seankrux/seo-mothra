@@ -245,7 +245,7 @@ export default async function HomePage() {
                   <div className="text-4xl md:text-5xl font-bold text-[#46583c]">
                     {s.value}
                   </div>
-                  <div className="mt-2 text-sm text-[#444840]/70">
+                  <div className="mt-2 text-sm text-[#444840]">
                     {s.label}
                   </div>
                 </div>
@@ -274,7 +274,7 @@ export default async function HomePage() {
                 Everything you need to{" "}
                 <span className="text-[#46583c]/70">rule the search page.</span>
               </h3>
-              <p className="text-[#444840]/70 text-lg">
+              <p className="text-[#444840] text-lg">
                 We don&apos;t just optimize, we transform. Our holistic approach
                 ensures your brand resonates long after the click.
               </p>
@@ -296,7 +296,7 @@ export default async function HomePage() {
                     </span>
                   </div>
                   <h4 className="text-2xl font-bold mb-4">{svc.title}</h4>
-                  <p className="text-[#444840]/70 leading-relaxed mb-8 flex-grow">
+                  <p className="text-[#444840] leading-relaxed mb-8 flex-grow">
                     {svc.desc}
                   </p>
                   <a
@@ -365,7 +365,7 @@ export default async function HomePage() {
                   <h3 className="mt-4 text-xl font-bold text-[#1a1c1c]">
                     {p.title}
                   </h3>
-                  <p className="mt-2 text-sm text-[#444840]/70">{p.desc}</p>
+                  <p className="mt-2 text-sm text-[#444840]">{p.desc}</p>
                 </div>
               ))}
             </div>
@@ -381,7 +381,7 @@ export default async function HomePage() {
                   <h2 className="text-4xl font-bold text-[#1a1c1c] mb-6">
                     Ready to flutter to the top of the SERPs?
                   </h2>
-                  <p className="text-[#444840]/70 text-lg mb-8">
+                  <p className="text-[#444840] text-lg mb-8">
                     Join the elite brands that have transformed their organic
                     reach with SEO Mothra&apos;s expert touch.
                   </p>
@@ -411,7 +411,7 @@ export default async function HomePage() {
                         <p className="font-bold text-[#1a1c1c]">
                           James Arrington
                         </p>
-                        <p className="text-xs text-[#444840]/50 uppercase tracking-widest font-bold">
+                        <p className="text-xs text-[#6b6e68] uppercase tracking-widest font-bold">
                           CEO, TechFlow
                         </p>
                       </div>
@@ -470,7 +470,7 @@ export default async function HomePage() {
                   </p>
                   <div className="border-t border-[rgba(26,28,28,0.08)] pt-4">
                     <p className="font-semibold text-[#1a1c1c]">{t.author}</p>
-                    <p className="text-sm text-[#444840]/60">{t.role}</p>
+                    <p className="text-sm text-[#5e6159]">{t.role}</p>
                   </div>
                 </div>
               ))}

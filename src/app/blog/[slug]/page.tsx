@@ -109,9 +109,9 @@ export default async function BlogPostPage({
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#46583c]/10 text-[#46583c] text-xs font-bold border border-[#46583c]/20">
                 {article.category}
               </span>
-              <span className="text-sm text-[#444840]/50">{article.date}</span>
-              <span className="text-sm text-[#444840]/50">·</span>
-              <span className="text-sm text-[#444840]/50">
+              <span className="text-sm text-[#6b6e68]">{article.date}</span>
+              <span className="text-sm text-[#6b6e68]">·</span>
+              <span className="text-sm text-[#6b6e68]">
                 {article.readTime}
               </span>
             </div>
@@ -120,7 +120,7 @@ export default async function BlogPostPage({
               {article.title}
             </h1>
 
-            <p className="text-xl text-[#444840]/70 leading-relaxed border-l-4 border-[#46583c]/30 pl-6">
+            <p className="text-xl text-[#444840] leading-relaxed border-l-4 border-[#46583c]/30 pl-6">
               {article.excerpt}
             </p>
           </header>
@@ -132,15 +132,15 @@ export default async function BlogPostPage({
                 <span className="material-symbols-outlined text-[#46583c]">
                   edit_note
                 </span>
-                <span className="text-sm font-semibold text-[#444840]/60 uppercase tracking-widest">
+                <span className="text-sm font-semibold text-[#5e6159] uppercase tracking-widest">
                   Full Article
                 </span>
               </div>
-              <p className="text-[#444840]/70 leading-relaxed mb-4">
+              <p className="text-[#444840] leading-relaxed mb-4">
                 This article is managed via Sanity CMS. Connect your Sanity
                 project to populate full content here.
               </p>
-              <p className="text-[#444840]/70 leading-relaxed">
+              <p className="text-[#444840] leading-relaxed">
                 {article.excerpt} In this guide, we&apos;ll walk through
                 everything you need to know about{" "}
                 {article.category.toLowerCase()}, with practical examples and
@@ -163,7 +163,7 @@ export default async function BlogPostPage({
                   <span className="material-symbols-outlined text-[#46583c] text-sm mt-0.5">
                     check_circle
                   </span>
-                  <span className="text-[#444840]/80 text-sm">{point}</span>
+                  <span className="text-[#444840] text-sm">{point}</span>
                 </div>
               ))}
             </div>

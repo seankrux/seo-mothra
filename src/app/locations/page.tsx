@@ -57,7 +57,7 @@ export default function LocationsPage() {
                   beyond.
                 </em>
               </h1>
-              <p className="max-w-2xl text-lg text-[#444840]/70 leading-relaxed">
+              <p className="max-w-2xl text-lg text-[#444840] leading-relaxed">
                 Whether you&apos;re a local service brand or a scaling agency,
                 we bring the same premium SEO strategy to every market.
               </p>
@@ -88,7 +88,7 @@ export default function LocationsPage() {
                   <p className="text-sm font-semibold text-[#46583c] mb-4 uppercase tracking-widest">
                     {loc.state}
                   </p>
-                  <p className="text-[#444840]/70 leading-relaxed mb-6">
+                  <p className="text-[#444840] leading-relaxed mb-6">
                     {loc.description}
                   </p>
 
@@ -99,7 +99,7 @@ export default function LocationsPage() {
                         className="flex items-center gap-2 text-sm"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-[#46583c] flex-shrink-0" />
-                        <span className="text-[#444840]/70">{spec}</span>
+                        <span className="text-[#444840]">{spec}</span>
                       </div>
                     ))}
                   </div>
@@ -126,7 +126,7 @@ export default function LocationsPage() {
               <h2 className="text-4xl font-bold text-[#1a1c1c] mb-4">
                 Not in Texas?
               </h2>
-              <p className="text-[#444840]/70 text-lg mb-10 max-w-xl mx-auto">
+              <p className="text-[#444840] text-lg mb-10 max-w-xl mx-auto">
                 We work with brands nationwide and internationally. Location is
                 never a barrier to great SEO.
               </p>

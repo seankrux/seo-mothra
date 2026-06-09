@@ -38,7 +38,7 @@ export default function ContactPage() {
                   Clear review. Clear next step.
                 </span>
               </h1>
-              <p className="max-w-2xl text-lg text-[#444840]/70 leading-relaxed">
+              <p className="max-w-2xl text-lg text-[#444840] leading-relaxed">
                 Send a project summary and we&apos;ll reply with the likely bottlenecks, the most
                 useful starting point, and a realistic scope.
               </p>
@@ -60,7 +60,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-[#1a1c1c]">{c.title}</h3>
-                    <p className="mt-1 text-sm text-[#444840]/70">{c.value}</p>
+                    <p className="mt-1 text-sm text-[#444840]">{c.value}</p>
                   </div>
                 </div>
               ))}
@@ -74,7 +74,7 @@ export default function ContactPage() {
             <div className="grid gap-12 lg:grid-cols-2 items-start">
               <div className="reveal">
                 <h2 className="text-3xl md:text-4xl font-bold text-[#1a1c1c] mb-4">Get in Touch</h2>
-                <p className="text-[#444840]/70 mb-10">
+                <p className="text-[#444840] mb-10">
                   Fill out the form and we&apos;ll reach out within 24 hours to schedule your free strategy call.
                 </p>
                 <div className="bg-[#46583c]/5 border border-[#46583c]/10 rounded-2xl p-8">
@@ -87,7 +87,7 @@ export default function ContactPage() {
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-3 py-2">
                       <span className="material-symbols-outlined text-[#46583c] text-sm" aria-hidden="true">check_circle</span>
-                      <span className="text-sm text-[#444840]/80">{item}</span>
+                      <span className="text-sm text-[#444840]">{item}</span>
                     </div>
                   ))}
                 </div>

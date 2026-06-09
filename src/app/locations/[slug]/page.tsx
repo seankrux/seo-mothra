@@ -92,7 +92,7 @@ export default async function LocationPage({
                 </em>
               </h1>
 
-              <p className="max-w-2xl text-lg text-[#444840]/70 mb-12">
+              <p className="max-w-2xl text-lg text-[#444840] mb-12">
                 {loc.description}
               </p>
             </div>

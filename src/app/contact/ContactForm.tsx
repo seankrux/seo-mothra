@@ -37,7 +37,7 @@ export function ContactForm() {
           <span className="material-symbols-outlined text-[#46583c] text-3xl">check_circle</span>
         </div>
         <h3 className="text-2xl font-bold text-[#1a1c1c] mb-2">Message Sent!</h3>
-        <p className="text-[#444840]/70">We&apos;ll be in touch within 24 hours.</p>
+        <p className="text-[#444840]">We&apos;ll be in touch within 24 hours.</p>
       </div>
     );
   }
@@ -113,7 +113,7 @@ export function ContactForm() {
       >
         {loading ? "Sending…" : "Schedule Your Free Call"}
       </button>
-      <p className="text-xs text-[#444840]/50 text-center">
+      <p className="text-xs text-[#6b6e68] text-center">
         We&apos;ll reply within 24 hours to confirm your call time.
       </p>
     </form>

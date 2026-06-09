@@ -91,7 +91,7 @@ export default async function BlogPage() {
                   Less theory. More page-level clarity.
                 </span>
               </h1>
-              <p className="max-w-2xl text-lg text-[#444840]/70 leading-relaxed">
+              <p className="max-w-2xl text-lg text-[#444840] leading-relaxed">
                 Short, useful breakdowns on what actually improves search
                 visibility, lead quality, and page performance.
               </p>
@@ -127,7 +127,7 @@ export default async function BlogPage() {
                     <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#46583c]/10 text-[#46583c] text-xs font-bold border border-[#46583c]/20">
                       {article.category}
                     </span>
-                    <span className="text-xs text-[#444840]/50">
+                    <span className="text-xs text-[#6b6e68]">
                       {article.publishedAt
                         ? formatDate(article.publishedAt)
                         : ""}
@@ -137,12 +137,12 @@ export default async function BlogPage() {
                   <h3 className="text-xl font-bold text-[#1a1c1c] group-hover:text-[#46583c] transition-colors flex-grow mb-4">
                     {article.title}
                   </h3>
-                  <p className="text-[#444840]/70 leading-relaxed text-sm">
+                  <p className="text-[#444840] leading-relaxed text-sm">
                     {article.excerpt}
                   </p>
 
                   <div className="mt-6 pt-6 border-t border-[rgba(26,28,28,0.08)] flex items-center justify-between">
-                    <span className="text-xs font-semibold text-[#444840]/50">
+                    <span className="text-xs font-semibold text-[#6b6e68]">
                       {article.readTime}
                     </span>
                     <a
@@ -171,7 +171,7 @@ export default async function BlogPage() {
               <h2 className="text-4xl md:text-5xl font-bold text-[#1a1c1c] mb-4">
                 Get Premium Insights Weekly
               </h2>
-              <p className="text-[#444840]/70 text-lg mb-10 max-w-2xl mx-auto">
+              <p className="text-[#444840] text-lg mb-10 max-w-2xl mx-auto">
                 Subscribe for in-depth guides, case studies, and exclusive
                 strategies delivered to your inbox.
               </p>
@@ -195,7 +195,7 @@ export default async function BlogPage() {
                   Subscribe
                 </button>
               </form>
-              <p className="mt-4 text-xs text-[#444840]/50">
+              <p className="mt-4 text-xs text-[#6b6e68]">
                 No spam. Unsubscribe anytime.
               </p>
             </div>

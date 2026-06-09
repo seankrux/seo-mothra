@@ -166,7 +166,7 @@ export default async function ServicesPage() {
                   Built to remove friction, not add noise.
                 </span>
               </h1>
-              <p className="max-w-2xl text-lg text-[#444840]/70 leading-relaxed">
+              <p className="max-w-2xl text-lg text-[#444840] leading-relaxed">
                 Each service targets one bottleneck: positioning, traffic
                 quality, conversion friction, or search visibility.
               </p>
@@ -198,7 +198,7 @@ export default async function ServicesPage() {
                   <h3 className="text-2xl font-bold text-[#1a1c1c] mb-4">
                     {svc.title}
                   </h3>
-                  <p className="text-[#444840]/70 leading-relaxed flex-grow">
+                  <p className="text-[#444840] leading-relaxed flex-grow">
                     {svc.desc}
                   </p>
 
@@ -206,7 +206,7 @@ export default async function ServicesPage() {
                     {svc.features.map((f) => (
                       <div key={f} className="flex items-center gap-2 text-sm">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#46583c] flex-shrink-0" />
-                        <span className="text-[#444840]/70">{f}</span>
+                        <span className="text-[#444840]">{f}</span>
                       </div>
                     ))}
                   </div>
@@ -273,7 +273,7 @@ export default async function ServicesPage() {
                   <h3 className="mt-4 text-xl font-bold text-[#1a1c1c]">
                     {p.title}
                   </h3>
-                  <p className="mt-2 text-sm text-[#444840]/70">{p.desc}</p>
+                  <p className="mt-2 text-sm text-[#444840]">{p.desc}</p>
                 </div>
               ))}
             </div>
