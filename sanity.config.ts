@@ -1,6 +1,8 @@
 import { schemaTypes } from "./sanity/schemas";
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "TODO_PROJECT_ID";
+// Falls back to the real SEO Mothra project id so the embedded /studio works
+// even if NEXT_PUBLIC_SANITY_PROJECT_ID is missing from the environment.
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "wj6g4kk6";
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production";
 
 const config = {

@@ -10,3 +10,7 @@ npm-debug.log*
 .vercel
 .vercel/output
 *.tsbuildinfo
+
+# local delivery artifacts (not source)
+*.zip
+DELIVERY_SUMMARY.txt
