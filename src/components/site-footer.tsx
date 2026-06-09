@@ -36,7 +36,7 @@ export function SiteFooter() {
 
           {/* Links */}
           <nav aria-label="Footer navigation">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#444840]/70 mb-4">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#46583c] mb-4">
               Navigation
             </p>
             <ul className="space-y-2">
@@ -49,7 +49,7 @@ export function SiteFooter() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-[#444840]/85 hover:text-[#46583c] transition-colors"
+                    className="text-sm text-[#444840] hover:text-[#46583c] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -60,12 +60,12 @@ export function SiteFooter() {
 
           {/* Contact */}
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-[#444840]/70 mb-4">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#46583c] mb-4">
               Contact
             </p>
             <a
               href="mailto:hello@seomothra.com"
-              className="text-sm text-[#444840]/85 hover:text-[#46583c] transition-colors"
+              className="text-sm text-[#444840] hover:text-[#46583c] transition-colors"
             >
               hello@seomothra.com
             </a>
@@ -73,10 +73,10 @@ export function SiteFooter() {
         </div>
 
         <div className="border-t border-[rgba(26,28,28,0.08)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[#444840]/70 text-sm">
+          <p className="text-[#444840] text-sm">
             &copy; {year} SEO Mothra Agency. All rights reserved.
           </p>
-          <div className="flex gap-6 text-[#444840]/70">
+          <div className="flex gap-6 text-[#444840]">
             <a
               href="mailto:hello@seomothra.com"
               className="hover:text-[#46583c] transition-colors"
