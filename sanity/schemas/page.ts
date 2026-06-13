@@ -86,4 +86,20 @@ export const page = {
     { name: "canonicalUrl", title: "Canonical URL", type: "url", group: "seo" },
     { name: "noIndex", title: "No Index", type: "boolean", group: "seo", initialValue: false },
   ],
+  preview: {
+    select: {
+      title: "title",
+      slug: "slug.current",
+      media: "mainImage",
+      noIndex: "noIndex",
+    },
+    prepare({ title, slug, media, noIndex }: { title?: string; slug?: string; media?: unknown; noIndex?: boolean }) {
+      const path = slug === "home" ? "/" : `/${slug || "missing-slug"}`;
+      return {
+        title: title || "Untitled Page",
+        subtitle: `${noIndex ? "Noindex • " : ""}${path}`,
+        media,
+      };
+    },
+  },
 };
