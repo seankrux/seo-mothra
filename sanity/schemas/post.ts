@@ -2,29 +2,32 @@ export const post = {
   name: "post",
   title: "Blog Post",
   type: "document",
+  groups: [
+    { name: "content", title: "Content", default: true },
+    { name: "seo", title: "SEO" },
+  ],
   fields: [
     {
       name: "title",
       title: "Title",
       type: "string",
+      group: "content",
       validation: (Rule: { required: () => unknown }) => Rule.required(),
     },
     {
       name: "slug",
       title: "Slug",
       type: "slug",
+      group: "content",
       options: { source: "title" },
       validation: (Rule: { required: () => unknown }) => Rule.required(),
     },
-    {
-      name: "publishedAt",
-      title: "Published At",
-      type: "datetime",
-    },
+    { name: "publishedAt", title: "Published At", type: "datetime", group: "content" },
     {
       name: "category",
       title: "Category",
       type: "string",
+      group: "content",
       options: {
         list: [
           { title: "SEO Strategy", value: "SEO Strategy" },
@@ -36,21 +39,13 @@ export const post = {
         ],
       },
     },
-    {
-      name: "readTime",
-      title: "Read Time",
-      type: "string",
-    },
-    {
-      name: "excerpt",
-      title: "Excerpt",
-      type: "text",
-      rows: 3,
-    },
+    { name: "readTime", title: "Read Time", type: "string", group: "content" },
+    { name: "excerpt", title: "Excerpt", type: "text", rows: 3, group: "content" },
     {
       name: "mainImage",
       title: "Main Image",
       type: "image",
+      group: "content",
       options: { hotspot: true },
       fields: [{ name: "alt", title: "Alt Text", type: "string" }],
     },
@@ -58,6 +53,7 @@ export const post = {
       name: "content",
       title: "Content",
       type: "array",
+      group: "content",
       of: [
         { type: "block" },
         {
@@ -97,20 +93,13 @@ export const post = {
         },
       ],
     },
-    { name: "tags", title: "Tags", type: "array", of: [{ type: "string" }] },
-    { name: "featured", title: "Featured Post", type: "boolean", initialValue: false },
+    { name: "tags", title: "Tags", type: "array", of: [{ type: "string" }], group: "content" },
+    { name: "featured", title: "Featured Post", type: "boolean", initialValue: false, group: "content" },
     { name: "seoTitle", title: "SEO Title", type: "string", group: "seo" },
-    {
-      name: "seoDescription",
-      title: "SEO Description",
-      type: "text",
-      rows: 3,
-      group: "seo",
-    },
+    { name: "seoDescription", title: "SEO Description", type: "text", rows: 3, group: "seo" },
     { name: "canonicalUrl", title: "Canonical URL", type: "url", group: "seo" },
     { name: "noIndex", title: "No Index", type: "boolean", group: "seo", initialValue: false },
   ],
-  groups: [{ name: "seo", title: "SEO" }],
   orderings: [
     {
       title: "Published Date, New",
@@ -118,4 +107,20 @@ export const post = {
       by: [{ field: "publishedAt", direction: "desc" }],
     },
   ],
+  preview: {
+    select: {
+      title: "title",
+      slug: "slug.current",
+      category: "category",
+      media: "mainImage",
+      noIndex: "noIndex",
+    },
+    prepare({ title, slug, category, media, noIndex }: { title?: string; slug?: string; category?: string; media?: unknown; noIndex?: boolean }) {
+      return {
+        title: title || "Untitled Post",
+        subtitle: `${noIndex ? "Noindex • " : ""}/blog/${slug || "missing-slug"}${category ? ` • ${category}` : ""}`,
+        media,
+      };
+    },
+  },
 };
