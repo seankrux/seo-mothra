@@ -8,22 +8,23 @@ www.seomothra.com
 - Conversion pages are aligned to a single CTA hierarchy with cleaner proof and less decorative noise.
 - The visual system favors restrained, editorial surfaces over gradient-heavy “premium” styling.
 
-## CMS login
+## Sanity CMS
 
-The repo currently has Sanity schema/config scaffolding, but it does not yet include a full embedded Studio app route. To log into the CMS, use Sanity Manage for the project and then open the Studio for that project.
+The repo uses an embedded Sanity Studio route at `/studio` and Sanity-backed frontend routes for posts, pages, services, testimonials, and site settings.
 
-1. Make sure these env vars are set in your local `.env.local` or deployment environment:
-   - `NEXT_PUBLIC_SANITY_PROJECT_ID`
-   - `NEXT_PUBLIC_SANITY_DATASET` (usually `production`)
-2. Sign in to Sanity Manage with the Sanity account that owns or has access to the project.
-3. Open the Studio for that project from Sanity Manage, or your project’s Studio URL if it has already been deployed.
-4. Log in with the same Sanity account when prompted.
+Required environment variables:
 
-If you do not yet have access to the Sanity project, the project owner needs to add your Sanity user email in Sanity Manage.
+- `NEXT_PUBLIC_SANITY_PROJECT_ID`
+- `NEXT_PUBLIC_SANITY_DATASET`
+- `SANITY_API_READ_TOKEN` for private dataset reads when needed
+- `SANITY_API_WRITE_TOKEN` for admin scripts or server-side content management
 
-## Notes
+## Sanity Agent Skills
 
-- The schemas currently live in `sanity/schemas`.
-- `sanity.config.ts` reads the project ID and dataset from environment variables.
-- The homepage and metadata are already wired for SEO, CRO, and AEO.
-- GitHub Actions run typecheck and build in `.github/workflows/ci.yml`.
+Official install command:
+
+```bash
+npx skills add sanity-io/agent-toolkit
+```
+
+The toolkit includes Sanity best practices, content modeling best practices, SEO/AEO best practices, and content experimentation best practices. Use these rules before changing Sanity schemas, GROQ queries, Portable Text rendering, image rendering, Studio structure, TypeGen, migrations, SEO metadata, structured data, or experimentation workflows.
