@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { getServices } from "@/lib/sanity";
+import { getServices, type SanityService } from "@/lib/sanity";
 import { siteConfig } from "@/lib/site";
 
 export const revalidate = 60;
@@ -96,29 +96,23 @@ type ServiceItem = {
   features: string[];
 };
 
+function normalizeService(service: SanityService): ServiceItem {
+  return {
+    title: service.title,
+    slug: service.slug,
+    icon: service.icon || "settings",
+    desc: service.description || service.seoDescription || "SEO Mothra service.",
+    features: service.features ?? [],
+  };
+}
+
 export default async function ServicesPage() {
-  let liveServices = null;
+  let liveServices: ServiceItem[] = [];
   try {
-    liveServices = await getServices();
+    liveServices = (await getServices()).map(normalizeService);
   } catch {}
 
-  const displayServices: ServiceItem[] = liveServices?.length
-    ? liveServices.map(
-        (s: {
-          title: string;
-          slug: string;
-          icon: string;
-          description: string;
-          features: string[];
-        }) => ({
-          title: s.title,
-          slug: s.slug,
-          icon: s.icon,
-          desc: s.description,
-          features: s.features ?? [],
-        }),
-      )
-    : services;
+  const displayServices: ServiceItem[] = liveServices.length ? liveServices : services;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -143,7 +137,6 @@ export default async function ServicesPage() {
       <SiteHeader />
 
       <main id="main-content" className="min-h-screen pt-28">
-        {/* Hero */}
         <section className="relative overflow-hidden py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="stagger-reveal active">
@@ -174,7 +167,6 @@ export default async function ServicesPage() {
           </div>
         </section>
 
-        {/* Services Grid */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -186,7 +178,7 @@ export default async function ServicesPage() {
                 >
                   <div className="flex items-start justify-between mb-6">
                     <div className="w-14 h-14 bg-white rounded-full shadow-sm flex items-center justify-center group-hover:scale-110 transition-all duration-500">
-                      <span className="material-symbols-outlined text-[#46583c] text-2xl">
+                      <span className="material-symbols-outlined text-[#46583c] text-2xl" aria-hidden="true">
                         {svc.icon}
                       </span>
                     </div>
@@ -212,11 +204,11 @@ export default async function ServicesPage() {
                   </div>
 
                   <a
-                    href="/contact"
+                    href={`/services/${svc.slug}`}
                     className="mt-8 inline-flex items-center text-[#46583c] font-bold gap-2 group-hover:gap-4 transition-all"
                   >
-                    Get started{" "}
-                    <span className="material-symbols-outlined text-sm">
+                    Learn more{" "}
+                    <span className="material-symbols-outlined text-sm" aria-hidden="true">
                       arrow_forward
                     </span>
                   </a>
@@ -226,7 +218,6 @@ export default async function ServicesPage() {
           </div>
         </section>
 
-        {/* Process */}
         <section
           id="process"
           className="py-24 border-t border-[rgba(26,28,28,0.08)]"
@@ -280,7 +271,6 @@ export default async function ServicesPage() {
           </div>
         </section>
 
-        {/* CTA */}
         <section className="py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="relative overflow-hidden rounded-3xl bg-[#46583c] py-20 text-center text-white">
