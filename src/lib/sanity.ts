@@ -26,6 +26,7 @@ export async function getPosts() {
 export async function getPost(slug: string) {
   return sanityClient.fetch(
     `*[_type == "post" && slug.current == $slug][0] {
+      _id,
       title,
       "slug": slug.current,
       category,
@@ -34,7 +35,11 @@ export async function getPost(slug: string) {
       publishedAt,
       content,
       seoTitle,
-      seoDescription
+      seoDescription,
+      mainImage,
+      canonicalUrl,
+      featured,
+      tags
     }`,
     { slug },
   );
