@@ -6,7 +6,7 @@ export const OpenLiveUrlAction: DocumentActionComponent = (props) => {
   const slug = document?.slug as { current?: string } | undefined;
   const url = getLiveUrl(props.type, slug?.current);
 
-  if (!["page", "post", "service"].includes(props.type)) return null;
+  if (!["home", "page", "post", "service"].includes(props.type)) return null;
 
   return {
     label: "Open Live Page",
