@@ -74,8 +74,31 @@ export const post = {
             { name: "code", title: "Code", type: "text" },
           ],
         },
+        {
+          name: "callout",
+          title: "Callout",
+          type: "object",
+          fields: [
+            {
+              name: "type",
+              title: "Type",
+              type: "string",
+              options: {
+                list: [
+                  { title: "Tip", value: "tip" },
+                  { title: "Warning", value: "warning" },
+                  { title: "Info", value: "info" },
+                ],
+              },
+              initialValue: "info",
+            },
+            { name: "text", title: "Text", type: "text", rows: 3 },
+          ],
+        },
       ],
     },
+    { name: "tags", title: "Tags", type: "array", of: [{ type: "string" }] },
+    { name: "featured", title: "Featured Post", type: "boolean", initialValue: false },
     { name: "seoTitle", title: "SEO Title", type: "string", group: "seo" },
     {
       name: "seoDescription",
@@ -84,6 +107,8 @@ export const post = {
       rows: 3,
       group: "seo",
     },
+    { name: "canonicalUrl", title: "Canonical URL", type: "url", group: "seo" },
+    { name: "noIndex", title: "No Index", type: "boolean", group: "seo", initialValue: false },
   ],
   groups: [{ name: "seo", title: "SEO" }],
   orderings: [
