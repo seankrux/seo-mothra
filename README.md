@@ -1,6 +1,6 @@
 # SEO Mothra
 
-SEO Mothra is a separate project from SolarX.
+www.seomothra.com
 
 ## Frontend direction
 
