@@ -74,6 +74,8 @@ export type SanityService = {
   content?: unknown[];
   seoTitle?: string;
   seoDescription?: string;
+  canonicalUrl?: string;
+  noIndex?: boolean;
 };
 
 export async function getPosts(): Promise<SanityPost[]> {
@@ -170,7 +172,9 @@ export async function getServices(): Promise<SanityService[]> {
       features,
       content ${portableTextProjection},
       seoTitle,
-      seoDescription
+      seoDescription,
+      canonicalUrl,
+      noIndex
     }`,
     {},
     { next: { revalidate: 60, tags: ["service"] } },
@@ -188,7 +192,9 @@ export async function getService(slug: string): Promise<SanityService | null> {
       features,
       content ${portableTextProjection},
       seoTitle,
-      seoDescription
+      seoDescription,
+      canonicalUrl,
+      noIndex
     }`,
     { slug },
     { next: { revalidate: 60, tags: ["service"] } },
