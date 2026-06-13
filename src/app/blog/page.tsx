@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { articles } from "@/lib/content";
-import { getPosts } from "@/lib/sanity";
+import { getPosts, type SanityPost } from "@/lib/sanity";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -14,41 +14,65 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
-type Post = {
+type BlogCard = {
   title: string;
   slug: string;
   category: string;
   readTime: string;
   excerpt: string;
   publishedAt: string;
+  seoTitle?: string;
+  seoDescription?: string;
 };
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-US", {
+function normalizePost(post: SanityPost): BlogCard {
+  return {
+    title: post.title,
+    slug: post.slug,
+    category: post.category || "SEO Strategy",
+    readTime: post.readTime || "5 min read",
+    excerpt: post.excerpt || post.seoDescription || "Read the latest SEO Mothra insight.",
+    publishedAt: post.publishedAt || new Date().toISOString(),
+    seoTitle: post.seoTitle,
+    seoDescription: post.seoDescription,
+  };
+}
+
+function normalizeStaticPost(article: (typeof articles)[number]): BlogCard {
+  return {
+    title: article.title,
+    slug: article.slug,
+    category: article.category,
+    readTime: article.readTime,
+    excerpt: article.excerpt,
+    publishedAt: article.date,
+  };
+}
+
+function formatDate(value: string) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleDateString("en-US", {
     month: "long",
     year: "numeric",
   });
 }
 
 export default async function BlogPage() {
-  let posts: Post[] = [];
+  let posts: BlogCard[] = [];
   try {
-    posts = await getPosts();
+    posts = (await getPosts()).map(normalizePost);
   } catch {
-    posts = articles.map((a) => ({ ...a, publishedAt: a.date }));
+    posts = articles.map(normalizeStaticPost);
   }
 
-  const displayPosts =
-    posts.length > 0
-      ? posts
-      : articles.map((a) => ({ ...a, publishedAt: a.date }));
+  const displayPosts = posts.length ? posts : articles.map(normalizeStaticPost);
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Blog",
-    description:
-      "In-depth SEO, AEO & CRO guides for agencies and scaling brands.",
+    description: "In-depth SEO, AEO & CRO guides for agencies and scaling brands.",
     url: `${siteConfig.url}/blog`,
     mainEntity: displayPosts.map((a) => ({
       "@type": "BlogPosting",
@@ -68,7 +92,6 @@ export default async function BlogPage() {
       <SiteHeader />
 
       <main id="main-content" className="min-h-screen pt-28">
-        {/* Hero */}
         <section className="relative overflow-hidden py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="stagger-reveal active">
@@ -113,7 +136,6 @@ export default async function BlogPage() {
           </div>
         </section>
 
-        {/* Articles */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -128,9 +150,7 @@ export default async function BlogPage() {
                       {article.category}
                     </span>
                     <span className="text-xs text-[#6b6e68]">
-                      {article.publishedAt
-                        ? formatDate(article.publishedAt)
-                        : ""}
+                      {article.publishedAt ? formatDate(article.publishedAt) : ""}
                     </span>
                   </div>
 
@@ -164,7 +184,6 @@ export default async function BlogPage() {
           </div>
         </section>
 
-        {/* Newsletter */}
         <section className="py-24">
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="reveal bg-[#46583c]/5 backdrop-blur-md rounded-[3rem] p-12 border border-[#46583c]/10 text-center">
