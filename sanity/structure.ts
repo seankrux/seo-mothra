@@ -1,12 +1,16 @@
 import type { StructureResolver } from "sanity/structure";
 
-const singletonTypes = new Set(["siteSettings"]);
+const singletonTypes = new Set(["siteSettings", "home"]);
 const mainTypes = new Set(["page", "post", "service", "testimonial"]);
 
 export const structure: StructureResolver = (S) =>
   S.list()
     .title("SEO Mothra CMS")
     .items([
+      S.listItem()
+        .title("Homepage")
+        .id("home")
+        .child(S.document().schemaType("home").documentId("home")),
       S.listItem()
         .title("Site Settings")
         .id("siteSettings")
