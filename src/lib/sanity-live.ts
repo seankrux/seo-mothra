@@ -1,36 +1,15 @@
 import { draftMode } from "next/headers";
+import { previewClient } from "./preview-client";
 import { sanityClient } from "./sanity";
 import type { SanityPost, SanityPage, SanityService } from "./sanity";
 import type { SanityHome } from "./sanity-home";
 
-const imageProjection = `{
-  _type,
-  asset,
-  crop,
-  hotspot,
-  alt,
-  "url": asset->url,
-  "metadata": asset->metadata { dimensions, lqip }
-}`;
-
-const portableTextProjection = `[]{
-  ...,
-  _type == "image" => {
-    _type,
-    asset,
-    crop,
-    hotspot,
-    alt,
-    "url": asset->url,
-    "metadata": asset->metadata { dimensions, lqip }
-  }
-}`;
+const imageProjection = `{ _type, asset, crop, hotspot, alt, "url": asset->url, "metadata": asset->metadata { dimensions, lqip } }`;
+const portableTextProjection = `[]{ ..., _type == "image" => { _type, asset, crop, hotspot, alt, "url": asset->url, "metadata": asset->metadata { dimensions, lqip } } }`;
 
 async function client() {
   const draft = await draftMode();
-  return draft.isEnabled
-    ? sanityClient.withConfig({ useCdn: false, perspective: "drafts", token: process.env.SANITY_API_READ_TOKEN })
-    : sanityClient;
+  return draft.isEnabled ? previewClient() : sanityClient;
 }
 
 export async function getLiveHome(): Promise<SanityHome | null> {
